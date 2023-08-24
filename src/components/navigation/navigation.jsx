@@ -1,5 +1,3 @@
-import css from './navigation.module.css';
-
 const Navigation = () => {
   return <></>;
 };
