@@ -1,4 +1,4 @@
-const { createSlice, isAnyOf } = require('@reduxjs/toolkit');
+const { createSlice } = require('@reduxjs/toolkit');
 
 const initialStateUser = {
   isLoggedIn: false,
