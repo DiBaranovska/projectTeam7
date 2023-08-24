@@ -50,9 +50,9 @@ const App = () => {
         <Route
           path="/"
           element={
-            <PrivateRoure>
-              <SharedLayout />
-            </PrivateRoure>
+            /* <PrivateRoure>*/
+            <SharedLayout />
+            /*</PrivateRoure>*/
           }
         >
           <Route path="main" element={<MainPage />} />
