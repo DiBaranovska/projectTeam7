@@ -4,12 +4,22 @@
   "private": true,
   "homepage": "https://DiBaranovska.github.io/projectTeam7/",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.4.0",
+    "formik": "^2.4.3",
+    "modern-normalize": "^2.0.0",
+    "nanoid": "^4.0.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-redux": "^8.1.2",
+    "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
+    "react-select": "^5.7.4",
+    "redux-persist": "^6.0.0",
+    "sass": "^1.66.1",
     "web-vitals": "^2.1.3"
   },
   "scripts": {
