@@ -2,7 +2,6 @@ import React, { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import WellcomPage from '../pages/WellcomPage/WellcomPage';
 import SharedLayout from './sharedLayout/sharedLayout';
-import PrivateRoure from '../components/PrivateRoute';
 import PublicRoute from '../components/PublicRoute';
 
 const SignupPage = lazy(() => import('../pages/SignupPage/SignupPage'));
@@ -47,14 +46,7 @@ const App = () => {
             </PublicRoute>
           }
         />
-        <Route
-          path="/"
-          element={
-            /* <PrivateRoure>*/
-            <SharedLayout />
-            /*</PrivateRoure>*/
-          }
-        >
+        <Route path="/" element={<SharedLayout />}>
           <Route path="main" element={<MainPage />} />
           <Route path="drinks/:categoryName" element={<DrinksPage />} />
           <Route path="add" element={<AddRecipePage />} />

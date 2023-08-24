@@ -5,32 +5,3 @@ body {
   font-size: 14px;
   letter-spacing: 0.03em;
 }
-
-section {
-  padding-top: 60px;
-  padding-bottom: 60px;
-}
-@media screen and (min-width: 1200px) {
-  section {
-    padding-top: 94px;
-    padding-bottom: 94px;
-  }
-}
-
-.conteiner {
-  padding-right: 20px;
-  padding-left: 20px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@media screen and (min-width: 768px) {
-  .conteiner {
-    width: 768px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .conteiner {
-    width: 1200px;
-  }
-}
