@@ -1,1 +1,121 @@
 @import '../../styles/main.scss';
+
+.ingredients{
+  margin-bottom: 80px;
+
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 100px;
+  }
+
+  &__title{
+    margin-bottom: 20px;
+    color: rgba(243, 243, 243, 0.50);
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    /* 125% */
+
+    // @media screen and (min-width: 768px) {
+    //   margin-bottom: 24px;
+    // }
+  }
+
+  &__list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 21px;
+    width: 335px;
+
+    @media screen and (min-width: 768px) {
+      gap: 22px;
+      width: 538px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      gap: 35px;
+      width: 1240px;
+    }
+  }
+
+  &__card{
+    display: flex;
+    width: 157px;
+    height: 183px;
+    flex-direction: column;
+    gap: 8px;
+
+    @media screen and (min-width: 768px) {
+      width: 220px;
+      height: 258px;
+      gap: 14px;
+    }
+
+    // @media screen and (min-width: 768px) {
+    //   gap: 14px;
+    // }
+
+    &__background{
+      display: flex;
+      // width: 157px;
+      height: 157px;
+      padding: 25px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      background: rgba(22, 31, 55, 0.50);
+
+      @media screen and (min-width: 768px) {
+        padding: 31px 31px 32px 32px;
+      }
+    }
+
+    &__img{
+      width: 107px;
+      height: 107px;
+
+      @media screen and (min-width: 768px) {
+        width: 157px;
+        height: 157px;
+      }
+    }
+
+    &__description{
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__title{
+      color: #F3F3F3;
+      font-family: Manrope;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 18px;
+      /* 128.571% */
+
+      @media screen and (min-width: 768px) {
+        font-size: 18px;
+        line-height: 24px;
+        /* 133.333% */
+      }
+    }
+
+    &__measure{
+      color: rgba(243, 243, 243, 0.50);
+      font-family: Manrope;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 18px;
+      /* 128.571% */
+
+      @media screen and (min-width: 768px) {
+        font-size: 16px;
+        line-height: 20px;
+        /* 125% */
+      }
+    }
+  }
+}

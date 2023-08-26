@@ -1,1 +1,71 @@
 @import '../../styles/main.scss';
+
+.preparation{
+  margin-bottom: 80px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 140px;
+  }
+
+  &__title{
+    margin-bottom: 40px;
+    color: #F3F3F3;
+    font-family: Manrope;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    /* 114.286% */
+
+    @media screen and (min-width: 768px) {
+      font-size: 40px;
+      line-height: 44px;
+      /* 110% */
+    }
+  }
+
+  &__container{
+    @media screen and (min-width: 1200px) {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      gap: 60px;
+    }
+  }
+
+  &__description{
+    width: 335px;
+    margin-bottom: 40px;
+    color: #F3F3F3;
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    /* 128.571% */
+
+    @media screen and (min-width: 768px) {
+      width: 549px;
+      font-size: 16px;
+      line-height: 22px;
+      /* 137.5% */
+    }
+  }
+
+  &__img{
+    width: 335px;
+    height: 430px;
+    flex-shrink: 0;
+    border-radius: 8px;
+
+    @media screen and (min-width: 768px) {
+      width: 704px;
+      height: 430px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      width: 631px;
+      height: 430px;
+    }
+  }
+}

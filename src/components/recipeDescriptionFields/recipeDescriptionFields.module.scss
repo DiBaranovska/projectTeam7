@@ -1,1 +1,127 @@
 @import '../../styles/main.scss';
+
+.field {
+  margin-top: 58px;
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 112px;
+    margin-bottom: 80px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    display: flex;
+    gap: 247px;
+    margin-top: 132px;
+    margin-bottom: 100px;
+    max-width: 1400px;
+  }
+
+  &__glass {
+    margin-bottom: 8px;
+    color: --secondary-text-color;
+    font-family: Manrope;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    /* 116.667% */
+
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+      line-height: 20px;
+      /* 125% */
+    }
+  }
+
+  &__category{
+    margin-bottom: 20px;
+    color: --main-text-color;
+    font-family: Manrope;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 38px; 
+    /* 118.75% */
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 28px;
+      font-size: 56px;
+      line-height: 60px;
+      /* 107.143% */
+    }
+
+    @media screen and (min-width: 1200px) {
+      font-size: 64px;
+      line-height: 68px;
+      /* 106.25% */
+    } 
+  }
+
+  &__description{
+    margin-bottom: 40px;
+    color: --main-text-color;
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    /* 128.571% */
+
+    @media screen and (min-width: 768px) {
+      width: 593px;
+      font-size: 16px;
+      line-height: 22px;
+      /* 137.5% */
+    }
+
+    @media screen and (min-width: 1200px) {
+    width: 593px;
+    }
+  }
+
+  &__button{
+    margin-bottom: 80px;
+    padding: 14px 40px;
+    border-radius: 42px;
+    background: --main-text-color;
+    border: none;
+    cursor: pointer;
+
+    @media screen and (min-width: 768px) {
+      padding: 18px 44px;
+    }
+    
+    &_text{
+      color: --accent-btn-color;
+      font-family: Manrope;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 18px;
+      /* 128.571% */
+
+      @media screen and (min-width: 768px) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__img {
+    width: 335px;
+    height: 400px;
+    flex-shrink: 0;
+
+    @media screen and (min-width: 768px) {
+      width: 704px;
+      height: 400px;
+      flex-shrink: 0;
+    }
+
+    @media screen and (min-width: 1200px) {
+      width: 400px;
+      height: 400px;
+    }
+  }
+}
+
