@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import getRecipeData from '../../api/resipesApi.jsx';
+import css from './RecipePage.module.scss'
 
 import RecipeIngredientsList from '../../components/recipeInngredientsList/recipeInngredientsList.jsx';
 import Preparation from '../../components/recipePreparation/recipePreparation.jsx';
@@ -34,7 +35,7 @@ const RecipePage = () => {
   const { category, glass, drinkThumb, ingredients, instructions } = recipeData;
 
   return (
-    <div>
+    <div className={css.recipe__conteiner}>
       <Field glass={glass} category={category} drinkThumb={drinkThumb}/>
 
       <RecipeIngredientsList ingredients={ingredients} />

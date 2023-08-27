@@ -9,17 +9,13 @@
 
   &__title{
     margin-bottom: 20px;
-    color: rgba(243, 243, 243, 0.50);
-    font-family: Manrope;
+    color: var(--secondary-text-color);
+    font-family: var(--font);
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
     line-height: 20px;
     /* 125% */
-
-    // @media screen and (min-width: 768px) {
-    //   margin-bottom: 24px;
-    // }
   }
 
   &__list{
@@ -52,19 +48,14 @@
       gap: 14px;
     }
 
-    // @media screen and (min-width: 768px) {
-    //   gap: 14px;
-    // }
-
     &__background{
       display: flex;
-      // width: 157px;
       height: 157px;
       padding: 25px;
       justify-content: center;
       align-items: center;
       border-radius: 8px;
-      background: rgba(22, 31, 55, 0.50);
+      background: rgba(22, 31, 55, 0.50);//такого кольору немає у _variable
 
       @media screen and (min-width: 768px) {
         padding: 31px 31px 32px 32px;
@@ -87,8 +78,8 @@
     }
 
     &__title{
-      color: #F3F3F3;
-      font-family: Manrope;
+      color: var(--main-button-color);
+      font-family: var(--font);
       font-size: 14px;
       font-style: normal;
       font-weight: 500;
@@ -103,8 +94,8 @@
     }
 
     &__measure{
-      color: rgba(243, 243, 243, 0.50);
-      font-family: Manrope;
+      color: var(--secondary-text-color);
+      font-family: var(--font);
       font-size: 14px;
       font-style: normal;
       font-weight: 500;

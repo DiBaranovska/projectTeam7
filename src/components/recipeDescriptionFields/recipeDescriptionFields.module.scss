@@ -19,8 +19,8 @@
 
   &__glass {
     margin-bottom: 8px;
-    color: --secondary-text-color;
-    font-family: Manrope;
+    color: var(--secondary-text-color);
+    font-family: var(--font);
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -36,8 +36,8 @@
 
   &__category{
     margin-bottom: 20px;
-    color: --main-text-color;
-    font-family: Manrope;
+    color: var(--main-text-color);
+    font-family: var(--font);
     font-size: 32px;
     font-style: normal;
     font-weight: 600;
@@ -60,8 +60,8 @@
 
   &__description{
     margin-bottom: 40px;
-    color: --main-text-color;
-    font-family: Manrope;
+    color: var(--main-text-color);
+    font-family: var(--font);
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -84,7 +84,7 @@
     margin-bottom: 80px;
     padding: 14px 40px;
     border-radius: 42px;
-    background: --main-text-color;
+    background: var(--main-text-color);
     border: none;
     cursor: pointer;
 
@@ -93,8 +93,8 @@
     }
     
     &_text{
-      color: --accent-btn-color;
-      font-family: Manrope;
+      color: var(--accent-btn-color);
+      font-family: var(--font);
       font-size: 14px;
       font-style: normal;
       font-weight: 600;

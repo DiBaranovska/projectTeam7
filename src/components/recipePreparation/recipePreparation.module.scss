@@ -9,8 +9,8 @@
 
   &__title{
     margin-bottom: 40px;
-    color: #F3F3F3;
-    font-family: Manrope;
+    color: var(--main-button-color);
+    font-family: var(--font);
     font-size: 28px;
     font-style: normal;
     font-weight: 600;
@@ -36,8 +36,8 @@
   &__description{
     width: 335px;
     margin-bottom: 40px;
-    color: #F3F3F3;
-    font-family: Manrope;
+    color: var(--main-button-color);
+    font-family: var(--font);
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
