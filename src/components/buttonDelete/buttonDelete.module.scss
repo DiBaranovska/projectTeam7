@@ -1,0 +1,15 @@
+@import '../../styles/main.scss';
+.btn_delete {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px 16px;
+  color: var(--main-button-color);
+  background: var(--accent-btn-color);
+  border-color: transparent;
+  border-radius: 50%;
+  &:hover,
+  &:focus {
+    color: var(--accent-btn-color);
+    background: var(--main-button-color);
+  }
+}
