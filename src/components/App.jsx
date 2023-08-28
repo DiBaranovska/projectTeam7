@@ -22,14 +22,7 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route
-          path="welcome"
-          element={
-            <PublicRoute>
-              <WellcomPage />
-            </PublicRoute>
-          }
-        />
+        <Route path="welcome" element={<WellcomPage />} />
         <Route
           path="signup"
           element={
