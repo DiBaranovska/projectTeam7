@@ -15,7 +15,6 @@
     font-style: normal;
     font-weight: 500;
     line-height: 20px;
-    /* 125% */
   }
 
   &__list{
@@ -55,7 +54,7 @@
       justify-content: center;
       align-items: center;
       border-radius: 8px;
-      background: rgba(22, 31, 55, 0.50);//такого кольору немає у _variable
+      background: rgba(22, 31, 55, 0.50);
 
       @media screen and (min-width: 768px) {
         padding: 31px 31px 32px 32px;
@@ -84,12 +83,10 @@
       font-style: normal;
       font-weight: 500;
       line-height: 18px;
-      /* 128.571% */
 
       @media screen and (min-width: 768px) {
         font-size: 18px;
         line-height: 24px;
-        /* 133.333% */
       }
     }
 
@@ -100,12 +97,10 @@
       font-style: normal;
       font-weight: 500;
       line-height: 18px;
-      /* 128.571% */
 
       @media screen and (min-width: 768px) {
         font-size: 16px;
         line-height: 20px;
-        /* 125% */
       }
     }
   }

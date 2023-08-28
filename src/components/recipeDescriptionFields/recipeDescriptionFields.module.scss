@@ -25,12 +25,10 @@
     font-style: normal;
     font-weight: 400;
     line-height: 14px;
-    /* 116.667% */
 
     @media screen and (min-width: 768px) {
       font-size: 16px;
       line-height: 20px;
-      /* 125% */
     }
   }
 
@@ -41,20 +39,17 @@
     font-size: 32px;
     font-style: normal;
     font-weight: 600;
-    line-height: 38px; 
-    /* 118.75% */
+    line-height: 38px;
 
     @media screen and (min-width: 768px) {
       margin-bottom: 28px;
       font-size: 56px;
       line-height: 60px;
-      /* 107.143% */
     }
 
     @media screen and (min-width: 1200px) {
       font-size: 64px;
       line-height: 68px;
-      /* 106.25% */
     } 
   }
 
@@ -66,13 +61,11 @@
     font-style: normal;
     font-weight: 400;
     line-height: 18px;
-    /* 128.571% */
 
     @media screen and (min-width: 768px) {
       width: 593px;
       font-size: 16px;
       line-height: 22px;
-      /* 137.5% */
     }
 
     @media screen and (min-width: 1200px) {
@@ -84,9 +77,16 @@
     margin-bottom: 80px;
     padding: 14px 40px;
     border-radius: 42px;
+    color: var(--accent-btn-color);
     background: var(--main-text-color);
     border: none;
     cursor: pointer;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus{
+      background: var(--select-bg-color);
+    }
 
     @media screen and (min-width: 768px) {
       padding: 18px 44px;
@@ -99,7 +99,12 @@
       font-style: normal;
       font-weight: 600;
       line-height: 18px;
-      /* 128.571% */
+      transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:hover,
+      &:focus{
+        color: var(--secondary-text-color);
+      }
 
       @media screen and (min-width: 768px) {
         font-size: 16px;
