@@ -23,7 +23,7 @@ const handleFulfildGet = (state, { payload }) => {
 const handleFulfildDelete = (state, { payload }) => {
   state.myRecipes = {
     ...state.myRecipes,
-    items: state.myRecipes.items.filter(el => el.id !== payload.recipes.id),
+    items: state.myRecipes.items.filter(el => el._id !== payload.id),
   };
 };
 

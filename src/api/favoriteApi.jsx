@@ -3,7 +3,6 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
 axios.defaults.baseURL = 'https://projectteam7-backend.onrender.com';
-
 // const token = {
 //   set(tokenTest) {
 //     axios.defaults.headers.common.Authorization = `Bearer ${tokenTest}`;

@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { deleteFavoriteRecipes } from '../../api/favoriteApi';
+import { deleteMyRecipes } from '../../api/ownRecipeApi';
 import ButtonNav from '../buttonNav/buttonNav';
 import ButtonDelete from '../buttonDelete/buttonDelete';
 import styles from './recipeItem.module.css';
@@ -8,7 +9,11 @@ const RecipeItem = ({ id, name, picture, description, favorite = false }) => {
   const dispatch = useDispatch();
 
   const handleDelete = (idRecipes, favorite) => {
-    favorite && dispatch(deleteFavoriteRecipes(idRecipes));
+    if (favorite) {
+      dispatch(deleteFavoriteRecipes(idRecipes));
+    } else {
+      dispatch(deleteMyRecipes(idRecipes));
+    }
   };
 
   return (
