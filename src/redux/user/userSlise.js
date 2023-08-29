@@ -1,4 +1,4 @@
-import { registerThunk, loginThunk } from './thunk';
+import { registerThunk, loginThunk, logout, current, update } from './thunk';
 import axios from 'axios';
 
 export const instance = axios.create({
@@ -26,6 +26,14 @@ const userSlice = createSlice({
   initialState: initialStateUser,
   extraReducers: builder => {
     builder
+      .addCase(registerThunk.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(registerThunk.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
       .addCase(registerThunk.fulfilled, (state, action) => {
         state.isLoading = false;
 
@@ -33,38 +41,63 @@ const userSlice = createSlice({
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
+      .addCase(loginThunk.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(loginThunk.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
       .addCase(loginThunk.fulfilled, (state, action) => {
         state.isLoading = false;
 
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+      })
+      .addCase(logout.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(logout.fulfilled, state => {
+        state.loading = false;
+        state.user = {};
+        state.token = '';
+        state.isLoggedIn = false;
+      })
+      .addCase(logout.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
+      .addCase(current.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(current.fulfilled, (state, { payload }) => {
+        state.loading = false;
+        state.user = payload.user;
+        state.token = payload.token;
+        state.isLoggedIn = true;
+      })
+      .addCase(current.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.token = '';
+        state.error = payload;
+      })
+      .addCase(update.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(update.fulfilled, (state, { payload }) => {
+        state.loading = false;
+        state.user = payload.user;
+      })
+      .addCase(update.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
       });
   },
 });
-export const logout = async () => {
-  const { data } = await instance.get('/signout');
-  setToken();
-  return data;
-};
 
-export const getCurrent = async token => {
-  try {
-    setToken(token);
-    const { data } = await instance.get('/current');
-    return data;
-  } catch (error) {
-    setToken();
-    throw error;
-  }
-};
-
-export const update = async formData => {
-  const { data: result } = await instance.post('/update', formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-  });
-  return result;
-};
 export const userReducer = userSlice.reducer;
