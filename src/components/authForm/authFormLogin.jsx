@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { loginThunk } from '../../redux/user/thunk';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
@@ -27,7 +27,6 @@ const schema = yup.object().shape({
 export const LoginForm = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
-  const errorLogin = useSelector(state => state.error);
 
   return (
     <Formik
