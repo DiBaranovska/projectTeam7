@@ -1,14 +1,15 @@
-import React, { lazy } from 'react';
+import React, { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import WellcomPage from '../pages/WellcomPage/WellcomPage';
 import SharedLayout from './sharedLayout/sharedLayout';
-import PrivateRoure from '../components/PrivateRoute';
 import PublicRoute from '../components/PublicRoute';
+import { useDispatch } from 'react-redux';
+import { current } from 'redux/user/thunk';
 import SignupPage from '../pages/SignupPage/SignupPage';
 import SigninPage from '../pages/SigninPage/SigninPage';
 
-// const SignupPage = lazy(() => import('../pages/SignupPage/SignupPage'));
-// const SigninPage = lazy(() => import('../pages/SigninPage/SigninPage'));
+//const SignupPage = lazy(() => import('../pages/SignupPage/SignupPage'));
+//const SigninPage = lazy(() => import('../pages/SigninPage/SigninPage'));
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
 const DrinksPage = lazy(() => import('../pages/DrinksPage/DrinksPage'));
 const AddRecipePage = lazy(() =>
@@ -22,21 +23,19 @@ const MyRecipesPage = lazy(() =>
 const ErrorPage = lazy(() => import('../pages/ErrorPage/ErrorPage'));
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(current());
+  }, [dispatch]);
   return (
     <>
       <Routes>
-        <Route
-          path="welcome"
-          element={
-            <PublicRoute>
-              <WellcomPage />
-            </PublicRoute>
-          }
-        />
+        <Route path="welcome" element={<WellcomPage />} />
         <Route
           path="signup"
           element={
-            <PublicRoute redirectTo="/signup">
+            <PublicRoute>
               <SignupPage />
             </PublicRoute>
           }
@@ -44,19 +43,12 @@ const App = () => {
         <Route
           path="signin"
           element={
-            <PublicRoute redirectTo="/signin">
+            <PublicRoute>
               <SigninPage />
             </PublicRoute>
           }
         />
-        <Route
-          path="/"
-          element={
-            <PrivateRoure>
-              <SharedLayout />
-            </PrivateRoure>
-          }
-        >
+        <Route path="/" element={<SharedLayout />}>
           <Route path="main" element={<MainPage />} />
           <Route path="drinks/:categoryName" element={<DrinksPage />} />
           <Route path="add" element={<AddRecipePage />} />

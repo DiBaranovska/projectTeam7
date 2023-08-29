@@ -2,6 +2,27 @@ body {
   font-family: var(--font);
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
-  font-size: 14px;
-  letter-spacing: 0.03em;
+}
+
+section {
+  padding-bottom: 80px;
+  padding-right: 20px;
+  padding-left: 20px;
+
+  @media screen and (min-width: 768px) {
+    padding-bottom: 140px;
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding-right: 100px;
+    padding-left: 100px;
+  }
+}
+
+.conteiner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
