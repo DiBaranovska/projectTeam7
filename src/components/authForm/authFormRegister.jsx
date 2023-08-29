@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { registerThunk } from '../../redux/user/thunk';
+import { register } from '../../redux/user/thunk';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import showPasswordIcon from '../../img/eye-off.svg';
@@ -37,7 +37,7 @@ export const RegisterForm = () => {
       }}
       validationSchema={schema}
       onSubmit={values => {
-        dispatch(registerThunk(values));
+        dispatch(register(values));
       }}
     >
       {formik => (
