@@ -1,20 +1,43 @@
-import { fetchContacts, addContact, deleteContact } from '../../api/resipesApi';
-const { createAsyncThunk } = require('@reduxjs/toolkit');
+// import { addContact, deleteContact } from '../../api/resipesApi';
+import axios from "axios";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
-export const fetchAll = createAsyncThunk('contacts/fetchAll', () => {
-  return fetchContacts();
+export const instance = axios.create({
+  baseURL: 'https://projectteam7-backend.onrender.com/auth',
 });
 
-export const addContactThunk = createAsyncThunk(
-  'contacts/addContact',
-  contacts => {
-    return addContact(contacts);
+export const setToken = token => {
+  if (token) {
+    return (instance.defaults.headers.authorization = `Bearer ${token}`);
+  }
+  return (instance.defaults.headers.authorization = '');
+};
+
+export const fetchRecipesPopular = createAsyncThunk(
+  "recipes/fetchRecipesPopular",
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get(`/recipes?limit=2`);
+      setToken.set(response.data.token);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
 );
 
-export const deleteContactThunk = createAsyncThunk(
-  'contacts/deleteContact',
-  id => {
-    return deleteContact(id);
-  }
-);
+
+
+// export const addContactThunk = createAsyncThunk(
+//   'contacts/addContact',
+//   contacts => {
+//     return addContact(contacts);
+//   }
+// );
+
+// export const deleteContactThunk = createAsyncThunk(
+//   'contacts/deleteContact',
+//   id => {
+//     return deleteContact(id);
+//   }
+// );
