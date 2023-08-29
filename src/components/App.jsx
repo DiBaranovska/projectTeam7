@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React, { lazy, startTransition } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import WellcomPage from '../pages/WellcomPage/WellcomPage';
 import SharedLayout from './sharedLayout/sharedLayout';
@@ -34,7 +34,7 @@ const App = () => {
         <Route
           path="signup"
           element={
-            <PublicRoute>
+            <PublicRoute redirectTo="/signup">
               <SignupPage />
             </PublicRoute>
           }
@@ -42,7 +42,7 @@ const App = () => {
         <Route
           path="signin"
           element={
-            <PublicRoute>
+            <PublicRoute redirectTo="/signin">
               <SigninPage />
             </PublicRoute>
           }

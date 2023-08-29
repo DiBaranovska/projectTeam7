@@ -1,18 +1,62 @@
+import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { setAuthHeader } from '../../api/userApi';
 import { register, logInApi, logOutApi, refreshApi } from '../../api/userApi';
-const { createAsyncThunk } = require('@reduxjs/toolkit');
 
-export const registerThunk = createAsyncThunk('user/register', user => {
-  return register(user);
-});
+// export const registerThunk = createAsyncThunk(
+//   '/register',
+//   async (credentials, thunkAPI) => {
+//     try {
+//       const response = await register(credentials);
+//       return response.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
 
-export const loginThunk = createAsyncThunk('user/login', user => {
-  return logInApi(user);
-});
+// export const loginThunk = createAsyncThunk(
+//   '/login',
+//   async (credentials, thunkAPI) => {
+//     try {
+//       const response = await logInApi(credentials);
+//       return response.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
+
+export const registerThunk = createAsyncThunk(
+  '/register',
+  async (credentials, thunkAPI) => {
+    try {
+      const response = await axios.post('/auth/signup', credentials);
+      setAuthHeader(response.data.token);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const loginThunk = createAsyncThunk(
+  '/login',
+  async (credentials, thunkAPI) => {
+    try {
+      const response = await axios.post('/auth/signin', credentials);
+      setAuthHeader(response.data.token);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
 export const logOutThunk = createAsyncThunk('user/logOut', () => {
-  return logOutApi();
+  // return logOutApi();
 });
 
 export const refreshThunk = createAsyncThunk('user/refresh', () => {
-  return refreshApi();
+  // return refreshApi();
 });

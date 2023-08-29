@@ -1,1 +1,126 @@
 @import '../../styles/main.scss';
+
+.box {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  // padding-left: auto;
+  // padding-right: auto;
+
+  @media screen and (max-width: 375px) {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  @media screen and (min-width: 375px) {
+    width: 335px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 470px;
+    align-items: start;
+    margin-left: 64px;
+    // padding-left: 64px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 485px;
+    margin-left: 100px;
+    // padding-left: 100px;
+  }
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 14px;
+
+  color: #fafafa;
+
+  font-feature-settings: 'liga' off;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Manrope;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 114.28%;
+  letter-spacing: -0.56px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+    line-height: 110%;
+    letter-spacing: -0.8px;
+  }
+}
+
+.text {
+  max-width: 319px;
+  margin-bottom: 40px;
+  //   margin-left: 28px;
+  //   margin-right: 28px;
+
+  color: #fafafa;
+  text-align: center;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 128.5%;
+  letter-spacing: -0.28px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 470px;
+    text-align: start;
+    font-size: 18px;
+    line-height: 133%;
+    letter-spacing: -0.36px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    max-width: 485px;
+  }
+}
+
+.button_conteiner {
+  display: flex;
+  gap: 14px;
+
+  justify-content: center;
+}
+
+.button {
+  height: auto;
+  width: auto;
+
+  border: 1px solid var(--main-button-color);
+
+  border-radius: 42px;
+
+  background: transparent;
+
+  padding: 14px 40px;
+
+  font-family: Manrope;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: var(--main-text-color);
+
+  &:hover,
+  &:focus {
+    background-color: var(--main-button-color);
+    color: var(--secondary-bg-color);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 18px 44px;
+
+    font-size: 16px;
+  }
+}

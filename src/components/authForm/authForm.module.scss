@@ -1,1 +1,118 @@
 @import '../../styles/main.scss';
+
+.input {
+  width: 335px;
+  height: auto;
+  flex-shrink: 0;
+
+  margin-bottom: 14px;
+  padding: 18px 24px;
+  box-sizing: border-box;
+
+  background: transparent;
+  color: var(--main-text-color);
+
+  border-radius: 200px;
+  border: 1px solid rgba(243, 243, 243, 0.2);
+  opacity: 0.8;
+
+  &::placeholder {
+    color: var(--secondary-text-color);
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 128%;
+
+    @media screen and (min-width: 768px) {
+      font-size: 17px;
+      line-height: 27px;
+      letter-spacing: 0em;
+    }
+  }
+
+  &:focus,
+  &:hover {
+    border: 1px solid var(--secondary-text-color);
+  }
+
+  &:hover::placeholder {
+    color: var(--main-text-color);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 400px;
+  }
+}
+
+.last_input {
+  margin-bottom: 28px;
+  // position: relative;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
+  }
+}
+
+.passwordContainer {
+  position: relative;
+}
+
+.passwordToggle {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  cursor: pointer;
+}
+
+.passwordIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.button {
+  width: 335px;
+  height: 54px;
+  padding: 18px 141px;
+  margin-bottom: 14px;
+
+  border: 1px solid var(--main-button-color);
+  border-radius: 42px;
+
+  background: transparent;
+
+  font-family: Manrope;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: var(--main-text-color);
+
+  &:hover,
+  &:focus {
+    background-color: var(--main-button-color);
+    color: var(--secondary-bg-color);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 400px;
+    // padding: 18px 170px;
+
+    font-size: 16px;
+    line-height: 18px;
+  }
+}
+
+.error {
+  margin-bottom: 8px;
+
+  margin-left: 24px;
+  font-family: Manrope;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #da1414;
+}
