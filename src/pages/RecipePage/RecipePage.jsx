@@ -4,12 +4,13 @@ import css from './RecipePage.module.scss';
 
 import RecipeIngredientsList from '../../components/recipeInngredientsList/recipeInngredientsList.jsx';
 import Preparation from '../../components/recipePreparation/recipePreparation.jsx';
-import Field from '../../components/recipeDescriptionFields/recipeDescriptionFields.jsx';
+import Field from '../../components/recipePageHero/recipePageHero.jsx';
 
 const RecipePage = () => {
   const [recipeId, setRecipeId] = useState("");
   const [recipeData, setRecipeData] = useState({
     category: "",
+    drinkAlternate: "",
     glass: "",
     drinkThumb: "",
     ingredients: [],
@@ -24,6 +25,7 @@ const RecipePage = () => {
           console.log(data);
           setRecipeData({
             category: data.category,
+            drinkAlternate: data.drinkAlternate,
             glass: data.glass,
             drinkThumb: data.drinkThumb,
             ingredients: data.ingredients,
@@ -37,11 +39,11 @@ const RecipePage = () => {
       });
   }, []);
 
-  const { category, glass, drinkThumb, ingredients, instructions } = recipeData;
+  const { category, drinkAlternate, glass, drinkThumb, ingredients, instructions } = recipeData;
 
   return (
-    <div className={css.conteiner__recipe}>
-      <Field glass={glass} category={category} drinkThumb={drinkThumb} recipeId={recipeId} />
+    <div className={`${css.conteiner} ${css.recipe__conteiner}`}>
+      <Field glass={glass} drinkAlternate={drinkAlternate} category={category} drinkThumb={drinkThumb} recipeId={recipeId} />
 
       <RecipeIngredientsList ingredients={ingredients} />
 

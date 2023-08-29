@@ -2,9 +2,19 @@
 
 .ingredients{
   margin-bottom: 80px;
+  width: 335px;
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+  }
 
   @media screen and (min-width: 1200px) {
     margin-bottom: 100px;
+    width: 1040px;
+  }
+  
+  @media screen and (min-width: 1440px) {
+    width: 1240px;
   }
 
   &__title{
@@ -21,15 +31,18 @@
     display: flex;
     flex-wrap: wrap;
     gap: 21px;
-    width: 335px;
+    min-width: 335px;
 
     @media screen and (min-width: 768px) {
       gap: 22px;
-      width: 538px;
+      min-width: 538px;
     }
 
     @media screen and (min-width: 1200px) {
-      gap: 35px;
+      width: 1040px;
+    }
+
+    @media screen and (min-width: 1440px) {
       width: 1240px;
     }
   }

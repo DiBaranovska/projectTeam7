@@ -2,9 +2,19 @@
 
 .preparation{
   margin-bottom: 80px;
+  width: 335px;
 
   @media screen and (min-width: 768px) {
+    width: 704px;
     margin-bottom: 140px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 1040px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1240px;
   }
 
   &__title{
@@ -48,20 +58,28 @@
     }
   }
 
-  &__img{
-    width: 335px;
+  &__imageContainer{
     height: 430px;
-    flex-shrink: 0;
-    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__img{
+    height: auto;
+    border-radius: 15px;
+    
 
     @media screen and (min-width: 768px) {
       width: 704px;
-      height: 430px;
     }
 
     @media screen and (min-width: 1200px) {
       width: 631px;
-      height: 430px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      width: 631px;
     }
   }
 }
