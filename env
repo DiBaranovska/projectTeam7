@@ -1,0 +1,6 @@
+DB_HOST=mongodb+srv://projectTeam7:oaEujKYRGGhUEKZ6@cluster0.aepooty.mongodb.net/db-cocktails?retryWrites=true&w=majority
+PORT=3000
+JWT_SECRET=Ofs9UX1afm6Ba6cdBHiMLLbAk2F5Yn62
+BASE_URL=http://localhost:3000
+
+BASE_URL_SERVER=https://projectteam7-backend.onrender.com

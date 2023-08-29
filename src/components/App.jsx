@@ -5,9 +5,11 @@ import SharedLayout from './sharedLayout/sharedLayout';
 import PublicRoute from '../components/PublicRoute';
 import { useDispatch } from 'react-redux';
 import { current } from 'redux/user/thunk';
+import SignupPage from '../pages/SignupPage/SignupPage';
+import SigninPage from '../pages/SigninPage/SigninPage';
 
-const SignupPage = lazy(() => import('../pages/SignupPage/SignupPage'));
-const SigninPage = lazy(() => import('../pages/SigninPage/SigninPage'));
+//const SignupPage = lazy(() => import('../pages/SignupPage/SignupPage'));
+//const SigninPage = lazy(() => import('../pages/SigninPage/SigninPage'));
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
 const DrinksPage = lazy(() => import('../pages/DrinksPage/DrinksPage'));
 const AddRecipePage = lazy(() =>
