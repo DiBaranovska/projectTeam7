@@ -1,1 +1,7 @@
 @import '../../styles/main.scss';
+
+.recipe__conteiner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+}
