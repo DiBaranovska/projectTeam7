@@ -1,1 +1,28 @@
 @import '../../styles/main.scss';
+.navigate {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: #f3f3f3;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22.4px; 
+
+  @media screen and (min-width: 768px) {
+    gap: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22.4px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    gap: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22.4px;
+  }
+}
+.navLink{
+  color: #f3f3f3;
+  text-decoration: none;
+}
