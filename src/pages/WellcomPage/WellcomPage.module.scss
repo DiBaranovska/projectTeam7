@@ -9,8 +9,6 @@
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  // padding-left: auto;
-  // padding-right: auto;
 
   @media screen and (max-width: 375px) {
     margin-left: 20px;
@@ -25,13 +23,11 @@
     width: 470px;
     align-items: start;
     margin-left: 64px;
-    // padding-left: 64px;
   }
 
   @media screen and (min-width: 1440px) {
     width: 485px;
     margin-left: 100px;
-    // padding-left: 100px;
   }
 }
 
@@ -60,8 +56,6 @@
 .text {
   max-width: 319px;
   margin-bottom: 40px;
-  //   margin-left: 28px;
-  //   margin-right: 28px;
 
   color: #fafafa;
   text-align: center;

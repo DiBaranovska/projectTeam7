@@ -3,7 +3,7 @@ import { recipeReducer } from './resipes/resipesSlice';
 import { userReducer } from './user/userSlise';
 
 import { persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import storage from 'redux-persist/lib/storage';
 
 const persistConfig = {
   key: 'token',

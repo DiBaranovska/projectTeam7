@@ -47,7 +47,6 @@
 
 .last_input {
   margin-bottom: 28px;
-  // position: relative;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 40px;
@@ -88,6 +87,8 @@
   letter-spacing: 0em;
   text-align: center;
   color: var(--main-text-color);
+
+  cursor: pointer;
 
   &:hover,
   &:focus {

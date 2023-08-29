@@ -1,17 +1,25 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { LoginForm } from '../../components/authForm/authFormLogin';
 import css from './SigninPage.module.scss';
 
 const SigninPage = () => {
+  const navigate = useNavigate();
+
+  const handleSignUpClick = () => {
+    React.startTransition(() => {
+      navigate('/signup');
+    });
+  };
+
   return (
     <div className={css.box}>
       <h1 className={css.title}>Sign In</h1>
       <LoginForm />
       <p className={css.text}>
-        <NavLink to="/signup" className={css.link}>
+        <span className={css.link} onClick={handleSignUpClick}>
           Registration
-        </NavLink>
+        </span>
       </p>
     </div>
   );

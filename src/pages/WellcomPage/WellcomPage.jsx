@@ -1,6 +1,7 @@
 import React from 'react';
-import css from './WellcomPage.module.scss';
+
 import { useNavigate } from 'react-router-dom';
+import css from './WellcomPage.module.scss';
 
 const WellcomPage = () => {
   const navigate = useNavigate();

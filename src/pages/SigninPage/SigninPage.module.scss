@@ -8,7 +8,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  //   align-items: center;
   margin-left: auto;
   margin-right: auto;
 
@@ -62,6 +61,8 @@
   font-weight: 600;
   line-height: 16px;
   letter-spacing: 0em;
+
+  cursor: pointer;
 
   @media screen and (min-width: 768px) {
     font-size: 14px;

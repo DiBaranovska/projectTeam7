@@ -1,12 +1,14 @@
-import React, { lazy, startTransition } from 'react';
+import React, { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import WellcomPage from '../pages/WellcomPage/WellcomPage';
 import SharedLayout from './sharedLayout/sharedLayout';
 import PrivateRoure from '../components/PrivateRoute';
 import PublicRoute from '../components/PublicRoute';
+import SignupPage from '../pages/SignupPage/SignupPage';
+import SigninPage from '../pages/SigninPage/SigninPage';
 
-const SignupPage = lazy(() => import('../pages/SignupPage/SignupPage'));
-const SigninPage = lazy(() => import('../pages/SigninPage/SigninPage'));
+// const SignupPage = lazy(() => import('../pages/SignupPage/SignupPage'));
+// const SigninPage = lazy(() => import('../pages/SigninPage/SigninPage'));
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
 const DrinksPage = lazy(() => import('../pages/DrinksPage/DrinksPage'));
 const AddRecipePage = lazy(() =>

@@ -1,31 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { setAuthHeader } from '../../api/userApi';
-import { register, logInApi, logOutApi, refreshApi } from '../../api/userApi';
-
-// export const registerThunk = createAsyncThunk(
-//   '/register',
-//   async (credentials, thunkAPI) => {
-//     try {
-//       const response = await register(credentials);
-//       return response.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
-
-// export const loginThunk = createAsyncThunk(
-//   '/login',
-//   async (credentials, thunkAPI) => {
-//     try {
-//       const response = await logInApi(credentials);
-//       return response.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
+// import { register, logInApi, logOutApi, refreshApi } from '../../api/userApi';
 
 export const registerThunk = createAsyncThunk(
   '/register',
