@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { loginThunk } from '../../redux/user/thunk';
+import { login } from '../../redux/user/thunk';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 
@@ -36,7 +36,7 @@ export const LoginForm = () => {
       }}
       validationSchema={schema}
       onSubmit={values => {
-        dispatch(loginThunk(values));
+        dispatch(login(values));
       }}
     >
       {formik => (

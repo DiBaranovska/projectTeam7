@@ -1,49 +1,39 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import * as api from '../../api/userApi';
-// import { setToken} from '../../api/userApi';
-// import { register, logInApi, logOutApi, refreshApi } from '../../api/userApi';
+import {
+  signupApi,
+  signinApi,
+  logoutApi,
+  getCurrentApi,
+  updateApi,
+} from '../../api/userApi';
 
-export const instance = axios.create({
-  baseURL: 'https://projectteam7-backend.onrender.com/auth',
-});
-
-export const setToken = token => {
-  if (token) {
-    return (instance.defaults.headers.authorization = `Bearer ${token}`);
-  }
-  return (instance.defaults.headers.authorization = '');
-};
-
-export const registerThunk = createAsyncThunk(
-  '/register',
+export const register = createAsyncThunk(
+  'auth/signup',
   async (credentials, thunkAPI) => {
     try {
-      const response = await instance.post('/signup', credentials);
-      setToken(response.data.token);
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      const result = await signupApi(credentials);
+      return result;
+    } catch ({ response }) {
+      return thunkAPI.rejectWithValue(response.data);
     }
   }
 );
 
-export const loginThunk = createAsyncThunk(
-  '/login',
+export const login = createAsyncThunk(
+  'auth/signin',
   async (credentials, thunkAPI) => {
     try {
-      const response = await instance.post('/signin', credentials);
-      setToken(response.data.token);
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      const result = await signinApi(credentials);
+      return result;
+    } catch ({ response }) {
+      return thunkAPI.rejectWithValue(response.data);
     }
   }
 );
 
-export const logout = createAsyncThunk('/logout', async (_, thunkAPI) => {
+export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
-    const result = await api.logout();
+    const result = await logoutApi();
     return result;
   } catch ({ response }) {
     return thunkAPI.rejectWithValue(response.data);
@@ -51,11 +41,12 @@ export const logout = createAsyncThunk('/logout', async (_, thunkAPI) => {
 });
 
 export const current = createAsyncThunk(
-  '/current',
+  'auth/current',
   async (_, thunkAPI) => {
     try {
-      const { auth } = thunkAPI.getState();
-      const result = await api.getCurrent(auth.token);
+      const { auth } = thunkAPI.getState().auth;
+      console.log(auth.token);
+      const result = await getCurrentApi();
       return result;
     } catch ({ response }) {
       return thunkAPI.rejectWithValue(response.data);
@@ -73,7 +64,7 @@ export const current = createAsyncThunk(
 
 export const update = createAsyncThunk('/update', async (data, thunkAPI) => {
   try {
-    const result = await api.update(data);
+    const result = await updateApi(data);
     return result;
   } catch ({ response }) {
     return thunkAPI.rejectWithValue(response.data);

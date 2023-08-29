@@ -1,47 +1,44 @@
 import axios from 'axios';
-
-export const instance = axios.create({
-  baseURL: 'https://projectteam7-backend.onrender.com/auth',
-});
+const BASE_URL = 'https://projectteam7-backend.onrender.com/auth';
 
 export const setToken = token => {
-  if (token) {
-    return (instance.defaults.headers.authorization = `Bearer ${token}`);
-  }
-  return (instance.defaults.headers.authorization = '');
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-export const signup = async data => {
-  const { data: result } = await instance.post('/signup', data);
+const clearToken = () => {
+  axios.defaults.headers.common.Authorization = '';
+};
+
+export const signupApi = async data => {
+  const { data: result } = await axios.post(`${BASE_URL}/signup`, data);
   setToken(result.token);
   return result;
 };
 
-export const signin = async data => {
-  const { data: result } = await instance.post('/signin', data);
+export const signinApi = async data => {
+  const { data: result } = await axios.post(`${BASE_URL}/signin`, data);
   setToken(result.token);
   return result;
 };
 
-export const logout = async () => {
-  const { data } = await instance.get('/signout');
-  setToken();
+export const logoutApi = async () => {
+  const { data } = await axios.get(`${BASE_URL}/signout`);
+  clearToken();
   return data;
 };
 
-export const getCurrent = async token => {
+export const getCurrentApi = async () => {
   try {
-    setToken(token);
-    const { data } = await instance.get('/current');
+    const { data } = await axios.get(`${BASE_URL}/current`);
     return data;
   } catch (error) {
-    setToken();
+    clearToken();
     throw error;
   }
 };
 
-export const update = async formData => {
-  const { data: result } = await instance.post('/update', formData, {
+export const updateApi = async formData => {
+  const { data: result } = await axios.post(`${BASE_URL}/update`, formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
