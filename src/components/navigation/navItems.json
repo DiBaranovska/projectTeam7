@@ -1,0 +1,27 @@
+[
+	{
+		"id": "1",
+		"link": "main",
+		"title": "Home"
+	},
+	{
+		"id": "2",
+		"link": "drinks/cocktail",
+		"title": "Drinks"
+	},
+	{
+		"id": "3",
+		"link": "add",
+		"title": "Add recipe"
+	},
+	{
+		"id": "4",
+		"link": "my",
+		"title": "My recipes"
+	},
+	{
+		"id": "5",
+		"link": "favorite",
+		"title": "Favorites"
+	}
+]

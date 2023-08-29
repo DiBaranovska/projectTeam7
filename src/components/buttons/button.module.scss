@@ -1,0 +1,28 @@
+.btn {
+  padding: 16px 40px;
+  border: none;
+  border-radius: 42px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.125;
+  font-family: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  width: 100%;
+
+  &:global(.light) {
+    color: var(--secondary-bg-color);
+    background-color: var(--main-button-color);
+  }
+  &:global(.dark) {
+    background-color: var(--disablet-btn-color);
+  }
+  &:global(.border) {
+    border: 1px solid var(--select-bg-color);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 18px 44px;
+  }
+}

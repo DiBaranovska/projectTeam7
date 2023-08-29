@@ -1,1 +1,24 @@
 @import '../../styles/main.scss';
+
+.list {
+  display: flex;
+  gap: 16px;
+}
+.item {
+}
+.link {
+  display: block;
+  padding: 7px 15px;
+  border-radius: 40px;
+  border: 1px solid var(--secondary-text-color);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+  transition: background-color 400ms, border-color 400ms;
+
+  &:global(.active),
+  &:hover {
+    background-color: var(--secondary-bg-color);
+    border: 1px solid var(--secondary-bg-color);
+  }
+}

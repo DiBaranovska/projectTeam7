@@ -1,1 +1,16 @@
 @import '../../styles/main.scss';
+
+.dropdown {
+  position: absolute;
+  z-index: 100;
+  width: 177px;
+  padding: 18px;
+  border-radius: 8px;
+  top: 70px;
+  right: 0;
+  background-color: var(--secondary-bg-color);
+
+  @media screen and (min-width: 768px) {
+    gap: 12px;
+  }
+}
