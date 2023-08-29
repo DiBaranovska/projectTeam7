@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 import { recipeReducer } from './resipes/resipesSlice';
 import { userReducer } from './user/userSlise';
+import { categoryReducer } from './resipes/categorySlice';
 import cocktailReducer from './search//cocktailSlice';
-
 import { persistReducer } from 'redux-persist';
+
 import storage from 'redux-persist/lib/storage';
 
 const persistConfig = {
@@ -15,7 +16,9 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, userReducer);
 
 export const reducer = combineReducers({
+  category: categoryReducer,
   recipe: recipeReducer,
   user: persistedReducer,
   cocktail: cocktailReducer,
 });
+
