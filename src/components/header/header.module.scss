@@ -1,0 +1,14 @@
+@import '../../styles/main.scss';
+
+.header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--secondary-text-color);
+}
+
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+

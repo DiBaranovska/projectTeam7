@@ -1,1 +1,38 @@
 @import '../../styles/main.scss';
+
+.logoutBtn {
+  padding: 12px 45px;
+  border: none;
+  border-radius: 42px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.29;
+  font-family: inherit;
+  color: var(--secondary-bg-color);
+  background-color: var(--main-button-color);
+  cursor: pointer;
+}
+
+.title {
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.28px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 37px;
+    font-size: 18px;
+    line-height: 1.33;
+    letter-spacing: -0.36px;
+  }
+}
+
+.btnContainer {
+  display: flex;
+  gap: 8px;
+
+  @media screen and (min-width: 768px) {
+    gap: 12px;
+  }
+}

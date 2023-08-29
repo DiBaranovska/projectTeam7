@@ -1,7 +1,21 @@
-import React from 'react';
+import Logo from 'components/logo/logo';
+import Navigation from 'components/navigation/navigation';
+import UserLogo from 'components/userLogo/userLogo';
+
+import styles from './header.module.scss';
 
 const Header = () => {
-  return <div>Header</div>;
+  return (
+    <header className={styles.header}>
+      <div className={styles.conteiner}>
+        <div className={styles.headerWrapper}>
+          <Logo />
+          <Navigation />
+          <UserLogo />
+        </div>
+      </div>
+    </header>
+  );
 };
 
 export default Header;
