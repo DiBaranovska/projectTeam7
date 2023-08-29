@@ -1,1 +1,120 @@
 @import '../../styles/main.scss';
+
+.ingredients{
+  margin-bottom: 80px;
+  width: 335px;
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 100px;
+    width: 1040px;
+  }
+  
+  @media screen and (min-width: 1440px) {
+    width: 1240px;
+  }
+
+  &__title{
+    margin-bottom: 20px;
+    color: var(--secondary-text-color);
+    font-family: var(--font);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+  }
+
+  &__list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 21px;
+    min-width: 335px;
+
+    @media screen and (min-width: 768px) {
+      gap: 22px;
+      min-width: 538px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      width: 1040px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      width: 1240px;
+    }
+  }
+
+  &__card{
+    display: flex;
+    width: 157px;
+    height: 183px;
+    flex-direction: column;
+    gap: 8px;
+
+    @media screen and (min-width: 768px) {
+      width: 220px;
+      height: 258px;
+      gap: 14px;
+    }
+
+    &__background{
+      display: flex;
+      height: 157px;
+      padding: 25px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      background: rgba(22, 31, 55, 0.50);
+
+      @media screen and (min-width: 768px) {
+        padding: 31px 31px 32px 32px;
+      }
+    }
+
+    &__img{
+      width: 107px;
+      height: 107px;
+
+      @media screen and (min-width: 768px) {
+        width: 157px;
+        height: 157px;
+      }
+    }
+
+    &__description{
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__title{
+      color: var(--main-button-color);
+      font-family: var(--font);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 18px;
+
+      @media screen and (min-width: 768px) {
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+
+    &__measure{
+      color: var(--secondary-text-color);
+      font-family: var(--font);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 18px;
+
+      @media screen and (min-width: 768px) {
+        font-size: 16px;
+        line-height: 20px;
+      }
+    }
+  }
+}

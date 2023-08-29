@@ -1,1 +1,24 @@
 @import '../../styles/main.scss';
+
+.block_bg_radial {
+  z-index: -1;
+  position: absolute;
+  bottom: 20%;
+  left: 94%;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  box-shadow: 0 0 129px 100px #4070cd, 70px 160px 111px 100px #bce6d2;
+    height: 1px;
+}
+
+.block_bg_radial_2 {
+    z-index: -1;
+  position: absolute;
+  top: 16%;
+  left: 16%;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  box-shadow: -196px 216px 147px 102px #4070cd, 0 100px 126px 82px #bce6d2;
+}
