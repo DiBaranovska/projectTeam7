@@ -17,9 +17,6 @@ function SearchResults({ results }) {
                 ></img>
               </li>
               <li>{cocktail.drink}</li>
-              <li>
-                <a href="#">Ingredients</a>
-              </li>
             </ul>
           </li>
         ))}
