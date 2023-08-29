@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import WellcomPage from '../pages/WellcomPage/WellcomPage';
 import SharedLayout from './sharedLayout/sharedLayout';
 import PublicRoute from '../components/PublicRoute';
+import PrivateRoure from './PrivateRoute';
 import { useDispatch } from 'react-redux';
 import { current } from 'redux/user/thunk';
 import SignupPage from '../pages/SignupPage/SignupPage';
@@ -48,7 +49,14 @@ const App = () => {
             </PublicRoute>
           }
         />
-        <Route path="/" element={<SharedLayout />}>
+        <Route
+          path="/"
+          element={
+            <PrivateRoure>
+              <SharedLayout />
+            </PrivateRoure>
+          }
+        >
           <Route path="main" element={<MainPage />} />
           <Route path="drinks/:categoryName" element={<DrinksPage />} />
           <Route path="add" element={<AddRecipePage />} />
