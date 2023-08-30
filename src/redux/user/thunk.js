@@ -8,7 +8,7 @@ import {
 } from '../../api/userApi';
 
 export const register = createAsyncThunk(
-  'auth/signup',
+  'user/signup',
   async (credentials, thunkAPI) => {
     try {
       const result = await signupApi(credentials);
@@ -20,7 +20,7 @@ export const register = createAsyncThunk(
 );
 
 export const login = createAsyncThunk(
-  'auth/signin',
+  'user/signin',
   async (credentials, thunkAPI) => {
     try {
       const result = await signinApi(credentials);
@@ -31,7 +31,7 @@ export const login = createAsyncThunk(
   }
 );
 
-export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
+export const logout = createAsyncThunk('user/logout', async (_, thunkAPI) => {
   try {
     const result = await logoutApi();
     return result;
@@ -41,12 +41,11 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
 });
 
 export const current = createAsyncThunk(
-  'auth/current',
+  'user/current',
   async (_, thunkAPI) => {
     try {
-      const { auth } = thunkAPI.getState().auth;
-      console.log(auth.token);
-      const result = await getCurrentApi();
+      const { user } = thunkAPI.getState();
+      const result = await getCurrentApi(user.token);
       return result;
     } catch ({ response }) {
       return thunkAPI.rejectWithValue(response.data);
@@ -54,19 +53,22 @@ export const current = createAsyncThunk(
   },
   {
     condition: (_, thunkAPI) => {
-      const { auth } = thunkAPI.getState();
-      if (!auth.token) {
+      const { user } = thunkAPI.getState();
+      if (!user.token) {
         return false;
       }
     },
   }
 );
 
-export const update = createAsyncThunk('/update', async (data, thunkAPI) => {
-  try {
-    const result = await updateApi(data);
-    return result;
-  } catch ({ response }) {
-    return thunkAPI.rejectWithValue(response.data);
+export const update = createAsyncThunk(
+  'user/update',
+  async (data, thunkAPI) => {
+    try {
+      const result = await updateApi(data);
+      return result;
+    } catch ({ response }) {
+      return thunkAPI.rejectWithValue(response.data);
+    }
   }
-});
+);

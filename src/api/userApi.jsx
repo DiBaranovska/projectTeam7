@@ -27,8 +27,9 @@ export const logoutApi = async () => {
   return data;
 };
 
-export const getCurrentApi = async () => {
+export const getCurrentApi = async token => {
   try {
+    setToken(token);
     const { data } = await axios.get(`${BASE_URL}/current`);
     return data;
   } catch (error) {
