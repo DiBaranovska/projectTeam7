@@ -3,7 +3,8 @@
 import {FollowUs} from '../followUs/followUs';
 import {Nav} from '../nav/nav';
 import {SubscribeForm} from '../subscribeForm/subscribleForm';
-import {Logo} from '../logo/logo';
+import Logo from 'components/logo/logo';
+
 import styles from './footer.module.scss';
 
 const Footer = () => {
