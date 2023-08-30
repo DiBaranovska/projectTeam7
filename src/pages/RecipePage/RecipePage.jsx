@@ -20,14 +20,21 @@ function RecipePage () {
 
   const yourReceivedToken = useSelector(state => state.user.token);
 
-  useEffect(() => {
+  const [currentToken, setCurrentToken] = useState(null);
+
+useEffect(() => {
+  setCurrentToken(yourReceivedToken);
+}, [yourReceivedToken]);
+
+useEffect(() => {
+  if (currentToken) {
     const pathParts = window.location.pathname.split('/');
     const extractedRecipeId = pathParts[pathParts.length - 1];
     setRecipeId(extractedRecipeId);
 
     const fetchData = async () => {
       try {
-        const data = await getRecipeData(extractedRecipeId, yourReceivedToken);
+        const data = await getRecipeData(extractedRecipeId, currentToken);
         if (data) {
           console.log(data);
           setRecipeData({
@@ -41,12 +48,16 @@ function RecipePage () {
         }
       } catch (error) {
         console.error('An error occurred:', error);
-        console.log('Token:', yourReceivedToken);
+        console.log('Token:', currentToken);
       }
     };
-
     fetchData();
-  }, [yourReceivedToken]);
+    }
+  }, [currentToken]);
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [recipeId]);
 
   const { category, drinkAlternate, glass, drinkThumb, ingredients, instructions } = recipeData;
 

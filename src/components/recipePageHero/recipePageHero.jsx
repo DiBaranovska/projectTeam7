@@ -23,22 +23,18 @@ const Field = ({ glass, drinkAlternate, category, drinkThumb, recipeId }) => {
   }, [recipeId, yourReceivedToken]);
 
   const handleFavoriteToggle = async () => {
+  try {
     if (!isFavorite) {
-      try {
-        await addToFavorites(recipeId, yourReceivedToken);
-        setIsFavorite(true);
-      } catch (error) {
-        console.error('Failed to add to favorites:', error);
-      }
+      await addToFavorites(recipeId, yourReceivedToken);
+      setIsFavorite(true);
     } else {
-      try {
-        await removeFromFavorites(recipeId, yourReceivedToken);
-        setIsFavorite(false);
-      } catch (error) {
-        console.error('Failed to remove from favorites:', error);
-      }
+      await removeFromFavorites(recipeId, yourReceivedToken);
+      setIsFavorite(false);
     }
-  };
+  } catch (error) {
+    console.error('Failed to toggle favorite:', error);
+  }
+};
 
   return (
     <div className={css.field}>
