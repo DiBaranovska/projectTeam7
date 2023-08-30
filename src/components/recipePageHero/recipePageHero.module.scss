@@ -90,10 +90,11 @@
     background: var(--main-text-color);
     border: none;
     cursor: pointer;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--transition-btn);
 
     &:hover {
-      background: var(--select-bg-color);
+      background: var(--accent-btn-color);
+      color: var(--main-text-color);
     }
 
     @media screen and (min-width: 768px) {
@@ -101,16 +102,15 @@
     }
 
     &_text {
-      color: var(--accent-btn-color);
       font-family: var(--font);
       font-size: 14px;
       font-style: normal;
       font-weight: 600;
       line-height: 18px;
-      transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      transition: var(--transition-btn-color);
 
       &:hover {
-        color: var(--secondary-text-color);
+        color: var(--main-text-color);
       }
 
       @media screen and (min-width: 768px) {
