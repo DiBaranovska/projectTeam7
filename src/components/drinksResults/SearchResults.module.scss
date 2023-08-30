@@ -1,7 +1,36 @@
 .container {
   display: flex;
-  margin-top: 20px;
-  width: 1240px;
+  margin: 0 auto;
+  margin-top: 40px;
+  max-width: 375px;
+
   flex-wrap: wrap;
-  gap: 20px;
+  row-gap: 28px;
+  padding: 0 20px;
+}
+.cocktail {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 14px;
+}
+.cocktail__image {
+  height: 360px;
+  border-radius: 8px;
+}
+.cocktail__title {
+  color: #f3f3f3;
+  font-family: 'Manrope';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+}
+.cocktail__link {
+  color: rgba(243, 243, 243, 0.5);
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 128.571% */
 }

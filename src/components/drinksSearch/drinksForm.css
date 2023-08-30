@@ -1,3 +1,13 @@
+.searchForm {
+  display: flex;
+  max-width: 375px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding: 0 20px;
+  width: 100%;
+  row-gap: 14px;
+}
+
 .search-icon {
   width: 16px;
   height: 16px;
@@ -15,24 +25,31 @@
 
 .searchInput {
   box-sizing: border-box;
-  width: 264px;
-  height: 56px;
-  border-radius: 200px;
-  border: 2px solid #f3f3f3;
+  width: 100%;
+  height: 54px;
   padding: 14px 0px 14px 24px;
+  background: transparent;
+  color: #f3f3f3;
+
+  border-radius: 200px;
+  border: 1px solid rgba(243, 243, 243, 0.2);
+  opacity: 0.8;
+
+  @media screen and (width: 1280px) {
+    width: 264px;
+    height: 56px;
+  }
 }
 .searchCategory {
   box-sizing: border-box;
-  width: 199px;
-  height: 56px;
-  flex-shrink: 0;
+  width: 100%;
+  height: 54px;
   border-radius: 200px;
   background: #161f37;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 14px 24px 14px 24px;
+  border: none;
 
   color: #f3f3f3;
-  font-family: Manrope;
   font-size: 17px;
   font-style: normal;
   font-weight: 400;
@@ -44,17 +61,27 @@
 
   background-image: url(./chevron-down.svg);
   background-repeat: no-repeat;
-  background-position: 155px;
+  background-position: center;
+  background-position-x: right 24px;
+  background-size: 20px 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
+  @media screen and (width: 1280px) {
+    width: 199px;
+    height: 56px;
+  }
 }
 .searchIngredient {
   box-sizing: border-box;
-  width: 199px;
-  height: 56px;
+  width: 100%;
+  height: 54px;
   flex-shrink: 0;
   border-radius: 200px;
   background: #161f37;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 14px 24px 14px 24px;
+  border: none;
 
   color: #f3f3f3;
   font-family: Manrope;
@@ -69,5 +96,15 @@
 
   background-image: url(./chevron-down.svg);
   background-repeat: no-repeat;
-  background-position: 155px;
+  background-position: center;
+  background-position-x: right 24px;
+  background-size: 20px 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
+  @media screen and (width: 1280px) {
+    width: 199px;
+    height: 56px;
+  }
 }

@@ -41,7 +41,7 @@ function SearchForm({ ingredientsList, categoriesList, onSearch }) {
   };
 
   return (
-    <form>
+    <form className="searchForm">
       <input
         className="searchInput"
         type="text"
