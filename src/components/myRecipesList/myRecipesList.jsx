@@ -1,6 +1,6 @@
 import RecipeItem from '../recipeItem/recipeItem';
 
-import styles from './myRecipesList.module.css';
+import styles from './myRecipesList.module.scss';
 
 const MyRecipesList = ({ cocktails, favorite }) => {
   return (

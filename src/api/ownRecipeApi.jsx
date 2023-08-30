@@ -16,7 +16,7 @@ axios.defaults.baseURL = 'https://projectteam7-backend.onrender.com';
 export const fetchMyRecipes = createAsyncThunk('my', async (arg, thunkAPI) => {
   const { page = 1, limit = 6 } = arg;
   try {
-    // token.set(tokenTest);
+    //token.set(tokenTest);
     const res = await axios.get(`/own?page=${page}&limit=${limit}`);
     return res.data;
   } catch (error) {

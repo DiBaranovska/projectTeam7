@@ -3,7 +3,7 @@ import { deleteFavoriteRecipes } from '../../api/favoriteApi';
 import { deleteMyRecipes } from '../../api/ownRecipeApi';
 import ButtonNav from '../buttonNav/buttonNav';
 import ButtonDelete from '../buttonDelete/buttonDelete';
-import styles from './recipeItem.module.css';
+import styles from './recipeItem.module.scss';
 
 const RecipeItem = ({ id, name, picture, description, favorite = false }) => {
   const dispatch = useDispatch();

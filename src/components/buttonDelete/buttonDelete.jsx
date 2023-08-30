@@ -1,5 +1,5 @@
 import { FiTrash2 } from 'react-icons/fi';
-import styles from './buttonDelete.module.css';
+import styles from './buttonDelete.module.scss';
 
 const ButtonDelete = ({ onClick }) => {
   return (

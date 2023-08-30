@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import styles from './buttonNav.module.css';
+import styles from './buttonNav.module.scss';
 
 const ButtonNav = ({ title, path }) => {
   return (

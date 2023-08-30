@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import RecipesList from '../../components/recipesList/recipesList';
 import MainPageTitle from '../../components/mainPageTitle/mainPageTitle';
-import styles from './MyRecipesPage.module.css';
+import styles from './MyRecipesPage.module.scss';
 
 const MyRecipesPage = () => {
   return (

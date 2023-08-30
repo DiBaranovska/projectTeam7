@@ -1,5 +1,5 @@
 import ReactPaginate from 'react-paginate';
-import styles from './paginator.module.css';
+import styles from './paginator.module.scss';
 
 const Paginator = ({ handlePageClick, itemsPerPage, pageCount }) => {
   return (

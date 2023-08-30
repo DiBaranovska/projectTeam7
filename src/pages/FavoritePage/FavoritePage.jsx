@@ -6,7 +6,7 @@ import { fetchFavoriteRecipes } from '../../api/favoriteApi';
 
 import RecipesListFavorite from '../../components/recipesListFavorite/recipeListFavorite';
 import MainPageTitle from '../../components/mainPageTitle/mainPageTitle';
-import styles from './FavoritePage.module.css';
+import styles from './FavoritePage.module.scss';
 
 const FavoritePage = () => {
   const dispatch = useDispatch();

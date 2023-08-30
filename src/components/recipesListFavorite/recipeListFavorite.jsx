@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import MyRecipesList from '../myRecipesList/myRecipesList';
 import Paginator from '../paginator/paginator';
-import styles from './recipeListFavorite.module.css';
+import styles from './recipeListFavorite.module.scss';
 
 const RecipesListFavorite = ({ items, total }) => {
   // Here we use item offsets; we could also use page offsets
