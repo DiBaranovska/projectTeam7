@@ -1,1 +1,41 @@
 @import '../../styles/main.scss';
+.pagination {
+  display: flex;
+  color: var(--main-text-color);
+  cursor: pointer;
+  margin-top: 40px;
+  padding: 14px 0px;
+
+  justify-content: center;
+  gap: 8px;
+  @media screen and (min-width: 768px) {
+    padding: 14px 24px;
+    margin-top: 80px;
+    margin-bottom: 140px;
+  }
+  @media screen and (min-width: 1200px) {
+    padding: 14px 24px;
+    margin-top: 80px;
+    margin-bottom: 140px;
+  }
+  /* outline: 2px solid yellow; */
+}
+.link {
+  border-radius: 50px;
+  width: 27.81px;
+  height: 27px;
+  flex-shrink: 0;
+  background-color: transparent;
+  padding: 2px 8px;
+}
+.link_acive {
+  border-radius: 50px;
+  width: 27.81px;
+  height: 27px;
+  flex-shrink: 0;
+  background-color: rgba(64, 112, 205, 0.5);
+  padding: 2px 8px;
+}
+.disabled {
+  color: var(--secondary-text-color);
+}
