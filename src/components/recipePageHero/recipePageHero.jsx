@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import css from './recipePageHero.module.scss';
 import { addToFavorites, removeFromFavorites, checkFavorite } from '../../api/resipesApi.jsx';
 import img from '../../img/recipeCocteile.jpg'
 
+
 const Field = ({ glass, drinkAlternate, category, drinkThumb, recipeId }) => {
   const [isFavorite, setIsFavorite] = useState(false);
+  const yourReceivedToken = useSelector(state => state.user.token);
 
   useEffect(() => {
     const fetchFavoriteStatus = async () => {
       try {
-        const isRecipeFavorite = await checkFavorite(recipeId);
+        const isRecipeFavorite = await checkFavorite(recipeId, yourReceivedToken);
         setIsFavorite(isRecipeFavorite);
       } catch (error) {
         console.error('Failed to fetch favorite status:', error);
@@ -17,19 +20,19 @@ const Field = ({ glass, drinkAlternate, category, drinkThumb, recipeId }) => {
     };
 
     fetchFavoriteStatus();
-  }, [recipeId]);
+  }, [recipeId, yourReceivedToken]);
 
   const handleFavoriteToggle = async () => {
     if (!isFavorite) {
       try {
-        await addToFavorites(recipeId);
+        await addToFavorites(recipeId, yourReceivedToken);
         setIsFavorite(true);
       } catch (error) {
         console.error('Failed to add to favorites:', error);
       }
     } else {
       try {
-        await removeFromFavorites(recipeId);
+        await removeFromFavorites(recipeId, yourReceivedToken);
         setIsFavorite(false);
       } catch (error) {
         console.error('Failed to remove from favorites:', error);

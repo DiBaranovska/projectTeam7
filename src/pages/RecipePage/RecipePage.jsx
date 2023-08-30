@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import {getRecipeData} from '../../api/resipesApi.jsx';
+import { useSelector } from 'react-redux';
+import { getRecipeData } from '../../api/resipesApi.jsx';
 import css from './RecipePage.module.scss';
 
 import RecipeIngredientsList from '../../components/recipeInngredientsList/recipeInngredientsList.jsx';
 import Preparation from '../../components/recipePreparation/recipePreparation.jsx';
 import Field from '../../components/recipePageHero/recipePageHero.jsx';
 
-const RecipePage = () => {
+function RecipePage () {
   const [recipeId, setRecipeId] = useState("");
   const [recipeData, setRecipeData] = useState({
     category: "",
@@ -17,10 +18,16 @@ const RecipePage = () => {
     instructions: ""
   });
 
+  const yourReceivedToken = useSelector(state => state.user.token);
+
   useEffect(() => {
-    const recipeId = '639b6de9ff77d221f190c62e';
-    getRecipeData(recipeId)
-      .then(data => {
+    const pathParts = window.location.pathname.split('/');
+    const extractedRecipeId = pathParts[pathParts.length - 1];
+    setRecipeId(extractedRecipeId);
+
+    const fetchData = async () => {
+      try {
+        const data = await getRecipeData(extractedRecipeId, yourReceivedToken);
         if (data) {
           console.log(data);
           setRecipeData({
@@ -32,12 +39,14 @@ const RecipePage = () => {
             instructions: data.instructions
           });
         }
-      setRecipeId(recipeId);
-      })
-      .catch(error => {
+      } catch (error) {
         console.error('An error occurred:', error);
-      });
-  }, []);
+        console.log('Token:', yourReceivedToken);
+      }
+    };
+
+    fetchData();
+  }, [yourReceivedToken]);
 
   const { category, drinkAlternate, glass, drinkThumb, ingredients, instructions } = recipeData;
 
