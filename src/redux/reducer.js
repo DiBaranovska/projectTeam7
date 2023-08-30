@@ -17,21 +17,12 @@ const favoriteRecipesPersistConfig = {
   storage,
   whitelist: ['favoriteRecipes'],
 };
-// const myRecipesPersistConfig = {
-//   key: 'myRecipes',
-//   storage,
-//   whitelist: ['myRecipes'],
-// };
 
 const persistedReducer = persistReducer(persistConfig, userReducer);
 const favoritePersistedReduser = persistReducer(
   favoriteRecipesPersistConfig,
   favoriteRecipesReducer
 );
-// const myPersistedReduser = persistReducer(
-//   myRecipesPersistConfig,
-//   myRecipesReducer
-// );
 
 export const reducer = combineReducers({
   recipe: recipeReducer,

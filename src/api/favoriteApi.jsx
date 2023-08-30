@@ -4,20 +4,10 @@ import { toast } from 'react-hot-toast';
 
 axios.defaults.baseURL = 'https://projectteam7-backend.onrender.com';
 
-// const token = {
-//   set(tokenTest) {
-//     axios.defaults.headers.common.Authorization = `Bearer ${tokenTest}`;
-//   },
-//   unset() {
-//     axios.defaults.headers.common.Authorization = '';
-//   },
-// };
-
 export const fetchFavoriteRecipes = createAsyncThunk(
   'favorite',
   async (_, thunkAPI) => {
     try {
-      //token.set(tokenTest);
       const res = await axios.get('/favorite');
       return res.data;
     } catch (error) {
