@@ -64,8 +64,7 @@ const userSlice = createSlice({
       })
       .addCase(current.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.user = payload.user;
-        state.token = payload.token;
+        state.user = payload;
         state.isLoggedIn = true;
       })
       .addCase(current.rejected, (state, { payload }) => {
@@ -79,7 +78,7 @@ const userSlice = createSlice({
       })
       .addCase(update.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.user = payload.user;
+        state.user = payload;
       })
       .addCase(update.rejected, (state, { payload }) => {
         state.isLoading = false;
