@@ -16,9 +16,11 @@
   border: 1px solid rgba(243, 243, 243, 0.2);
   opacity: 0.8;
 
+  transition: color 400ms, border-color 400ms;
+
   &::placeholder {
     color: var(--secondary-text-color);
-    font-family: Manrope;
+    font-family: var(--font);
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -53,6 +55,12 @@
   }
 }
 
+.errorInput {
+  margin-bottom: 8px;
+
+  border: 1px solid rgba(218, 20, 20, 0.5);
+}
+
 .passwordContainer {
   position: relative;
 }
@@ -72,7 +80,6 @@
 .button {
   width: 335px;
   height: 54px;
-  padding: 18px 141px;
   margin-bottom: 14px;
 
   border: 1px solid var(--main-button-color);
@@ -80,7 +87,7 @@
 
   background: transparent;
 
-  font-family: Manrope;
+  font-family: var(--font);
   font-size: 14px;
   font-weight: 600;
   line-height: 18px;
@@ -90,6 +97,8 @@
 
   cursor: pointer;
 
+  transition: background-color 400ms, color 400ms;
+
   &:hover,
   &:focus {
     background-color: var(--main-button-color);
@@ -98,7 +107,6 @@
 
   @media screen and (min-width: 768px) {
     width: 400px;
-    // padding: 18px 170px;
 
     font-size: 16px;
     line-height: 18px;
@@ -109,7 +117,7 @@
   margin-bottom: 8px;
 
   margin-left: 24px;
-  font-family: Manrope;
+  font-family: var(--font);
   font-size: 12px;
   font-weight: 400;
   line-height: 14px;
