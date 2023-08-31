@@ -27,7 +27,11 @@ const RecipeItem = ({ id, name, picture, description, favorite = false }) => {
         <p className={styles.description_text}>{description}</p>
       </div>
       <div className={styles.wrap_navigation}>
-        <ButtonNav title="See recipe" path={`/recipe/${id}`}></ButtonNav>
+        <ButtonNav
+          title="See recipe"
+          path={`/recipe/${id}`}
+          dark={true}
+        ></ButtonNav>
         <ButtonDelete onClick={() => handleDelete(id, favorite)}></ButtonDelete>
       </div>
     </li>

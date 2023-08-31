@@ -6,11 +6,12 @@ import { fetchFavoriteRecipes } from '../../api/favoriteApi';
 
 import RecipesListFavorite from '../../components/recipesListFavorite/recipeListFavorite';
 import MainPageTitle from '../../components/mainPageTitle/mainPageTitle';
+import Skeleton from 'components/skeleton/skeleton';
 import styles from './FavoritePage.module.scss';
 
 const FavoritePage = () => {
   const dispatch = useDispatch();
-  const { items, total } = useSelector(getFavoriteRecipes);
+  const { items, total, isLoading } = useSelector(getFavoriteRecipes);
 
   useEffect(() => {
     dispatch(fetchFavoriteRecipes());
@@ -18,7 +19,8 @@ const FavoritePage = () => {
   return (
     <div className={styles.container}>
       <main className={styles.wrap_main}>
-        <MainPageTitle title="Favorites"></MainPageTitle>
+        {isLoading && <Skeleton></Skeleton>}
+        {!isLoading && <MainPageTitle title="Favorites"></MainPageTitle>}
         {items.length > 0 && (
           <RecipesListFavorite
             items={items}
