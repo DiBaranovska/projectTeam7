@@ -1,8 +1,6 @@
-// import React from 'react';
-
-import {FollowUs} from '../followUs/followUs';
-import {Nav} from '../nav/nav';
-import {SubscribeForm} from '../subscribeForm/subscribleForm';
+import { FollowUs } from '../followUs/followUs';
+import { Nav } from '../nav/nav';
+import { SubscribeForm } from '../subscribeForm/subscribleForm';
 import Logo from 'components/logo/logo';
 
 import styles from './footer.module.scss';
@@ -10,7 +8,10 @@ import styles from './footer.module.scss';
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-       <div className={styles.FooterContainer}>
+      <div className={styles.block_bg_radial3}></div>
+      <div className={styles.block_bg_radial4}></div>
+      <div className={styles.block_bg_radial5}></div>
+      <div className={styles.FooterContainer}>
         <div className={styles.footerMainContent}>
           <div className={styles.NavandSoc}>
             <div className={styles.followUsContainer}>
