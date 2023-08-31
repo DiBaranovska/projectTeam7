@@ -20,9 +20,11 @@ const MainPage = () => {
   
  console.log(category);
 
-  return (<section>
-  <div className={css.conteiner}>
-  <div className={css.info}><h1 className={css.title}>
+  return (
+  <div className={css.main_container}>
+  <div>
+  
+    <h1 className={css.title}>
             Craft Your Perfect
             <br /> Drink with Drink Master{' '}
           </h1>
@@ -32,13 +34,20 @@ const MainPage = () => {
             stop destination for exploring, crafting, and mastering the
             <br /> world's finest beverages.
           </p>
-  <ButtonNav title="Add Your Cocktail" path={`/add`}></ButtonNav></div>
-   <img src= {fotoMain} alt="wineglass" width="480" height="710"/>
-  
-  <div><ul> {category ?<PopularRecipeList category = {category}/> : null}</ul></div>
-  <ButtonNav title="Other drinks" path={`/drinks/:categoryName`}></ButtonNav>
+ <div className={css.btn_add}>
+  <ButtonNav title="Add recipe" path={`/add`} ></ButtonNav>
+  </div></div>
+  <div className={css.main_top}>
+   <img src= {fotoMain} alt="wineglass" width="480" height="710"/></div>
+  <div className={css.wrap_main}>
+    <ul > {category ?<PopularRecipeList category = {category}/> : null}
+    </ul>
+    <div className={css.btn_other}>
+    <ButtonNav title="Other drinks" path={`/drinks/:categoryName`}></ButtonNav>
+</div>
+  </div>
         
-</div></section>);
+</div>);
 };
 
 export default MainPage;

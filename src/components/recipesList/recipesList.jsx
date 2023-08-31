@@ -5,7 +5,7 @@ import MyRecipesList from '../myRecipesList/myRecipesList';
 import Paginator from '../paginator/paginator';
 import { getMyRecipes } from '../../redux/myRecipes/selectors';
 import { fetchMyRecipes } from '../../api/ownRecipeApi';
-import styles from './recipesList.module.scss';
+
 
 const RecipesList = () => {
   const itemsPerPage = 6;
@@ -25,7 +25,7 @@ const RecipesList = () => {
   };
 
   return (
-    <div id="MyRecipes" className={styles.container_pagination}>
+    <div id="MyRecipes" >
       {isLoading && <Skeleton></Skeleton>}
       <MyRecipesList cocktails={items} />
       <Paginator
