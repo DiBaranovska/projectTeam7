@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import Skeleton from '../skeleton/skeleton';
 import MyRecipesList from '../myRecipesList/myRecipesList';
 import Paginator from '../paginator/paginator';
 import { getMyRecipes } from '../../redux/myRecipes/selectors';
@@ -11,7 +12,7 @@ const RecipesList = () => {
   const [perPage, setPerPage] = useState(1);
 
   const dispatch = useDispatch();
-  const { items, total } = useSelector(getMyRecipes);
+  const { items, total, isLoading } = useSelector(getMyRecipes);
 
   useEffect(() => {
     dispatch(fetchMyRecipes({ page: perPage, limit: 6 }));
@@ -25,6 +26,7 @@ const RecipesList = () => {
 
   return (
     <div id="MyRecipes" className={styles.container_pagination}>
+      {isLoading && <Skeleton></Skeleton>}
       <MyRecipesList cocktails={items} />
       <Paginator
         handlePageClick={handlePageClick}
