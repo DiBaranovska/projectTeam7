@@ -1,77 +1,91 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { SearchForm } from './drinksForm';
 import { SearchResults } from '../drinksResults/SearchResults';
-import {
-  fetchIngredientsList,
-  fetchCategoriesList,
-  searchCocktails,
-} from '../../api/searchApi';
+import Paginator from '../../components/paginator/paginator';
+import styles from './drinksSearch.module.scss';
+import { searchCocktails } from '../../api/searchApi';
+import { setResults } from '../../redux/search/cocktailSlice.js';
 
-import {
-  setIngredientsList,
-  setCategoriesList,
-  setResults,
-} from '../../redux/search/cocktailSlice.js';
-
-function SearchPage() {
+function SearchPage({ filterCriteria, onFilterChange, formData }) {
   const [searchResults, setSearchResults] = useState([]);
-  const ingredientsList = useSelector(state => state.cocktail.ingredientsList);
-  const categoriesList = useSelector(state => state.cocktail.categoriesList);
   const token = useSelector(state => state.user.token);
+  const categoriesList = useSelector(state => state.cocktail.categoriesList);
+  const ingredientsList = useSelector(state => state.cocktail.ingredientsList);
+
   const dispatch = useDispatch();
 
+  const handleSearch = useCallback(
+    async params => {
+      try {
+        const cocktails = await searchCocktails(token, params);
+
+        setSearchResults(cocktails);
+        dispatch(setResults(cocktails));
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    },
+    [dispatch, token]
+  );
+
   useEffect(() => {
-    if (token) {
-      fetchIngredientsList(token)
-        .then(ingredients => {
-          ingredients.sort();
-          dispatch(setIngredientsList(ingredients));
-        })
-        .catch(error => console.error('Error fetching ingredients:', error));
+    handleSearch({
+      ...filterCriteria,
+      ...formData,
+      page: 1,
+    });
+  }, [filterCriteria, handleSearch, formData]);
 
-      fetchCategoriesList(token)
-        .then(categories => {
-          categories.sort();
-          dispatch(setCategoriesList(categories));
-        })
-        .catch(error => console.error('Error fetching categories:', error));
+  const handlePageClick = e => {
+    const newPage = e.selected + 1;
 
-      searchCocktails(token, {})
-        .then(cocktails => {
-          dispatch(setResults(cocktails));
-          setSearchResults(cocktails);
-        })
-        .catch(error => console.error('Error fetching cocktails:', error));
+    // Create the new filter criteria including the page number
+    const updatedFilterCriteria = {
+      ...filterCriteria,
+      page: newPage,
+    };
+
+    // Only include filter criteria that are selected
+    const params = {};
+    if (updatedFilterCriteria.ingredient) {
+      params.ingredient = updatedFilterCriteria.ingredient;
     }
-  }, [dispatch, token]);
-
-  const handleSearch = async params => {
-    try {
-      const cocktails = await searchCocktails(token, params);
-
-      dispatch(setResults(cocktails));
-      setSearchResults(cocktails);
-    } catch (error) {
-      console.error('Error fetching data:', error);
+    if (updatedFilterCriteria.category) {
+      params.category = updatedFilterCriteria.category;
     }
+    if (updatedFilterCriteria.page) {
+      params.page = updatedFilterCriteria.page;
+    }
+    if (updatedFilterCriteria.name) {
+      params.name = updatedFilterCriteria.name;
+    }
+
+    handleSearch(params);
   };
 
+  const totalCocktails = useSelector(
+    state => state.cocktail.results.totalCocktails
+  );
+  const cocktailsPerPage = useSelector(state => state.cocktail.results.perPage);
+  const totalPages = Math.ceil(totalCocktails / cocktailsPerPage);
+
   return (
-    <>
-      {token ? (
-        <div>
-          <SearchForm
-            ingredientsList={ingredientsList}
-            categoriesList={categoriesList}
-            onSearch={handleSearch}
-          />
-          <SearchResults results={searchResults} />
-        </div>
+    <div>
+      <SearchForm
+        ingredientsList={ingredientsList}
+        categoriesList={categoriesList}
+        onSearch={handleSearch}
+        filterCriteria={filterCriteria}
+        onFilterChange={onFilterChange}
+      />
+      <SearchResults results={searchResults} />
+      {totalPages ? (
+        <Paginator handlePageClick={handlePageClick} pageCount={totalPages} />
       ) : (
-        <h1>Пошук доступний після авторізації!</h1>
+        <div className={styles.searchResults}>No search results</div>
       )}
-    </>
+    </div>
   );
 }
 
