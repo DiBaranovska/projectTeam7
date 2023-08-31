@@ -21,22 +21,22 @@
 .btn_link_color_light {
   color: var(--accent-btn-color);
   background-color: var(--main-button-color);
-  transition: var(--transition-btn), color 400ms;
+  transition: var(--transition-btn), var(--transition-btn-color);
   &:hover,
   &:focus {
     background-color: var(--accent-btn-color);
     color: var(--main-button-color);
-    transition: var(--transition-btn), color 400ms;
+    transition: var(--transition-btn), var(--transition-btn-color);
   }
 }
 .btn_link_color_dark {
   background-color: var(--accent-btn-color);
   color: var(--main-button-color);
-  transition: var(--transition-btn), color 400ms;
+  transition: var(--transition-btn), var(--transition-btn-color);
   &:hover,
   &:focus {
     color: var(--accent-btn-color);
     background-color: var(--main-button-color);
-    transition: var(--transition-btn), color 400ms;
+    transition: var(--transition-btn), var(--transition-btn-color);
   }
 }
