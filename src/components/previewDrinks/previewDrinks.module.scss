@@ -1,1 +1,87 @@
 @import '../../styles/main.scss';
+.gridCard {
+        padding: 0px;
+        display: flex;
+        /* flex-wrap: wrap; */
+        flex-direction: column;
+        margin-top: 40px;
+        gap: 40px;
+        width: 100%;
+        @media screen and (min-width: 768px) {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          margin-top: 62px;
+          gap: 0;
+        }
+        @media screen and (min-width: 1200px) {
+          margin-top: 60px;
+          flex-wrap: wrap;
+        }
+      }
+
+      .card_recept {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 335px;
+      
+        @media screen and (min-width: 768px) {
+          align-items: center;
+          width: 342px;
+          max-width: 400px;
+          margin-left: 20px;
+          margin-top: 80px;
+          /* outline: 2px solid rgb(255, 225, 0); */
+          &:nth-child(2n + 1) {
+            margin-left: 0px;
+          }
+          &:nth-child(-n + 2) {
+            margin-top: 0px;
+          }
+        }
+        @media screen and (min-width: 1200px) {
+          width: 400px;
+          margin-left: 20px;
+          margin-top: 80px;
+          /* outline: 2px solid rgb(255, 225, 0); */
+          &:nth-child(2n + 1) {
+            margin-left: 20px;
+          }
+          &:nth-child(-n + 2) {
+            margin-top: 80px;
+          }
+          &:nth-child(3n + 1) {
+            margin-left: 0px;
+          }
+          &:nth-child(-n + 3) {
+            margin-top: 0px;
+          }
+        }
+      }
+      .container_img {
+        display: flex;
+        border-radius: 8px;
+        margin-bottom: 24px;
+        overflow: hidden;
+        max-width: 335px;
+        max-height: 360px;
+        @media screen and (min-width: 768px) {
+          width: 342px;
+          height: 360px;
+          max-width: 400px;
+          max-height: 400px;
+        }
+        @media screen and (min-width: 1200px) {
+          width: 400px;
+          height: 400px;
+        }
+      }
+
+      .recipe {
+        display: flex;
+      }
+      
+      .ingridient {
+        margin-right: 100px;
+      }

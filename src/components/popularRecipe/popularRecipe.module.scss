@@ -1,1 +1,22 @@
 @import '../../styles/main.scss';
+
+.gridCard {
+        padding: 0px;
+        display: flex;
+        /* flex-wrap: wrap; */
+        flex-direction: column;
+        margin-top: 40px;
+        gap: 40px;
+        width: 100%;
+        @media screen and (min-width: 768px) {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          margin-top: 62px;
+          gap: 0;
+        }
+        @media screen and (min-width: 1200px) {
+          margin-top: 60px;
+          flex-wrap: wrap;
+        }
+      }
