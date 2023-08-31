@@ -27,11 +27,11 @@ const favoritePersistedReduser = persistReducer(
 );
 
 export const reducer = combineReducers({
+  user: persistedReducer,
   category: categoryReducer,
   recipe: recipeReducer,
   myRecipes: myRecipesReducer,
   favoriteRecipes: favoritePersistedReduser,
-  user: persistedReducer,
   cocktail: cocktailReducer,
 });
 

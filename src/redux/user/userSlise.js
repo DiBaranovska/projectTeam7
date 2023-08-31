@@ -59,18 +59,22 @@ const userSlice = createSlice({
         state.error = payload;
       })
       .addCase(current.pending, state => {
+        state.isRefreshing = true;
         state.isLoading = true;
         state.error = null;
       })
       .addCase(current.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.user = payload;
+        state.isRefreshing = false;
         state.isLoggedIn = true;
+       
       })
       .addCase(current.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.token = '';
         state.error = payload;
+        state.isRefreshing = false;
       })
       .addCase(update.pending, state => {
         state.isLoading = true;

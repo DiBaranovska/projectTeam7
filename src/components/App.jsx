@@ -4,7 +4,8 @@ import WellcomPage from '../pages/WellcomPage/WellcomPage';
 import SharedLayout from './sharedLayout/sharedLayout';
 import PublicRoute from '../components/PublicRoute';
 import PrivateRoure from './PrivateRoute';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { userSelector } from '../redux/selectors';
 import { current } from 'redux/user/thunk';
 import SignupPage from '../pages/SignupPage/SignupPage';
 import SigninPage from '../pages/SigninPage/SigninPage';
@@ -25,11 +26,15 @@ const ErrorPage = lazy(() => import('../pages/ErrorPage/ErrorPage'));
 
 const App = () => {
   const dispatch = useDispatch();
+  const { isRefreshing } = useSelector(userSelector);
 
   useEffect(() => {
     dispatch(current());
   }, [dispatch]);
-  return (
+
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
     <>
       <Routes>
         <Route path="welcome" element={<WellcomPage />} />
@@ -52,18 +57,49 @@ const App = () => {
         <Route
           path="/"
           element={
-            <PrivateRoure>
-              <SharedLayout />
-            </PrivateRoure>
+            <PrivateRoure redirectTo="welcome" component={SharedLayout} />
           }
         >
-          <Route path="main" element={<MainPage />} />
-          <Route path="drinks/:categoryName" element={<DrinksPage />} />
-          <Route path="add" element={<AddRecipePage />} />
-          <Route path="favorite" element={<FavoritePage />} />
-          <Route path="recipe/:recipeId" element={<RecipePage />} />
-          <Route path="my" element={<MyRecipesPage />} />
-          <Route path="*" element={<ErrorPage />} />
+          <Route
+            path="main"
+            element={<PrivateRoure redirectTo="welcome" component={MainPage} />}
+          />
+          <Route
+            path="drinks"
+            element={
+              <PrivateRoure redirectTo="welcome" component={DrinksPage} />
+            }
+          />
+          <Route
+            path="add"
+            element={
+              <PrivateRoure redirectTo="welcome" component={AddRecipePage} />
+            }
+          />
+          <Route
+            path="favorite"
+            element={
+              <PrivateRoure redirectTo="welcome" component={FavoritePage} />
+            }
+          />
+          <Route
+            path="recipe/:recipeId"
+            element={
+              <PrivateRoure redirectTo="welcome" component={RecipePage} />
+            }
+          />
+          <Route
+            path="my"
+            element={
+              <PrivateRoure redirectTo="welcome" component={MyRecipesPage} />
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <PrivateRoure redirectTo="welcome" component={ErrorPage} />
+            }
+          />
         </Route>
       </Routes>
     </>
