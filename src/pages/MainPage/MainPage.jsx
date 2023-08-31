@@ -1,11 +1,13 @@
 import React, {useEffect} from 'react';
-import fotoMain from '../../img/main-wineglass.jpg'
+import fotoMain from '../../img/glassesMainDesktop.jpeg'
 import css from './MainPage.module.scss'
 import {selectedRecipes} from '../../redux/selectors'
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRecipesPopular } from '../../redux/resipes/thunks';
 import '../MainPage/MainPage.module.scss';
+import ButtonNav from '../../components/buttonNav/buttonNav';
+import PopularRecipeList from '../../components/popularRecipe/popularRecipe'
+
 
 
 const MainPage = () => {
@@ -14,31 +16,28 @@ const MainPage = () => {
   useEffect(() => {
     dispatch(fetchRecipesPopular());
   }, [dispatch]);
-  const recipes = useSelector(selectedRecipes);
+  const category = useSelector(selectedRecipes);
   
- console.log(recipes);
+ console.log(category);
 
   return (<section>
   <div className={css.conteiner}>
-  <h1 className={css.title}>Craft Your Perfect Drink with Drink Master</h1>
-  <p>Unlock your inner mixologist with Drink Master, your one-stop destination for exploring, crafting, and mastering the world's finest beverages.</p>
-  <Link to="/add"><button className='buttonMain'>Add Your Cocktail</button></Link>
+  <div className={css.info}><h1 className={css.title}>
+            Craft Your Perfect
+            <br /> Drink with Drink Master{' '}
+          </h1>
+          <p className={css.text}>
+            Unlock your inner mixologist with Drink Master, your one-
+            <br />
+            stop destination for exploring, crafting, and mastering the
+            <br /> world's finest beverages.
+          </p>
+  <ButtonNav title="Add Your Cocktail" path={`/add`}></ButtonNav></div>
+   <img src= {fotoMain} alt="wineglass" width="480" height="710"/>
   
-  <img src= {fotoMain} alt="wineglass" width="480" height="710"/>
-  
-  <ul> {recipes ? recipes.map(({_id, recipes })=> (
-          <li key={_id}>
-            <Link to={(`/drinks/${_id}`)}><p>{_id}</p></Link>
-            <ul>{recipes.map(({_id, drink, drinkThumb})=>(
-              <li key={_id}><div><img 
-              src={drinkThumb}
-              alt={drink}
-              width="335"/></div>{drink}
-              <Link to="/drinks/:categoryName">ingredients</Link></li>
-  ))}</ul>
-          </li>
-        )) : null}</ul>
-        <button>Other drinks</button>
+  <div><ul> {category ?<PopularRecipeList category = {category}/> : null}</ul></div>
+  <ButtonNav title="Other drinks" path={`/drinks/:categoryName`}></ButtonNav>
+        
 </div></section>);
 };
 

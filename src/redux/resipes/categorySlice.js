@@ -11,20 +11,21 @@ const categorySlice = createSlice({
   name: 'category',
   initialState: initialStateRecipes,
   reducers: {},
-  extraReducers: {
-    [fetchRecipesPopular.pending](state) {
+  extraReducers: builder => {
+    builder
+      .addCase(fetchRecipesPopular.pending, state => {
       state.isLoading = true;
       state.error = null;
-    },
-    [fetchRecipesPopular.fulfilled](state, action) {
+    })
+    .addCase(fetchRecipesPopular.fulfilled,(state, action) => {
       state.isLoading = false;
       state.recipes = action.payload; 
       state.error = null;
-    },
-    [fetchRecipesPopular.rejected](state, action) {
+    })
+    .addCase(fetchRecipesPopular.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
-    },
+    });
   },
 });
 
