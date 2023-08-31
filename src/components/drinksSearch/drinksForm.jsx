@@ -20,9 +20,10 @@ function SearchForm({ ingredientsList, categoriesList, onFilterChange }) {
 
   const handleChange = e => {
     const { name, value } = e.target;
+    const trimmedValue = value.trim();
     setFormData(prevData => ({
       ...prevData,
-      [name]: value,
+      [name]: trimmedValue,
     }));
 
     if (name === 'name') {

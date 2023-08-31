@@ -1,17 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { SearchForm } from './drinksForm';
 import { SearchResults } from '../drinksResults/SearchResults';
 import Paginator from '../../components/paginator/paginator';
 import styles from './drinksSearch.module.scss';
 import { searchCocktails } from '../../api/searchApi';
-import {
-  setIngredientsList,
-  setCategoriesList,
-  setResults,
-} from '../../redux/search/cocktailSlice.js';
+import { setResults } from '../../redux/search/cocktailSlice.js';
 
-function SearchPage({ filterCriteria, onFilterChange }) {
+function SearchPage({ filterCriteria, onFilterChange, formData }) {
   const [searchResults, setSearchResults] = useState([]);
   const token = useSelector(state => state.user.token);
   const categoriesList = useSelector(state => state.cocktail.categoriesList);
@@ -19,23 +15,27 @@ function SearchPage({ filterCriteria, onFilterChange }) {
 
   const dispatch = useDispatch();
 
-  const handleSearch = async params => {
-    try {
-      const cocktails = await searchCocktails(token, params);
+  const handleSearch = useCallback(
+    async params => {
+      try {
+        const cocktails = await searchCocktails(token, params);
 
-      setSearchResults(cocktails);
-      dispatch(setResults(cocktails));
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
+        setSearchResults(cocktails);
+        dispatch(setResults(cocktails));
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    },
+    [dispatch, token]
+  );
 
   useEffect(() => {
     handleSearch({
       ...filterCriteria,
+      ...formData,
       page: 1,
     });
-  }, [filterCriteria]);
+  }, [filterCriteria, handleSearch, formData]);
 
   const handlePageClick = e => {
     const newPage = e.selected + 1;

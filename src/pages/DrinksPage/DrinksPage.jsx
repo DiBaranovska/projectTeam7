@@ -13,6 +13,8 @@ const DrinksPage = () => {
   const token = useSelector(state => state.user.token);
   const dispatch = useDispatch();
 
+  const [formData] = useState({});
+
   const [filterCriteria, setFilterCriteria] = useState({
     ingredient: '',
     category: '',
@@ -47,6 +49,7 @@ const DrinksPage = () => {
         <SearchPage
           filterCriteria={filterCriteria}
           onFilterChange={handleFilterChange}
+          formData={formData}
         />
       </main>
     </div>
