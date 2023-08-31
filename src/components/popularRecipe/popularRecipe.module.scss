@@ -20,3 +20,15 @@
           flex-wrap: wrap;
         }
       }
+
+      .container_pagination {
+        display: flex;
+        flex-direction: column;
+        padding: 0px;
+        
+      }
+
+      .popular_title{
+        
+        font-size: 25px;
+      }

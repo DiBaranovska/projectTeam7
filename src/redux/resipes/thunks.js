@@ -10,7 +10,7 @@ export const fetchRecipesPopular = createAsyncThunk("recipes/main",
 async (_, thunkAPI) => {
   
   try {
-    const res = await axios.get(`/recipes?limit=2`);
+    const res = await axios.get(`/recipes?limit=3`);
     return res.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

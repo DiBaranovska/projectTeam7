@@ -1,37 +1,31 @@
 @import '../../styles/main.scss';
 
-.btnMain{
-    background-color: white;
-    height: 40px;
-    padding: 10px;
-    font-family: Manrope;
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 16px;
-    letter-spacing: 0em;
-    border-radius: 42px;
-  
-    cursor: pointer;
-  
-    @media screen and (min-width: 768px) {
-      font-size: 14px;
-      line-height: 18px;
-    }
+.main_container {
+ 
+  margin-left: auto;
+  margin-right: auto;
+  // width: 100%; 
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 1440px;
+  }
 }
 
 .title{
   margin-bottom: 38px;
-  margin-top: 38px;
+  margin-top: 58px;
 display: block;
 width: 430px;
   color: var(--main-text-color);
   font-feature-settings: 'liga' off;
   font-family: Manrope;
-  font-size: 28px;
+  font-size: 38px;
   font-style: normal;
-  font-weight: 600;
-  line-height: 114%;
-  letter-spacing: -0.56px;
+  font-weight: 800;
+  line-height: 104%;
+  letter-spacing: -0.36px;
 
   @media screen and (min-width: 768px) {
     font-size: 40px;
@@ -39,17 +33,54 @@ width: 430px;
     letter-spacing: -0.02em;
   }
 }
-.text{
+
+.btn_add{
+  display:flex;
+   width: 200px;
+   height: 54px;
+   margin-top: 50px;
+}
+
+.btn_other{
+  display:flex;
+  width: 200px;
+  height: 54px;
+  margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.main_top{
+ margin-left: 200px;
+ @media screen and (min-width: 768px) {
+  margin-left: 400px;
+}
+@media screen and (min-width: 1200px) {
+  margin-left: 800px;
+}
+}
+
+
  
-display: flex;
-width: 550px;
+
+.wrap_main {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 80px;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-bottom: 140px;
+  }
+  @media screen and (min-width: 1200px) {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
 }
 
 
-.info {
-width: 270px;
-}
- .card{
-  display: flex;
- }
+
 
