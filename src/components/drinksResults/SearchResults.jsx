@@ -7,14 +7,15 @@ function SearchResults({ results }) {
     <div>
       <ul className={styles.container}>
         {cocktails.map(cocktail => (
-          <li key={cocktail._id}>
+          <li key={cocktail._id} className={styles.container__item}>
             <ul className={styles.cocktail}>
               <li>
                 <img
                   className={styles.cocktail__image}
                   src={cocktail.drinkThumb}
                   alt={cocktail._id}
-                  width="100%"
+                  width="400"
+                  height="400"
                 ></img>
               </li>
               <li className={styles.cocktail__title}>{cocktail.drink}</li>

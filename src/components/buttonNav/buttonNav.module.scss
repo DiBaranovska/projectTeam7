@@ -2,7 +2,7 @@
 .btn_link {
   display: flex;
   padding: 14px 40px;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   border-radius: 42px;
   background: var(--accent-btn-color);
@@ -14,17 +14,14 @@
   line-height: calc(18px / 14px); /* 112.5% */
   margin-right: 8px;
   text-decoration: none;
-  transition: var(--transition-btn), var(--transition-btn-color);
   &:hover,
   &:focus {
     color: var(--accent-btn-color);
     background: var(--main-button-color);
-    transition: var(--transition-btn), var(--transition-btn-color);
   }
   @media screen and (min-width: 768px) {
     padding: 18px 44px;
     font-size: 16px;
     line-height: calc(18px / 16px); /* 112.5% */
-    transition: var(--transition-btn), var(--transition-btn-color);
   }
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import './drinksForm.css';
 
-function SearchForm({ ingredientsList, categoriesList, onSearch }) {
+function SearchForm({ ingredientsList, categoriesList, onFilterChange }) {
   const [formData, setFormData] = useState({
     name: '',
     ingredient: '',
@@ -31,12 +31,12 @@ function SearchForm({ ingredientsList, categoriesList, onSearch }) {
       }
 
       const timeout = customDebounce(() => {
-        onSearch(formData);
+        onFilterChange(formData);
       }, 1000);
 
       setDebounceTimeout(timeout);
     } else {
-      onSearch({ ...formData, [name]: value });
+      onFilterChange({ ...formData, [name]: value });
     }
   };
 

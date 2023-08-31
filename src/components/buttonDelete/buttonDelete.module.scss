@@ -7,11 +7,9 @@
   background: var(--accent-btn-color);
   border-color: transparent;
   border-radius: 50%;
-  transition: var(--transition-btn), var(--transition-btn-color);
   &:hover,
   &:focus {
     color: var(--accent-btn-color);
     background: var(--main-button-color);
-    transition: var(--transition-btn), var(--transition-btn-color);
   }
 }
