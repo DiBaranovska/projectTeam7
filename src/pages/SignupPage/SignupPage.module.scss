@@ -1,13 +1,156 @@
 @import '../../styles/main.scss';
 
 .box {
+  margin: auto;
   height: 100vh;
 
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+
+  background-image: url(../../img/edward-howell-unsplash-mob.jpg);
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(../../img/edward-howell-unsplash-mob@2x.jpg);
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url(../../img/edward-howell-unsplash-tablet.jpg);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../../img/edward-howell-unsplash-tablet@2x.jpg);
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    background-image: url(../../img/edward-howell-unsplash-dt.jpg);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../../img/edward-howell-unsplash-dt@2x.jpg);
+    }
+  }
+}
+
+.example {
+  width: 520px;
+  height: 550px;
+  flex-shrink: 0;
+  border-radius: 550px;
+  background: rgba(64, 112, 205, 0.5);
+  filter: blur(104.8543701171875px);
+
+  position: absolute;
+  top: 20px;
+  left: -399px;
+  z-index: -999;
+
+  @media screen and (min-width: 768px) {
+    border-radius: 829.931px;
+    width: 784px;
+    height: 830px;
+    top: -50px;
+    left: -665px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    border-radius: 849px;
+    height: 849px;
+    top: -231;
+    left: -494px;
+  }
+}
+
+.example2 {
+  width: 257px;
+  height: 247px;
+  flex-shrink: 0;
+  border-radius: 257px;
+  background: rgba(188, 230, 210, 0.4);
+  filter: blur(104.8543701171875px);
+
+  position: absolute;
+  top: 84px;
+  left: 102px;
+  z-index: -999;
+
+  @media screen and (min-width: 768px) {
+    border-radius: 387px;
+    width: 387px;
+    height: 372px;
+    top: 46px;
+    left: 0px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 381px;
+    top: -132px;
+    left: 171px;
+  }
+}
+
+.example3 {
+  width: 549px;
+  height: 543px;
+  flex-shrink: 0;
+  border-radius: 549px;
+  background: rgba(64, 112, 205, 0.5);
+  filter: blur(104.8543701171875px);
+
+  position: absolute;
+  bottom: -229px;
+  right: -505px;
+  z-index: -999;
+
+  @media screen and (min-width: 768px) {
+    bottom: -17;
+    right: -402px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    top: 231px;
+    right: -290px;
+  }
+}
+
+.example4 {
+  @media screen and (min-width: 1440px) {
+    width: 430px;
+    height: 465px;
+    flex-shrink: 0;
+    border-radius: 465px;
+    background: rgba(188, 230, 210, 0.4);
+    filter: blur(104.8543701171875px);
+
+    position: absolute;
+    bottom: -462px;
+    right: -258px;
+
+    z-index: -999;
+  }
+}
+
+.box_text {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
+
+  text-align: center;
 
   @media screen and (max-width: 375px) {
     margin-left: 20px;
@@ -19,6 +162,7 @@
   }
 
   @media screen and (min-width: 768px) {
+    text-align: start;
     min-width: 400px;
     margin-left: 64px;
   }
@@ -33,7 +177,7 @@
 
   color: var(--main-text-color);
   font-feature-settings: 'liga' off;
-  font-family: Manrope;
+  font-family: var(--font);
   font-size: 28px;
   font-style: normal;
   font-weight: 600;
@@ -41,6 +185,8 @@
   letter-spacing: -0.56px;
 
   @media screen and (min-width: 768px) {
+    // align-items: start;
+
     font-size: 40px;
     line-height: 44px;
     letter-spacing: -0.02em;
@@ -54,7 +200,7 @@
 .link {
   color: var(--main-text-color);
 
-  font-family: Manrope;
+  font-family: var(--font);
   font-size: 12px;
   font-weight: 600;
   line-height: 16px;

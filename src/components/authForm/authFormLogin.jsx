@@ -27,6 +27,7 @@ const schema = yup.object().shape({
 export const LoginForm = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   return (
     <Formik
@@ -35,12 +36,33 @@ export const LoginForm = () => {
         password: '',
       }}
       validationSchema={schema}
+      // onSubmit={values => {
+      //   dispatch(login(values));
+      // }}
       onSubmit={values => {
-        dispatch(login(values));
+        dispatch(login(values))
+          .then(response => {
+            const responseData = response.data;
+            if (
+              responseData &&
+              responseData.message === 'This is an ERROR password'
+            ) {
+              setErrorMessage('This is an ERROR password');
+            } else if (
+              responseData &&
+              responseData.message === 'This is an CORRECT email'
+            ) {
+              setErrorMessage('This is an CORRECT email');
+            }
+          })
+          .catch(error => {
+            console.error('Error during registration:', error);
+          });
       }}
     >
       {formik => (
         <form onSubmit={formik.handleSubmit}>
+          {errorMessage && <div className={css.error}>{errorMessage}</div>}
           <div>
             <Field
               id="email"
@@ -50,7 +72,11 @@ export const LoginForm = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.email}
-              className={`${css.input} ${css.errorInput}`}
+              className={`${css.input} ${
+                formik.errors.email && formik.touched.email
+                  ? css.errorInput
+                  : ''
+              }`}
             />
             <ErrorMessage name="email" component="div" className={css.error} />
           </div>
@@ -63,7 +89,11 @@ export const LoginForm = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.password}
-              className={`${css.input} ${css.errorInput} ${css['last_input']}`}
+              className={`${css.input} ${css['last_input']} ${
+                formik.errors.password && formik.touched.password
+                  ? css.errorInput
+                  : ''
+              }`}
             />
             <div
               onClick={() => setShowPassword(!showPassword)}

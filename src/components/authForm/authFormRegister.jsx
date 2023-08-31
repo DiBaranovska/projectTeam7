@@ -8,7 +8,7 @@ import hidePasswordIcon from '../../img/eye.svg';
 import css from './authForm.module.scss';
 
 const schema = yup.object().shape({
-  name: yup.string().required('Name is required'),
+  name: yup.string().min(3, 'Name is too short').required('Name is required'),
   email: yup
     .string()
     .email('Invalid email address')
@@ -49,7 +49,9 @@ export const RegisterForm = () => {
               type="text"
               onBlur={formik.handleBlur}
               placeholder="Name"
-              className={css.input}
+              className={`${css.input} ${
+                formik.errors.name && formik.touched.name ? css.errorInput : ''
+              }`}
             />
             <ErrorMessage name="name" component="div" className={css.error} />
           </div>
@@ -60,7 +62,11 @@ export const RegisterForm = () => {
               type="email"
               onBlur={formik.handleBlur}
               placeholder="Email"
-              className={css.input}
+              className={`${css.input} ${
+                formik.errors.email && formik.touched.email
+                  ? css.errorInput
+                  : ''
+              }`}
             />
             <ErrorMessage name="email" component="div" className={css.error} />
           </div>
@@ -71,7 +77,11 @@ export const RegisterForm = () => {
               type={showPassword ? 'text' : 'password'}
               onBlur={formik.handleBlur}
               placeholder="Password"
-              className={`${css.input} ${css['last_input']}`}
+              className={`${css.input} ${css['last_input']} ${
+                formik.errors.password && formik.touched.password
+                  ? css.errorInput
+                  : ''
+              }`}
             />
             <div
               onClick={() => setShowPassword(!showPassword)}

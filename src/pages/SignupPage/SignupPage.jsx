@@ -14,13 +14,19 @@ const SignupPage = () => {
 
   return (
     <div className={css.box}>
-      <h1 className={css.title}>Registration</h1>
-      <RegisterForm />
-      <p className={css.text}>
-        <span className={css.link} onClick={handleSignInClick}>
-          Sign In
-        </span>
-      </p>
+      <div className={css.example}></div>
+      <div className={css.example2}></div>
+      <div className={css.example3}></div>
+      <div className={css.example4}></div>
+      <div className={css.box_text}>
+        <h1 className={css.title}>Registration</h1>
+        <RegisterForm />
+        <p className={css.text}>
+          <span className={css.link} onClick={handleSignInClick}>
+            Sign In
+          </span>
+        </p>
+      </div>
     </div>
   );
 };
