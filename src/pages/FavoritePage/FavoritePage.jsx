@@ -21,7 +21,7 @@ const FavoritePage = () => {
       <main className={styles.wrap_main}>
         <MainPageTitle title="Favorites"></MainPageTitle>
         {isLoading && <Skeleton></Skeleton>}
-        {items.length > 0 && (
+        {!isLoading & (items.length > 0) && (
           <RecipesListFavorite
             items={items}
             total={total}
