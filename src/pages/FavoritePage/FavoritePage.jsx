@@ -19,8 +19,8 @@ const FavoritePage = () => {
   return (
     <div className={styles.container}>
       <main className={styles.wrap_main}>
+        <MainPageTitle title="Favorites"></MainPageTitle>
         {isLoading && <Skeleton></Skeleton>}
-        {!isLoading && <MainPageTitle title="Favorites"></MainPageTitle>}
         {items.length > 0 && (
           <RecipesListFavorite
             items={items}
