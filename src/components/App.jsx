@@ -65,7 +65,7 @@ const App = () => {
             element={<PrivateRoure redirectTo="welcome" component={MainPage} />}
           />
           <Route
-            path="drinks"
+            path="drinks/:categoryName"
             element={
               <PrivateRoure redirectTo="welcome" component={DrinksPage} />
             }
