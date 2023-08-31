@@ -9,6 +9,7 @@ import { userSelector } from '../redux/selectors';
 import { current } from 'redux/user/thunk';
 import SignupPage from '../pages/SignupPage/SignupPage';
 import SigninPage from '../pages/SigninPage/SigninPage';
+import Skeleton from '../components/skeleton/skeleton';
 
 //const SignupPage = lazy(() => import('../pages/SignupPage/SignupPage'));
 //const SigninPage = lazy(() => import('../pages/SigninPage/SigninPage'));
@@ -33,7 +34,7 @@ const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <Skeleton></Skeleton>
   ) : (
     <>
       <Routes>
