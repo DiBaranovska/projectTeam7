@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { fetchMyRecipes, deleteMyRecipes } from '../../api/ownRecipeApi';
+import { fetchMyRecipes, deleteMyRecipes, addMyRecipes} from '../../api/ownRecipeApi';
 
 const handlePending = state => {
   state.myRecipes = { ...state.myRecipes, isLoading: true };
@@ -27,6 +27,10 @@ const handleFulfildDelete = (state, { payload }) => {
   };
 };
 
+const handleFulfildAdd = (state, {payload}) => {
+
+}
+
 const handleRejected = (state, { payload }) => {
   state.myRecipes = {
     ...state.myRecipes,
@@ -52,6 +56,7 @@ export const myRecipesSlice = createSlice({
     builder
       .addCase(fetchMyRecipes.fulfilled, handleFulfildGet)
       .addCase(deleteMyRecipes.fulfilled, handleFulfildDelete)
+      .addCase(addMyRecipes.fulfilled, handleFulfildAdd)
       .addMatcher(
         isAnyOf(fetchMyRecipes.pending, deleteMyRecipes.pending),
         handlePending
