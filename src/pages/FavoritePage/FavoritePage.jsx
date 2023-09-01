@@ -6,6 +6,7 @@ import { fetchFavoriteRecipes } from '../../api/favoriteApi';
 
 import RecipesListFavorite from '../../components/recipesListFavorite/recipeListFavorite';
 import MainPageTitle from '../../components/mainPageTitle/mainPageTitle';
+import NotFound from '../../components/notFound/notFound';
 import Skeleton from 'components/skeleton/skeleton';
 import styles from './FavoritePage.module.scss';
 
@@ -16,18 +17,28 @@ const FavoritePage = () => {
   useEffect(() => {
     dispatch(fetchFavoriteRecipes());
   }, [dispatch]);
+
   return (
     <div className={styles.container}>
-      <div className={styles.wrap_main}>
-        <MainPageTitle title="Favorites"></MainPageTitle>
-        {isLoading && <Skeleton></Skeleton>}
-        {!isLoading & (items.length > 0) && (
+      {isLoading ? (
+        <div className={styles.wrap_main}>
+          <MainPageTitle title="Favorites"></MainPageTitle>
+          <Skeleton></Skeleton>
+        </div>
+      ) : items.length > 0 ? (
+        <div className={styles.wrap_main}>
+          <MainPageTitle title="Favorites"></MainPageTitle>
           <RecipesListFavorite
             items={items}
             total={total}
           ></RecipesListFavorite>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className={styles.wrap_main_empty}>
+          <MainPageTitle title="Favorites"></MainPageTitle>
+          <NotFound></NotFound>
+        </div>
+      )}
     </div>
   );
 };

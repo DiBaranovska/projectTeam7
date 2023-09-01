@@ -7,15 +7,15 @@
   font-weight: 600;
   font-size: 32px;
   line-height: calc(38px / 32px); /* 106.25% */
-  margin-top: 160px;
+  margin-top: 80px;
 
   @media screen and (min-width: 768px) {
-    margin-top: 160px;
+    margin-top: 140px;
     font-size: 54px;
     line-height: calc(60px / 56px); /* 106.25% */
   }
   @media screen and (min-width: 1200px) {
-    margin-top: 154px;
+    margin-top: 158px;
     font-size: 64px;
     line-height: calc(68px / 64px); /* 106.25% */
   }
