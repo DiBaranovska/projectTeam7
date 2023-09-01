@@ -1,1 +1,46 @@
 @import '../../styles/main.scss';
+
+.container {
+	position: relative;
+    margin-top: 80px;
+    margin-bottom: 140px;
+}
+
+.imgContainer {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+}
+
+.errorImg {
+	position: relative;
+	width: 375px;
+	height: 476px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	@media screen and (min-width: 768px) {
+		width: 465px;
+		height: 517px;
+	}
+}
+
+.errorText {
+	position: absolute;
+	display: flex;
+	gap: 120px;
+	top: 130px;
+
+	color: rgba(243, 243, 243, 0.1);
+	text-align: center;
+	font-size: 120px;
+	font-weight: 600;
+	line-height: calc(123 / 120);
+	@media screen and (min-width: 768px) {
+		font-size: 150px;
+		font-weight: 600;
+		line-height: calc(150 / 123);
+	}
+}
