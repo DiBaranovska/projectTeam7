@@ -27,3 +27,21 @@ export const deleteMyRecipes = createAsyncThunk(
     }
   }
 );
+
+export const addMyRecipes = createAsyncThunk(
+  'my/addRecipe',
+  async (formData, thunkAPI) => {
+    try {
+      const response = await axios.post('/own', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      toast.success('recipe is added successfully');
+      return response.data;
+    } catch (e) {
+      toast.error('recipe wasn`t added  (');
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
