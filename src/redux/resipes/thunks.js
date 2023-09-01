@@ -3,14 +3,25 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 
+const getLimitBasedOnScreenWidth = () => {
+  const screenWidth = window.innerWidth;
+  if (screenWidth >= 1024) {  // Десктоп
+    return 3;
+  } else if (screenWidth >= 768) {  // Планшет
+    return 2;
+  } else {  // Телефон
+    return 1;
+  }
+};
+
 
 axios.defaults.baseURL = 'https://projectteam7-backend.onrender.com';
 
 export const fetchRecipesPopular = createAsyncThunk("recipes/main",
 async (_, thunkAPI) => {
-  
+  const limit = getLimitBasedOnScreenWidth();
   try {
-    const res = await axios.get(`/recipes?limit=3`);
+    const res = await axios.get(`/recipes?limit=${limit}`);
     return res.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

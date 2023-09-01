@@ -9,9 +9,9 @@ const PopularRecipeList = ({category}) => {
   //const {recipes} = useSelector(selectedRecipes);
 
 
-        return (<div className={css.container_pagination}>
+        return (<div className={css.container_recipe}>
           <ul >{ category.map(({_id, recipes })=> (
-          <li key={_id}>
+          <li key={_id} className={css.block_recipe}>
             <Link to={(`/drinks/${_id}`)} className={css.popular_title}><p>{_id}</p></Link>
             <PreviewDrinks recipes={recipes}/>
           </li>

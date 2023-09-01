@@ -82,10 +82,19 @@
       .recipe {
       display: flex;
       justify-content: space-between;
-      
+     
       }
       
-      .ingridient {
-        display: flex;
-        
+      .drink_name {
+    //display: block;
+      margin-left: auto;
+      margin-left: auto;
+      }
+
+      .open_recipe{
+      //display: block;
+       
+      color: rgba(243, 243, 243, 0.50);
+      margin-left: auto;
+      margin-right: auto;
       }

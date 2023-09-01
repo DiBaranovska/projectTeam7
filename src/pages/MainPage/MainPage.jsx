@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import fotoMain from '../../img/glassesMainDesktop.jpeg'
+import fotoMain from '../../img/main-descktop.jpeg'
 import css from './MainPage.module.scss'
 import {selectedRecipes} from '../../redux/selectors'
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,7 +20,7 @@ const MainPage = () => {
   
  console.log(category);
 
-  return (
+  return (<section className={css.section}>
   <div className={css.main_container}>
   <div>
   
@@ -38,7 +38,7 @@ const MainPage = () => {
   <ButtonNav title="Add recipe" path={`/add`} ></ButtonNav>
   </div></div>
   <div className={css.main_top}>
-   <img src= {fotoMain} alt="wineglass" width="480" height="710"/></div>
+   <img src= {fotoMain} alt="wineglass"/></div>
   <div className={css.wrap_main}>
     <ul > {category ?<PopularRecipeList category = {category}/> : null}
     </ul>
@@ -47,7 +47,7 @@ const MainPage = () => {
 </div>
   </div>
         
-</div>);
+</div></section>);
 };
 
 export default MainPage;

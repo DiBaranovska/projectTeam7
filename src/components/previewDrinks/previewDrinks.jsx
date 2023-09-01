@@ -12,8 +12,8 @@ return(
                 width="335"
                 className={css.container_img}/></div>
                 <div className={css.recipe}>
-                <p className={css.ingridient}>{drink}</p>
-                <Link to="/drinks/:categoryName">Open recipe</Link>
+                <p className={css.drink_name}>{drink}</p>
+                <Link to="/drinks/:categoryName" className={css.open_recipe}>Open recipe</Link>
                 </div></li>
     ))}</ul></div>
 )}
