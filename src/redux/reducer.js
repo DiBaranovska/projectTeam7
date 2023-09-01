@@ -5,6 +5,7 @@ import { favoriteRecipesReducer } from './favoriteRecipes/favoriteRecipesSlice';
 import { userReducer } from './user/userSlise';
 import { categoryReducer } from './resipes/categorySlice';
 import cocktailReducer from './search//cocktailSlice';
+import filterReducer from './search/filterSlice';
 import { persistReducer } from 'redux-persist';
 
 import storage from 'redux-persist/lib/storage';
@@ -33,5 +34,5 @@ export const reducer = combineReducers({
   myRecipes: myRecipesReducer,
   favoriteRecipes: favoritePersistedReduser,
   cocktail: cocktailReducer,
+  filter: filterReducer,
 });
-
