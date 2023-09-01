@@ -1,0 +1,45 @@
+@import '../../styles/main.scss';
+
+.imgWrap {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 0px;
+  @media screen and (min-width: 768px) {
+    gap: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-top: 133px;
+  }
+}
+
+.notFoundImg {
+  width: 375px;
+  height: 517px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  @media screen and (min-width: 768px) {
+    width: 465px;
+    height: 500px;
+  }
+}
+
+.notFoundText {
+  width: 205px;
+  color: var(--main-text-color);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: calc(18 / 14);
+  @media screen and (min-width: 768px) {
+    width: 236px;
+    font-size: 16px;
+    line-height: calc(22 / 16);
+  }
+}
