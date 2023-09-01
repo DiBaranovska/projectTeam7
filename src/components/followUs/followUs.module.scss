@@ -8,6 +8,13 @@
   border-radius: 10px;
   border: 1px solid rgba(243, 243, 243, 0.2);
   fill: #f3f3f3;
+  transition: border-color 400ms ease, transform 400ms ease;
+}
+.socialsLink:hover,
+.socialsLink:focus {
+  opacity: 1;
+  scale: 1.1;
+  transition: scale 400ms, opacity 400ms, transform 400ms ease;
 }
 
 .socialsList {
@@ -30,7 +37,7 @@
   width: 22px;
   height: 22px;
   opacity: 0.8;
-
+  transition: scale 400ms, opacity 400ms;
   @media screen and (min-width: 768px) {
     width: 28px;
     height: 28px;
