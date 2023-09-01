@@ -18,7 +18,7 @@ const FavoritePage = () => {
   }, [dispatch]);
   return (
     <div className={styles.container}>
-      <main className={styles.wrap_main}>
+      <div className={styles.wrap_main}>
         <MainPageTitle title="Favorites"></MainPageTitle>
         {isLoading && <Skeleton></Skeleton>}
         {!isLoading & (items.length > 0) && (
@@ -27,7 +27,7 @@ const FavoritePage = () => {
             total={total}
           ></RecipesListFavorite>
         )}
-      </main>
+      </div>
     </div>
   );
 };
