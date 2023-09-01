@@ -7,10 +7,10 @@ import styles from './MyRecipesPage.module.scss';
 const MyRecipesPage = () => {
   return (
     <div className={styles.container}>
-      <main className={styles.wrap_main}>
+      <div className={styles.wrap_main}>
         <MainPageTitle title="My recipes"></MainPageTitle>
         <RecipesList></RecipesList>
-      </main>
+      </div>
     </div>
   );
 };
