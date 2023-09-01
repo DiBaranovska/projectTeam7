@@ -21,14 +21,18 @@
         }
       }
 
-      .container_pagination {
+      .container_recipe{
         display: flex;
         flex-direction: column;
         padding: 0px;
-        
+       
       }
 
       .popular_title{
         
         font-size: 25px;
+      }
+
+      .block_recipe{
+        margin-top: 80px
       }

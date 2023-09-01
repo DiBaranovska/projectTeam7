@@ -12,9 +12,10 @@ return(
                 width="335"
                 className={css.container_img}/></div>
                 <div className={css.recipe}>
-                <p className={css.ingridient}>{drink}</p>
-                <Link to="/drinks/:categoryName">Open recipe</Link>
-                </div></li>
+                <p className={css.drink_name}>{drink}</p>
+                <div className={css.open_recipe}><Link to="/drinks/:categoryName">Open recipe</Link></div>
+                </div>
+                </li>
     ))}</ul></div>
 )}
 

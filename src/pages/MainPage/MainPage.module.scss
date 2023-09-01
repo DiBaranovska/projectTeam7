@@ -1,7 +1,9 @@
 @import '../../styles/main.scss';
-
+.section{
+  position: relative;
+}
 .main_container {
- 
+  
   margin-left: auto;
   margin-right: auto;
   // width: 100%; 
@@ -14,8 +16,8 @@
 }
 
 .title{
-  margin-bottom: 38px;
-  margin-top: 58px;
+  margin-bottom: 28px;
+  margin-top: 160px;
 display: block;
 width: 430px;
   color: var(--main-text-color);
@@ -38,30 +40,32 @@ width: 430px;
   display:flex;
    width: 200px;
    height: 54px;
-   margin-top: 50px;
+   margin-top: 40px;
 }
 
 .btn_other{
   display:flex;
   width: 200px;
   height: 54px;
-  margin-top: 50px;
+  margin-top: 80px;
   margin-right: auto;
   margin-left: auto;
 }
 
-.main_top{
- margin-left: 200px;
+.main_foto{
+  position: absolute;
+  top: -245px;
+  right: -550px;
+  z-index: -2;
+//  margin-left: 200px;
  @media screen and (min-width: 768px) {
-  margin-left: 400px;
+ 
+ right: -490px;
 }
 @media screen and (min-width: 1200px) {
-  margin-left: 800px;
+  right: 0;
 }
 }
-
-
- 
 
 .wrap_main {
   padding-left: 20px;
@@ -69,16 +73,17 @@ width: 430px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 80px;
+  margin-top: 316px;
 
   @media screen and (min-width: 768px) {
     padding-left: 32px;
     padding-right: 32px;
     margin-bottom: 140px;
   }
-  @media screen and (min-width: 1200px) {
-    padding-left: 100px;
-    padding-right: 100px;
-  }
+  // @media screen and (min-width: 1200px) {
+  //   padding-left: 100px;
+  //   padding-right: 100px;
+  // }
 }
 
 
