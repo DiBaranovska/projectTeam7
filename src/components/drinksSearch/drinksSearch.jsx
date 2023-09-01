@@ -1,17 +1,18 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { SearchForm } from './drinksForm';
-import { SearchResults } from '../drinksResults/SearchResults';
+import DrinksForm from './drinksForm';
+import DrinksResults from '../drinksResults/drinksResults';
 import Paginator from '../../components/paginator/paginator';
 import styles from './drinksSearch.module.scss';
 import { searchCocktails } from '../../api/searchApi';
 import { setResults } from '../../redux/search/cocktailSlice.js';
 
-function SearchPage({ filterCriteria, onFilterChange, formData }) {
+function DrinksSearch({ formData }) {
   const [searchResults, setSearchResults] = useState([]);
   const token = useSelector(state => state.user.token);
   const categoriesList = useSelector(state => state.cocktail.categoriesList);
   const ingredientsList = useSelector(state => state.cocktail.ingredientsList);
+  const filterCriteria = useSelector(state => state.filter);
 
   const dispatch = useDispatch();
 
@@ -72,14 +73,13 @@ function SearchPage({ filterCriteria, onFilterChange, formData }) {
 
   return (
     <div>
-      <SearchForm
+      <DrinksForm
         ingredientsList={ingredientsList}
         categoriesList={categoriesList}
         onSearch={handleSearch}
-        filterCriteria={filterCriteria}
-        onFilterChange={onFilterChange}
+        formData={formData}
       />
-      <SearchResults results={searchResults} />
+      <DrinksResults results={searchResults} />
       {totalPages ? (
         <Paginator handlePageClick={handlePageClick} pageCount={totalPages} />
       ) : (
@@ -89,4 +89,4 @@ function SearchPage({ filterCriteria, onFilterChange, formData }) {
   );
 }
 
-export { SearchPage };
+export default DrinksSearch;

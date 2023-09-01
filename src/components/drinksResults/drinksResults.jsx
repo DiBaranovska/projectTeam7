@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './SearchResults.module.scss';
+import styles from './drinksResults.module.scss';
 
-function SearchResults({ results }) {
+function DrinksResults({ results }) {
   const cocktails = results.cocktails || [];
   return (
     <div>
@@ -30,4 +30,4 @@ function SearchResults({ results }) {
   );
 }
 
-export { SearchResults };
+export default DrinksResults;
