@@ -5,7 +5,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const getLimitBasedOnScreenWidth = () => {
   const screenWidth = window.innerWidth;
-  if (screenWidth >= 1024) {  // Десктоп
+  
+  if (screenWidth >= 1200) {  // Десктоп
     return 3;
   } else if (screenWidth >= 768) {  // Планшет
     return 2;

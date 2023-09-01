@@ -52,17 +52,18 @@ width: 430px;
   margin-left: auto;
 }
 
-.main_top{
+.main_foto{
   position: absolute;
-  top: -142px;
-  right: 0;
+  top: -245px;
+  right: -550px;
   z-index: -2;
- margin-left: 200px;
+//  margin-left: 200px;
  @media screen and (min-width: 768px) {
-  margin-left: 400px;
+ 
+ right: -490px;
 }
 @media screen and (min-width: 1200px) {
-  margin-left: 800px;
+  right: 0;
 }
 }
 

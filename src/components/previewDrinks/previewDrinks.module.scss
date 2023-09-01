@@ -80,21 +80,31 @@
       }
 
       .recipe {
-      display: flex;
-      justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 14px;
      
       }
       
       .drink_name {
-    //display: block;
-      margin-left: auto;
-      margin-left: auto;
+        margin-right: 0;
+        color: #F3F3F3;
+        font-family: Manrope;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
       }
 
       .open_recipe{
-      //display: block;
-       
+      
+      font-family: Manrope;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 18px;
       color: rgba(243, 243, 243, 0.50);
-      margin-left: auto;
-      margin-right: auto;
+      // margin-left: auto;
+      // margin-right: auto;
       }

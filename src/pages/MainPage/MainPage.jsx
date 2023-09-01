@@ -7,7 +7,7 @@ import { fetchRecipesPopular } from '../../redux/resipes/thunks';
 import '../MainPage/MainPage.module.scss';
 import ButtonNav from '../../components/buttonNav/buttonNav';
 import PopularRecipeList from '../../components/popularRecipe/popularRecipe'
-
+// import Skeleton from 'components/skeleton/skeleton';
 
 
 const MainPage = () => {
@@ -37,7 +37,7 @@ const MainPage = () => {
  <div className={css.btn_add}>
   <ButtonNav title="Add recipe" path={`/add`} ></ButtonNav>
   </div></div>
-  <div className={css.main_top}>
+  <div className={css.main_foto}>
    <img src= {fotoMain} alt="wineglass"/></div>
   <div className={css.wrap_main}>
     <ul > {category ?<PopularRecipeList category = {category}/> : null}
