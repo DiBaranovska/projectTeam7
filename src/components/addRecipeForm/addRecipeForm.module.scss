@@ -1,1 +1,257 @@
 @import '../../styles/main.scss';
+
+.addForm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  @media screen and (min-width: 768px) {
+    gap: 32px;
+    justify-content: start;
+  }
+  @media screen and (min-width: 1200px) {
+    gap: 32px;
+  }
+  @media screen and (min-width: 1440px) {
+    gap: 40px;
+  }
+}
+
+.recipePhoto {
+  position: relative;
+  width: 335px;
+  height: 335px;
+  background-color: rgba(22, 31, 55, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+  @media screen and (min-width: 768px) {
+    width: 320px;
+    height: 320px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 350px;
+    height: 350px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 400px;
+    height: 400px;
+  }
+}
+.recipeImg {
+  width: 335px;
+  height: 335px;
+  object-fit: cover;
+  @media screen and (min-width: 768px) {
+    width: 320px;
+    height: 320px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 350px;
+    height: 350px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+.addPhotoBtn {
+  position: absolute;
+  display: flex;
+  top: 167px;
+  left: 167px;
+  width: 50px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  transform: translate(-50%, -50%);
+  @media screen and (min-width: 768px) {
+    top: 160px;
+    left: 160px;
+  }
+  @media screen and (min-width: 1200px) {
+    top: 175px;
+    left: 175px;
+  }
+  @media screen and (min-width: 1440px) {
+    top: 200px;
+    left: 200px;
+  }
+}
+.addPhotoBtnText {
+  position: absolute;
+  top: 210px;
+  left: 167px;
+  transform: translate(-50%, -50%);
+  color: #f3f3f3;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  @media screen and (min-width: 768px) {
+    top: 203px;
+    left: 160px;
+  }
+  @media screen and (min-width: 1200px) {
+    top: 218px;
+    left: 175px;
+  }
+  @media screen and (min-width: 1440px) {
+    top: 243px;
+    left: 200px;
+  }
+}
+.changePhotoBtnText {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  bottom: 20px;
+  right: 0;
+  border-radius: 6px;
+  border: 0;
+  opacity: 0.75;
+  cursor: pointer;
+  transform: translate(-50%);
+}
+.file {
+  display: none;
+}
+
+.inputField {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  width: 335px;
+  @media screen and (min-width: 768px) {
+    width: 352px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 352px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 393px;
+  }
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.inputText {
+  background-color: transparent;
+  width: 100%;
+  height: 40px;
+  border: 0;
+  border-bottom: 1px solid rgba(243, 243, 243, 0.5);
+  outline: none;
+  color: #f3f3f3;
+  &::placeholder {
+    color: #f3f3f3;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.32px;
+  }
+  &:hover {
+    border-bottom: 1px solid rgba(243, 243, 243, 1);
+  }
+}
+.inputSelectText {
+  color: rgba(243, 243, 243, 0.5);
+}
+
+.inputSelect {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 154px;
+  height: 40px;
+  color: #f3f3f3;
+}
+.inputText {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.inputIngrField {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  width: 335px;
+  @media screen and (min-width: 768px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 540px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 540px;
+  }
+}
+
+.ingredientsTitle {
+  color: #f3f3f3;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.ingredientsCountField {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 114px;
+  height: 44px;
+  border-radius: 200px;
+  border: 1px solid rgba(243, 243, 243, 0.5);
+  opacity: 0.8;
+}
+.IngrFieldWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.fieldAddDeleteBtn {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  color: #f3f3f3;
+}
+.ingredientList {
+  width: 100%;
+}
+.ingredientItem {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.instructionsfield {
+  width: 480px;
+  height: 184px;
+  border-radius: 20px;
+  background-color: transparent;
+  border: 1px solid rgba(243, 243, 243, 0.5);
+  opacity: 0.8;
+  padding: 14px 24px;
+  color: #f3f3f3;
+}
+.submitBtn {
+  padding: 18px 44px;
+  border-radius: 42px;
+  background: #f3f3f3;
+
+  color: #161f37;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.12;
+  margin-top: 20px;
+}
