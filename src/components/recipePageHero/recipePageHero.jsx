@@ -24,7 +24,7 @@ const Field = ({ glass, drinkAlternate, drink, drinkThumb, recipeId }) => {
       // }
     } catch (error) {
       console.error('Failed to fetch favorite status:', error);
-  }}, [yourReceivedToken])
+  }}, [recipeId, yourReceivedToken])
 
   const handleFavoriteToggle = async () => {
   try {

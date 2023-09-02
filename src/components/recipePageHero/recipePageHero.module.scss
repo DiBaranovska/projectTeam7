@@ -122,11 +122,13 @@
   &__imageContainer {
     height: 400px;
     overflow: hidden;
+    border-radius: 8px;
   }
 
   &__img {
     width: 335px;
     height: auto;
+    border-radius: 8px;
 
     @media screen and (min-width: 768px) {
       width: 704px;

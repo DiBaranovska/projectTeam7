@@ -63,12 +63,12 @@
     overflow: hidden;
     display: flex;
     justify-content: center;
+    border-radius: 15px;
   }
 
   &__img{
     height: auto;
     border-radius: 15px;
-    
 
     @media screen and (min-width: 768px) {
       width: 704px;
