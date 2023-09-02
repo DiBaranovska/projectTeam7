@@ -3,6 +3,12 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 
+
+
+
+
+axios.defaults.baseURL = 'https://projectteam7-backend.onrender.com';
+
 const getLimitBasedOnScreenWidth = () => {
   const screenWidth = window.innerWidth;
   
@@ -15,8 +21,6 @@ const getLimitBasedOnScreenWidth = () => {
   }
 };
 
-
-axios.defaults.baseURL = 'https://projectteam7-backend.onrender.com';
 
 export const fetchRecipesPopular = createAsyncThunk("recipes/main",
 async (_, thunkAPI) => {
