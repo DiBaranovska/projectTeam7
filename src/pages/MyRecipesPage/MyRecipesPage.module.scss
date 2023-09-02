@@ -28,3 +28,24 @@
     padding-right: 100px;
   }
 }
+
+.wrap_main_empty {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 80px;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-bottom: 140px;
+    width: 1440px;
+  }
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    gap: 108px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
