@@ -12,36 +12,115 @@
   flex-direction: column;
   justify-content: center;
 
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: right;
-
-  background-image: url(../../img/edward-howell-unsplash-mob.jpg);
+  background: linear-gradient(
+      0deg,
+      rgba(10, 10, 17, 0.2) 0%,
+      rgba(10, 10, 17, 0.2) 100%
+    ),
+    linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
+    linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%),
+    url(../../img/edward-howell-unsplash-mob.jpg);
 
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url(../../img/edward-howell-unsplash-mob@2x.jpg);
+    background-image: linear-gradient(
+        0deg,
+        rgba(10, 10, 17, 0.2) 0%,
+        rgba(10, 10, 17, 0.2) 100%
+      ),
+      linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
+      linear-gradient(82deg, #0a0a11 11.89%, rgba(10, 10, 17, 0) 82.65%),
+      url(../../img/edward-howell-unsplash-mob@2x.jpg);
   }
 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+
   @media screen and (min-width: 768px) {
-    background-image: url(../../img/edward-howell-unsplash-tablet.jpg);
+    background: linear-gradient(
+        0deg,
+        rgba(10, 10, 17, 0.2) 0%,
+        rgba(10, 10, 17, 0.2) 100%
+      ),
+      linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
+      linear-gradient(78deg, #0a0a11 14.73%, rgba(10, 10, 17, 0) 52.34%),
+      url(../../img/edward-howell-unsplash-tablet.jpg);
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url(../../img/edward-howell-unsplash-tablet@2x.jpg);
+      background: linear-gradient(
+          0deg,
+          rgba(10, 10, 17, 0.2) 0%,
+          rgba(10, 10, 17, 0.2) 100%
+        ),
+        linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
+        linear-gradient(78deg, #0a0a11 14.73%, rgba(10, 10, 17, 0) 52.34%),
+        url(../../img/edward-howell-unsplash-tablet@2x.jpg);
     }
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
   }
 
   @media screen and (min-width: 1440px) {
-    background-image: url(../../img/edward-howell-unsplash-dt.jpg);
+    background: linear-gradient(
+        0deg,
+        rgba(10, 10, 17, 0.2) 0%,
+        rgba(10, 10, 17, 0.2) 100%
+      ),
+      linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
+      linear-gradient(85deg, #060609 5.92%, rgba(10, 10, 17, 0) 51.07%),
+      url(../../img/edward-howell-unsplash-dt.jpg);
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url(../../img/edward-howell-unsplash-dt@2x.jpg);
+      background-image: linear-gradient(
+          0deg,
+          rgba(10, 10, 17, 0.2) 0%,
+          rgba(10, 10, 17, 0.2) 100%
+        ),
+        linear-gradient(1deg, #0a0a11 -0.56%, rgba(10, 10, 17, 0) 21.93%),
+        linear-gradient(85deg, #060609 5.92%, rgba(10, 10, 17, 0) 51.07%),
+        url(../../img/edward-howell-unsplash-dt@2x.jpg);
     }
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+}
+
+.example {
+  width: 520px;
+  height: 550px;
+  flex-shrink: 0;
+  border-radius: 550px;
+  background: rgba(64, 112, 205, 0.5);
+  filter: blur(104.8543701171875px);
+
+  position: absolute;
+  top: 20px;
+  left: -399px;
+  z-index: -999;
+
+  @media screen and (min-width: 768px) {
+    border-radius: 829.931px;
+    width: 784px;
+    height: 830px;
+    top: -50px;
+    left: -665px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    border-radius: 849px;
+    height: 849px;
+    top: -231;
+    left: -494px;
   }
 }
 
