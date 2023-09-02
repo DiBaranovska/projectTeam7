@@ -24,6 +24,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  z-index: -2;
   @media screen and (min-width: 768px) {
     width: 465px;
     height: 500px;
