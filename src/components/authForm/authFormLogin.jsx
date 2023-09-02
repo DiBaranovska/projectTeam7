@@ -43,7 +43,6 @@ export const LoginForm = () => {
         dispatch(login(values))
           .unwrap()
           .catch(error => {
-            console.log(error);
             if (error.message === 'Email or password is wrong') {
               toast.error('Email or password is wrong');
             } else {
@@ -64,7 +63,6 @@ export const LoginForm = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.email}
-              // autoComplete="off"
               className={`${css.input} ${
                 formik.errors.email && formik.touched.email
                   ? css.errorInput

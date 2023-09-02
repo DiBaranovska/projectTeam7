@@ -1,6 +1,7 @@
 import React from 'react';
 import { RegisterForm } from '../../components/authForm/authFormRegister';
 import { useNavigate } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import css from './SignupPage.module.scss';
 
 const SignupPage = () => {
@@ -20,6 +21,7 @@ const SignupPage = () => {
       <div className={css.example4}></div>
       <div className={css.box_text}>
         <h1 className={css.title}>Registration</h1>
+        <Toaster />
         <RegisterForm />
         <p className={css.text}>
           <span className={css.link} onClick={handleSignInClick}>
