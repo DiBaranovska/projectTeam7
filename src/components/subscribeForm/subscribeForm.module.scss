@@ -53,7 +53,6 @@
   flex-shrink: 0;
   border-radius: 200px;
   border: 1px solid rgb(243, 243, 243, 0.2);
-  // opacity: 0.2;
   color: #f3f3f3;
   background-color: inherit;
   text-align: center;
@@ -66,4 +65,16 @@
     font-size: 17px;
     line-height: 156%; 
   }
+}
+
+.subscribeButton:hover,
+.subscribeButton:focus {
+  background: #161f37;
+  color: #f3f3f3;
+  opacity: 1;
+  scale: 1.1;
+  transition: scale 400ms, opacity 400ms, transform 400ms ease;
+}
+.message {
+  padding-top: 15px;
 }
