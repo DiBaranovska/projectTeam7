@@ -66,9 +66,9 @@
   align-items: center;
   border-radius: 6px;
   transform: translate(-50%, -50%);
-  @media screen and (min-width: 768px) {
-    top: 160px;
-    left: 160px;
+  @media screen and (min-width: 1200px) {
+    width: 350px;
+    height: 350px;
   }
   @media screen and (min-width: 1200px) {
     top: 175px;
@@ -144,6 +144,7 @@
 
 .inputText {
   background-color: transparent;
+  font-size: 16px;
   width: 100%;
   height: 40px;
   border: 0;
@@ -154,7 +155,7 @@
     color: #f3f3f3;
     font-size: 16px;
     font-weight: 400;
-    letter-spacing: -0.32px;
+    letter-spacing: -0.02px;
   }
   &:hover {
     border-bottom: 1px solid rgba(243, 243, 243, 1);
@@ -230,12 +231,32 @@
   width: 100%;
 }
 .ingredientItem {
-  width: 100%;
+  // width: 100%;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+   
+  @media screen and (min-width: 768px) and (max-width: 1200px){
+    justify-content: space-between;
+  }
+
+  @media screen and (min-width: 768px) {
+    gap: 40px;
+  }
 }
+.selectWrapper{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  @media screen and (min-width: 768px) {
+    gap: 14px;
+  }
+}
+
 .instructionsfield {
-  width: 480px;
+  width: 100%;
   height: 184px;
   border-radius: 20px;
   background-color: transparent;
@@ -243,6 +264,10 @@
   opacity: 0.8;
   padding: 14px 24px;
   color: #f3f3f3;
+
+  @media screen and (min-width: 768px) {
+    width: 480px;
+  }
 }
 .submitBtn {
   padding: 18px 44px;
@@ -254,4 +279,11 @@
   font-weight: 600;
   line-height: 1.12;
   margin-top: 20px;
+  margin-bottom: 80px;
+  @media screen and (min-width: 768px) {
+    gap: 14px;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 80px;
+  }
 }
