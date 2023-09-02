@@ -1,0 +1,76 @@
+@import '../../styles/main.scss';
+
+.follow_title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.33;
+}
+
+.recipes_title {
+  margin-top: 80px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.33;
+}
+
+.Card {
+  display: flex;
+  flex-direction: column;
+  width: 335px;
+  margin-top: 28px;
+  padding: 0px;
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    margin-top: 40px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 313px;
+    margin-top: 40px;
+  }
+}
+
+.card_container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  margin-bottom: 28px;
+
+  @media screen and (min-width: 768px) {
+    align-items: center;
+
+    /* outline: 2px solid rgb(255, 225, 0); */
+    &:last-child() {
+      margin-bottom: 0px;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    /* outline: 2px solid rgb(255, 225, 0); */
+  }
+}
+.container_img {
+  display: flex;
+  border-radius: 8px;
+  margin-right: 14px;
+  overflow: hidden;
+  max-width: 90px;
+  max-height: 90px;
+}
+
+.recipe_name {
+  color: #f3f3f3;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.description {
+  display: block;
+  margin-top: 8px;
+  color: rgba(243, 243, 243, 0.5);
+  font-size: 14px;
+  font-weight: 400;
+  overflow: hidden;
+  height: 63px;
+  line-height: 1.43;
+}

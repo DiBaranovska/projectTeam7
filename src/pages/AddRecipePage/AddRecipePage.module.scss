@@ -1,1 +1,36 @@
 @import '../../styles/main.scss';
+
+.section {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 80px;
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding-top: 140px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 100%;
+    padding-top: 160px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 1200px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.title {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 1.07;
+  margin-bottom: 60px;
+}

@@ -5,3 +5,5 @@ export const selectIsLoggedIn = state => state.user.isLoggedIn;
 export const selectIsRefreshing = state => state.user.isRefreshing;
 
 export const selectedRecipes = state => state.category.recipes;
+
+export const selectedPopularRecipes = state => state.popular.recipes;

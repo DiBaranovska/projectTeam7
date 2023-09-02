@@ -9,6 +9,7 @@ import filterReducer from './search/filterSlice';
 import { persistReducer } from 'redux-persist';
 
 import storage from 'redux-persist/lib/storage';
+import { popularReducer } from './addRecipes/popularSlice';
 
 const persistConfig = {
   key: 'token',
@@ -35,4 +36,5 @@ export const reducer = combineReducers({
   favoriteRecipes: favoritePersistedReduser,
   cocktail: cocktailReducer,
   filter: filterReducer,
+  popular: popularReducer,
 });
