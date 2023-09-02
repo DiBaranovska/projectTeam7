@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
 import css from './addRecipeForm.module.scss';
 import { useDispatch } from "react-redux";
 import { addMyRecipes} from '../../api/ownRecipeApi'
-// import { addMyRecipe } from "../../redux/myRecipes/myRecipesSlice";
 import { useSelector } from "react-redux";
 import IngridientItem from './ingridientItem';
 import { toast } from 'react-hot-toast';
@@ -25,6 +25,7 @@ import {
 const AddRecipeForm = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
+  const navigate = useNavigate();
   const ingredientsList = useSelector(state => state.cocktail.ingredientsList);
   const categoriesList = useSelector(state => state.cocktail.categoriesList);
   const glassesList = useSelector(state => state.cocktail.glassesList);
@@ -35,6 +36,7 @@ const AddRecipeForm = () => {
     '1 oz'
   ]
   useEffect(() => {
+    console.log('useEffect');
     if (token) {
       fetchIngredientsList(token)
         .then(ingredients => {
@@ -57,30 +59,39 @@ const AddRecipeForm = () => {
         })
         .catch(error => console.error('Error fetching glasses:', error));
     }
-  }, [dispatch, token]);
+}, [dispatch, token]);
 
 let initialIngridients = [
-  {title: '',
-    measure: measureList[0],
-  id:1},
-  {title: '',
-    measure: measureList[0],
-  id:2},
-  {title: '',
-    measure: measureList[0],
-  id:3}
+  { id:1,
+    title: ingredientsList[0],
+    measure: measureList[0]
+ },
+  {id:2,
+    title: ingredientsList[0],
+    measure: measureList[0]
+  },
+  {  id:3,
+    title: ingredientsList[0],
+    measure: measureList[0]
+}
 ]
   const [drink, setDrink] = useState('');
   const [drinkAlternate, setDrinkAlternate] = useState('');
-  const [category, setCategory] = useState(categoriesList[0]);
-  const [glass, setGlass] = useState(glassesList[0]);
+  const [category, setCategory] = useState('');
+  const [glass, setGlass] = useState('');
   const [instructions, setInstructions] = useState('');
   const [drinkThumb, setDrinkThumb] = useState('');
-  const [ingredients, setIngredients] = useState(initialIngridients);
+  const [ingredients, setIngredients] = useState([]);
   const [count, setCount] = useState(3)
 
   const formRef = useRef();
-  const fileRef = useRef();
+  const fileRef = useRef(); 
+
+  const setInitialvalue = () => {
+    if (!ingredients.length && initialIngridients[0].title)setIngredients(initialIngridients)
+     }
+
+  setInitialvalue();
 
   const handleChange = (event) => {
     const { name, value, files, type } = event.currentTarget;
@@ -110,21 +121,23 @@ let initialIngridients = [
 
   const handleAddRecipe = (event) => {
     event.preventDefault();
+    const data = {
+      drink,
+      drinkAlternate,
+      category: category? category : categoriesList[0] ,
+      glass: glass? glass : glassesList[0],
+      instructions,
+      ingredients: ingredients.map(({title, measure})=>{return{title, measure}})
+    }
+     
    const formdata = new FormData();
-formdata.append("drink", drink);
-formdata.append("drinkAlternate", drinkAlternate);
-formdata.append("category", category);
-formdata.append("glass", glass);
-formdata.append("instructions", instructions);
+formdata.append("data", JSON.stringify(data));
 formdata.append("drinkThumb", drinkThumb);
-formdata.append("ingredients[0][title]", "Sherry");
-formdata.append("ingredients[0][measure]", "10 ml");
-formdata.append("ingredients[1][title]", "Egg");
-formdata.append("ingredients[1][measure]", "1 cl");
 
-    dispatch(addMyRecipes(formdata)).unwrap().then(() => {
-      reset()
-      toast.success('Recipe is added.')
+    dispatch(addMyRecipes(formdata)).unwrap().then(({_id}) => {
+      reset();
+      toast.success('Recipe is added.');
+      navigate(`/recipe/${_id}`, { replace: true });
     }).catch((error) => {
       if (error.message.includes('401')) {
         dispatch(logout());
@@ -138,48 +151,52 @@ formdata.append("ingredients[1][measure]", "1 cl");
   const reset = () => {
     setDrink('');
     setDrinkAlternate('');
-    setCategory('');
-    setGlass('');
+    setCategory(categoriesList[0]);
+    setGlass(glassesList[0]);
     setInstructions('');
     setDrinkThumb('');
-    setIngredients('')
+    setIngredients(initialIngridients)
+    setCount(3)
   }
   const handlePicker = () => {
     fileRef.current.click();
   };
 
   const handleChangeIngredient =(item) => {
-    console.log('handleChangeIngredient');
-    console.log('item', item);
     const ingrs = [...ingredients]
     const index = ingrs.findIndex(
       ingrs => ingrs.id === item.id);
     ingrs.splice(index, 1, item);
     setIngredients(ingrs);
 
-    console.log('ingredients', ingredients);
-
     }
   
   const handleDeleteIngredient=(id) => {
-    console.log('handleDeleteIngredient');
-    console.log('id', id);
-
+if (count===1){
+  toast.error('At least 1 ingredient should be in the recipe');
+  return
+}
     const ingrs = [...ingredients]
     const index = ingrs.findIndex(
       ingrs => ingrs.id === id);
     ingrs.splice(index, 1);
     setIngredients(ingrs);
     console.log('ingredients', ingredients);
-
+    setCount(count - 1);
   }
 
   const increaseCount = () =>
   {
+    if (count===10){
+      toast.error('Maximum 10 ingredients can be added to the recipe');
+      return
+    }
     setCount(count + 1)
-   const newItem =  {title: '',
+   const newItem =  {
+      title: ingredientsList[0],
       measure: measureList[0],
-    id:nanoid()};
+      id:nanoid()
+    };
     const ingrs = [...ingredients]
     ingrs.splice(0, 0, newItem);
     setIngredients(ingrs);
@@ -187,6 +204,10 @@ formdata.append("ingredients[1][measure]", "1 cl");
 
   const reduceCount = () =>
   {
+    if (count===1){
+      toast.error('At least 1 ingredient should be in the recipe');
+      return
+    }
     setCount(count - 1);
     const ingrs = [...ingredients]
     ingrs.splice(0, 1);
