@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/projectTeam7/static/css/main.63b42e60.css",
-    "main.js": "/projectTeam7/static/js/main.94554382.js",
-    "static/css/78.101c74d7.chunk.css": "/projectTeam7/static/css/78.101c74d7.chunk.css",
-    "static/js/78.a0b971be.chunk.js": "/projectTeam7/static/js/78.a0b971be.chunk.js",
+    "main.js": "/projectTeam7/static/js/main.bb30cdc7.js",
+    "static/css/78.46737f32.chunk.css": "/projectTeam7/static/css/78.46737f32.chunk.css",
+    "static/js/78.84479d18.chunk.js": "/projectTeam7/static/js/78.84479d18.chunk.js",
     "static/css/716.a5de7b35.chunk.css": "/projectTeam7/static/css/716.a5de7b35.chunk.css",
     "static/js/716.4e724ec3.chunk.js": "/projectTeam7/static/js/716.4e724ec3.chunk.js",
     "static/css/209.34cbacd5.chunk.css": "/projectTeam7/static/css/209.34cbacd5.chunk.css",
@@ -39,9 +39,9 @@
     "static/media/eye.svg": "/projectTeam7/static/media/eye.af53cb7a8e89aa6414b0237df0fdc5fa.svg",
     "static/media/close.svg": "/projectTeam7/static/media/close.358abb3c7267c7a7485d2f239b2827e0.svg",
     "main.63b42e60.css.map": "/projectTeam7/static/css/main.63b42e60.css.map",
-    "main.94554382.js.map": "/projectTeam7/static/js/main.94554382.js.map",
-    "78.101c74d7.chunk.css.map": "/projectTeam7/static/css/78.101c74d7.chunk.css.map",
-    "78.a0b971be.chunk.js.map": "/projectTeam7/static/js/78.a0b971be.chunk.js.map",
+    "main.bb30cdc7.js.map": "/projectTeam7/static/js/main.bb30cdc7.js.map",
+    "78.46737f32.chunk.css.map": "/projectTeam7/static/css/78.46737f32.chunk.css.map",
+    "78.84479d18.chunk.js.map": "/projectTeam7/static/js/78.84479d18.chunk.js.map",
     "716.a5de7b35.chunk.css.map": "/projectTeam7/static/css/716.a5de7b35.chunk.css.map",
     "716.4e724ec3.chunk.js.map": "/projectTeam7/static/js/716.4e724ec3.chunk.js.map",
     "209.34cbacd5.chunk.css.map": "/projectTeam7/static/css/209.34cbacd5.chunk.css.map",
@@ -60,6 +60,6 @@
   },
   "entrypoints": [
     "static/css/main.63b42e60.css",
-    "static/js/main.94554382.js"
+    "static/js/main.bb30cdc7.js"
   ]
 }
