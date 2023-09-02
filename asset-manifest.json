@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/projectTeam7/static/css/main.d5d7f998.css",
-    "main.js": "/projectTeam7/static/js/main.83ab0f7f.js",
-    "static/css/78.46737f32.chunk.css": "/projectTeam7/static/css/78.46737f32.chunk.css",
-    "static/js/78.84479d18.chunk.js": "/projectTeam7/static/js/78.84479d18.chunk.js",
+    "main.js": "/projectTeam7/static/js/main.cdc3ee44.js",
+    "static/css/475.202d384b.chunk.css": "/projectTeam7/static/css/475.202d384b.chunk.css",
+    "static/js/475.a7a7a0d3.chunk.js": "/projectTeam7/static/js/475.a7a7a0d3.chunk.js",
     "static/css/716.a5de7b35.chunk.css": "/projectTeam7/static/css/716.a5de7b35.chunk.css",
     "static/js/716.4e724ec3.chunk.js": "/projectTeam7/static/js/716.4e724ec3.chunk.js",
     "static/css/209.34cbacd5.chunk.css": "/projectTeam7/static/css/209.34cbacd5.chunk.css",
@@ -19,10 +19,15 @@
     "static/js/48.1537f73f.chunk.js": "/projectTeam7/static/js/48.1537f73f.chunk.js",
     "static/js/853.5ddfaa36.chunk.js": "/projectTeam7/static/js/853.5ddfaa36.chunk.js",
     "static/js/763.c0bdb356.chunk.js": "/projectTeam7/static/js/763.c0bdb356.chunk.js",
+    "static/media/wineglass_lg@2x.jpg": "/projectTeam7/static/media/wineglass_lg@2x.63003a04f6475f2cf0dc.jpg",
+    "static/media/wineglass_md@2x.jpg": "/projectTeam7/static/media/wineglass_md@2x.83f12744fa02ac5d606d.jpg",
+    "static/media/wineglass_sm@2x.jpg": "/projectTeam7/static/media/wineglass_sm@2x.b11c4dcae97817213cf6.jpg",
     "static/media/recipePreparation.jpg": "/projectTeam7/static/media/recipePreparation.40381256e2b33149bbd3.jpg",
-    "static/media/main-descktop.jpeg": "/projectTeam7/static/media/main-descktop.49592c5a5b5f1f82cb45.jpeg",
+    "static/media/wineglass_lg@1x.jpg": "/projectTeam7/static/media/wineglass_lg@1x.9e00cdce86c0e11b3c82.jpg",
+    "static/media/wineglass_md@1x.jpg": "/projectTeam7/static/media/wineglass_md@1x.7a4059ed4543ca35b60b.jpg",
     "static/media/edward-howell-unsplash-dt@2x.jpg": "/projectTeam7/static/media/edward-howell-unsplash-dt@2x.d2be24cfba904408234e.jpg",
     "static/media/recipeCocteile.jpg": "/projectTeam7/static/media/recipeCocteile.6b53d13bfa3bde5a7824.jpg",
+    "static/media/wineglass_sm@1x.jpg": "/projectTeam7/static/media/wineglass_sm@1x.3ce04366aec13cd43898.jpg",
     "static/media/edward-howell-unsplash-tablet@2x.jpg": "/projectTeam7/static/media/edward-howell-unsplash-tablet@2x.e6b711c44e65fdca4a83.jpg",
     "static/media/edward-howell-unsplash-dt.jpg": "/projectTeam7/static/media/edward-howell-unsplash-dt.c64720613f4f4868119b.jpg",
     "static/media/edward-howell-unsplash-tablet.jpg": "/projectTeam7/static/media/edward-howell-unsplash-tablet.c512ed8494b2886d1841.jpg",
@@ -41,9 +46,9 @@
     "static/media/close.svg": "/projectTeam7/static/media/close.358abb3c7267c7a7485d2f239b2827e0.svg",
     "static/media/Error.svg": "/projectTeam7/static/media/Error.f21b8995a363f83a2b20452fbd4b8965.svg",
     "main.d5d7f998.css.map": "/projectTeam7/static/css/main.d5d7f998.css.map",
-    "main.83ab0f7f.js.map": "/projectTeam7/static/js/main.83ab0f7f.js.map",
-    "78.46737f32.chunk.css.map": "/projectTeam7/static/css/78.46737f32.chunk.css.map",
-    "78.84479d18.chunk.js.map": "/projectTeam7/static/js/78.84479d18.chunk.js.map",
+    "main.cdc3ee44.js.map": "/projectTeam7/static/js/main.cdc3ee44.js.map",
+    "475.202d384b.chunk.css.map": "/projectTeam7/static/css/475.202d384b.chunk.css.map",
+    "475.a7a7a0d3.chunk.js.map": "/projectTeam7/static/js/475.a7a7a0d3.chunk.js.map",
     "716.a5de7b35.chunk.css.map": "/projectTeam7/static/css/716.a5de7b35.chunk.css.map",
     "716.4e724ec3.chunk.js.map": "/projectTeam7/static/js/716.4e724ec3.chunk.js.map",
     "209.34cbacd5.chunk.css.map": "/projectTeam7/static/css/209.34cbacd5.chunk.css.map",
@@ -62,6 +67,6 @@
   },
   "entrypoints": [
     "static/css/main.d5d7f998.css",
-    "static/js/main.83ab0f7f.js"
+    "static/js/main.cdc3ee44.js"
   ]
 }
