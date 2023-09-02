@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { register } from '../../redux/user/thunk';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import { toast } from 'react-hot-toast';
+
 import showPasswordIcon from '../../img/loginIcon/eye-off.svg';
 import hidePasswordIcon from '../../img/loginIcon/eye.svg';
 import errorImg from '../../img/loginIcon/Error.svg';
@@ -39,7 +41,15 @@ export const RegisterForm = () => {
       }}
       validationSchema={schema}
       onSubmit={values => {
-        dispatch(register(values));
+        dispatch(register(values))
+          .unwrap()
+          .catch(error => {
+            if (error.message === 'Email in use') {
+              toast.error('Email in use');
+            } else {
+              toast.error('Some error happened :(');
+            }
+          });
       }}
     >
       {formik => (

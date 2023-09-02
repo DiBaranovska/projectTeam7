@@ -20,7 +20,6 @@ const WellcomPage = () => {
   return (
     <>
       <div className={css.box}>
-        {/* <div className={css.box_image}></div> */}
         <div className={css.example}></div>
         <div className={css.example2}></div>
         <div className={css.example3}></div>

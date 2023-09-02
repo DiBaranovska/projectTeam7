@@ -36,6 +36,8 @@
   &:focus,
   &:hover {
     border: 1px solid var(--secondary-text-color);
+    outline: 0;
+    outline-offset: 0;
   }
 
   &:hover::placeholder {
