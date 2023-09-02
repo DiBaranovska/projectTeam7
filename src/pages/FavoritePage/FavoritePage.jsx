@@ -36,7 +36,9 @@ const FavoritePage = () => {
       ) : (
         <div className={styles.wrap_main_empty}>
           <MainPageTitle title="Favorites"></MainPageTitle>
-          <NotFound></NotFound>
+          <NotFound
+            text={"You haven't added any favorite cocktails yet"}
+          ></NotFound>
         </div>
       )}
     </div>

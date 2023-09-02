@@ -24,7 +24,7 @@ const MyRecipesPage = () => {
       ) : (
         <div className={styles.wrap_main_empty}>
           <MainPageTitle title="My recipes"></MainPageTitle>
-          <NotFound></NotFound>
+          <NotFound text={"You haven't added any cocktails yet"}></NotFound>
         </div>
       )}
     </div>
