@@ -1,26 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import css from './recipePageHero.module.scss';
-import { addToFavorites, removeFromFavorites, checkFavorite } from '../../api/resipesApi.jsx';
+import { addToFavorites, removeFromFavorites } from '../../api/resipesApi.jsx';
 import img from '../../img/recipeCocteile.jpg'
 
-
-const Field = ({ glass, drinkAlternate, category, drinkThumb, recipeId }) => {
+const Field = ({ glass, drinkAlternate, drink, drinkThumb, recipeId }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const yourReceivedToken = useSelector(state => state.user.token);
 
   useEffect(() => {
-    const fetchFavoriteStatus = async () => {
-      try {
-        const isRecipeFavorite = await checkFavorite(recipeId, yourReceivedToken);
-        setIsFavorite(isRecipeFavorite);
-      } catch (error) {
-        console.error('Failed to fetch favorite status:', error);
-      }
-    };
+    try {
+      const savedData = localStorage.getItem('favoriteRecipes');
+      const favoriteRecipes = JSON.parse(savedData);
+      const recipesArray = favoriteRecipes.recipes;
+      const desiredRecipeId = recipeId;
+      const isRecipeIdInFavorites = recipesArray.some(recipe => recipe._id === desiredRecipeId);
+      setIsFavorite(isRecipeIdInFavorites);
 
-    fetchFavoriteStatus();
-  }, [recipeId, yourReceivedToken]);
+      // if (isRecipeIdInFavorites) {
+      //   console.log(`Рецепт з id ${desiredRecipeId} є в списку обраних.`);
+      // } else {
+      //   console.log(`Рецепт з id ${desiredRecipeId} не знайдено в списку обраних.`);
+      // }
+    } catch (error) {
+      console.error('Failed to fetch favorite status:', error);
+  }}, [recipeId, yourReceivedToken])
 
   const handleFavoriteToggle = async () => {
   try {
@@ -40,7 +44,7 @@ const Field = ({ glass, drinkAlternate, category, drinkThumb, recipeId }) => {
     <div className={css.field}>
       <div>
         <p className={css.field__glass}>{glass}</p>
-        <h1 className={css.field__category}>{category}</h1>
+        <h1 className={css.field__drink}>{drink}</h1>
         <p className={css.field__description}>{drinkAlternate}</p>
         <button className={css.field__button} onClick={handleFavoriteToggle}>
           <span className={css.field__button_text}>
