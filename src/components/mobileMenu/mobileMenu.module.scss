@@ -1,0 +1,56 @@
+.mobileMenu {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding-top: 100px;
+  padding-bottom: 15px;
+  background-color: var(--main-bg-color);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 400ms;
+
+  &:global(.active) {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  @media screen and (min-width: 1200px) {
+    display: none;
+  }
+}
+
+.lightLeft {
+  position: absolute;
+  top: 0;
+  left: -450px;
+  width: 520px;
+  height: 550px;
+  border-radius: 50%;
+  background: rgba(64, 112, 205, 0.5);
+  filter: blur(104.8543701171875px);
+}
+
+.lightCenter {
+  position: absolute;
+  top: 84px;
+  left: 42px;
+  width: 257px;
+  height: 247px;
+  border-radius: 50%;
+  background: rgba(188, 230, 210, 0.4);
+  filter: blur(104.8543701171875px);
+}
+
+.lightRight {
+  position: absolute;
+  bottom: -250px;
+  right: -450px;
+  width: 549px;
+  height: 543px;
+  border-radius: 50%;
+  background: rgba(64, 112, 205, 0.5);
+  filter: blur(104.8543701171875px);
+}

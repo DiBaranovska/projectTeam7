@@ -2,6 +2,7 @@
 
 .wrapper {
   position: relative;
+  z-index: 1;
   margin: 0 auto 39px;
   display: flex;
   justify-content: center;
@@ -28,11 +29,17 @@
   width: 28px;
   height: 28px;
   cursor: pointer;
+  transition: filter 400ms;
 
   @media screen and (min-width: 768px) {
     bottom: -16px;
     width: 32px;
     height: 32px;
+  }
+
+  &:hover,
+  &:focus {
+    filter: contrast(150%);
   }
 }
 
@@ -62,6 +69,8 @@
 }
 
 .button {
+  position: relative;
+  z-index: 1;
   padding: 18px 90px;
   border: none;
   border-radius: 42px;
@@ -74,9 +83,20 @@
   cursor: pointer;
   color: var(--secondary-bg-color);
   background-color: var(--main-button-color);
+  transition: background-color 400ms, color 400ms, border-color 400ms;
+
+  &:hover,
+  &:focus {
+    padding: 17px 89px;
+    border: 1px solid var(--select-bg-color);
+    background-color: transparent;
+    color: var(--main-text-color);
+  }
 
   &:disabled {
     cursor: not-allowed;
+    background-color: #434d67;
+    color: rgba(243, 243, 243, 0.2);
   }
 
   @media screen and (min-width: 768px) {
@@ -87,6 +107,7 @@
 
 .label {
   position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   margin-bottom: 18px;

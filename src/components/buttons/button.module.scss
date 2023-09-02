@@ -1,4 +1,6 @@
 .btn {
+  position: relative;
+  z-index: 1;
   padding: 16px 40px;
   border: none;
   border-radius: 42px;
@@ -10,13 +12,29 @@
   background-color: transparent;
   cursor: pointer;
   width: 100%;
+  transition: background-color 400ms, color 400ms, border-color 400ms;
 
   &:global(.light) {
     color: var(--secondary-bg-color);
     background-color: var(--main-button-color);
+
+    &:hover,
+    &:focus {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border: 1px solid var(--select-bg-color);
+      background-color: transparent;
+      color: var(--main-text-color);
+    }
   }
+
   &:global(.dark) {
     background-color: var(--disablet-btn-color);
+
+    &:hover,
+    &:focus {
+      background-color: var(--accent-btn-color);
+    }
   }
   &:global(.border) {
     border: 1px solid var(--select-bg-color);

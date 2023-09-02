@@ -11,6 +11,15 @@
   color: var(--secondary-bg-color);
   background-color: var(--main-button-color);
   cursor: pointer;
+  transition: background-color 400ms, color 400ms, border-color 400ms;
+
+  &:hover,
+  &:focus {
+    padding: 11px 44px;
+    border: 1px solid var(--select-bg-color);
+    background-color: transparent;
+    color: var(--main-text-color);
+  }
 }
 
 .title {
