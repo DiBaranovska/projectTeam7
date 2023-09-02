@@ -15,8 +15,12 @@ const Modal = ({ children, close, modalRef, closeDropDown }) => {
 
   useEffect(() => {
     document.body.addEventListener('keydown', handleClose);
+    document.body.classList.add('noScroll');
 
-    return () => document.body.removeEventListener('keydown', handleClose);
+    return () => {
+      document.body.removeEventListener('keydown', handleClose);
+      document.body.classList.remove('noScroll');
+    };
   });
 
   return createPortal(
