@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/projectTeam7/static/css/main.63b42e60.css",
-    "main.js": "/projectTeam7/static/js/main.bb30cdc7.js",
+    "main.css": "/projectTeam7/static/css/main.d5d7f998.css",
+    "main.js": "/projectTeam7/static/js/main.8f0fd3b3.js",
     "static/css/78.46737f32.chunk.css": "/projectTeam7/static/css/78.46737f32.chunk.css",
     "static/js/78.84479d18.chunk.js": "/projectTeam7/static/js/78.84479d18.chunk.js",
     "static/css/716.a5de7b35.chunk.css": "/projectTeam7/static/css/716.a5de7b35.chunk.css",
@@ -30,6 +30,7 @@
     "static/media/chevron-down.svg": "/projectTeam7/static/media/chevron-down.4b1b98cafdbadefeb1b5.svg",
     "static/media/instagram.svg": "/projectTeam7/static/media/instagram.6fef0673d1a9fff573ea50115894c979.svg",
     "index.html": "/projectTeam7/index.html",
+    "static/media/Done.svg": "/projectTeam7/static/media/Done.b1e00188658232d9035e61df5b631608.svg",
     "static/media/edit.svg": "/projectTeam7/static/media/edit.e2b5fcf3afa262b55cb3c1131e30446d.svg",
     "static/media/youtube.svg": "/projectTeam7/static/media/youtube.6e9e54d1c03d1f86bdd798ed67ec2578.svg",
     "static/media/burger-menu.svg": "/projectTeam7/static/media/burger-menu.6788b0dfc159e2512836818f90092ec3.svg",
@@ -38,8 +39,9 @@
     "static/media/logo.svg": "/projectTeam7/static/media/logo.18e08a8f2ccf8125e562b394a60715d2.svg",
     "static/media/eye.svg": "/projectTeam7/static/media/eye.af53cb7a8e89aa6414b0237df0fdc5fa.svg",
     "static/media/close.svg": "/projectTeam7/static/media/close.358abb3c7267c7a7485d2f239b2827e0.svg",
-    "main.63b42e60.css.map": "/projectTeam7/static/css/main.63b42e60.css.map",
-    "main.bb30cdc7.js.map": "/projectTeam7/static/js/main.bb30cdc7.js.map",
+    "static/media/Error.svg": "/projectTeam7/static/media/Error.f21b8995a363f83a2b20452fbd4b8965.svg",
+    "main.d5d7f998.css.map": "/projectTeam7/static/css/main.d5d7f998.css.map",
+    "main.8f0fd3b3.js.map": "/projectTeam7/static/js/main.8f0fd3b3.js.map",
     "78.46737f32.chunk.css.map": "/projectTeam7/static/css/78.46737f32.chunk.css.map",
     "78.84479d18.chunk.js.map": "/projectTeam7/static/js/78.84479d18.chunk.js.map",
     "716.a5de7b35.chunk.css.map": "/projectTeam7/static/css/716.a5de7b35.chunk.css.map",
@@ -59,7 +61,7 @@
     "763.c0bdb356.chunk.js.map": "/projectTeam7/static/js/763.c0bdb356.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.63b42e60.css",
-    "static/js/main.bb30cdc7.js"
+    "static/css/main.d5d7f998.css",
+    "static/js/main.8f0fd3b3.js"
   ]
 }
