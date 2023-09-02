@@ -30,7 +30,7 @@ const schema = yup.object().shape({
 export const LoginForm = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage] = useState('');
 
   return (
     <Formik
