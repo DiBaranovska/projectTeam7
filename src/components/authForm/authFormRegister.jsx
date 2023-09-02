@@ -3,8 +3,10 @@ import { useDispatch } from 'react-redux';
 import { register } from '../../redux/user/thunk';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import showPasswordIcon from '../../img/eye-off.svg';
-import hidePasswordIcon from '../../img/eye.svg';
+import showPasswordIcon from '../../img/loginIcon/eye-off.svg';
+import hidePasswordIcon from '../../img/loginIcon/eye.svg';
+import errorImg from '../../img/loginIcon/Error.svg';
+import doneImg from '../../img/loginIcon/Done.svg';
 import css from './authForm.module.scss';
 
 const schema = yup.object().shape({
@@ -42,7 +44,7 @@ export const RegisterForm = () => {
     >
       {formik => (
         <form onSubmit={formik.handleSubmit}>
-          <div>
+          <div className={css.passwordContainer}>
             <Field
               id="name"
               name="name"
@@ -50,25 +52,50 @@ export const RegisterForm = () => {
               onBlur={formik.handleBlur}
               placeholder="Name"
               className={`${css.input} ${
-                formik.errors.name && formik.touched.name ? css.errorInput : ''
-              }`}
-            />
-            <ErrorMessage name="name" component="div" className={css.error} />
-          </div>
-          <div>
-            <Field
-              id="email"
-              name="email"
-              type="email"
-              onBlur={formik.handleBlur}
-              placeholder="Email"
-              className={`${css.input} ${
-                formik.errors.email && formik.touched.email
+                formik.errors.name && formik.touched.name
                   ? css.errorInput
+                  : formik.touched.name
+                  ? css.сorrectInput
                   : ''
               }`}
             />
+            {formik.errors.name && formik.touched.name && (
+              <img src={errorImg} alt="Error" className={css.errorImage} />
+            )}
+            {formik.touched.name && !formik.errors.name && (
+              <img src={doneImg} alt="Done" className={css.doneImage} />
+            )}
+            <ErrorMessage name="name" component="div" className={css.error} />
+            {formik.touched.name && !formik.errors.name && (
+              <div className={css.successMessage}>This is an CORRECT name</div>
+            )}
+          </div>
+          <div className={css.passwordContainer}>
+            <Field
+              id="email"
+              name="email"
+              type="text"
+              onBlur={formik.handleBlur}
+              placeholder="Email"
+              autoComplete="off"
+              className={`${css.input} ${
+                formik.errors.email && formik.touched.email
+                  ? css.errorInput
+                  : formik.touched.email
+                  ? css.сorrectInput
+                  : ''
+              }`}
+            />
+            {formik.errors.email && formik.touched.email && (
+              <img src={errorImg} alt="Error" className={css.errorImage} />
+            )}
+            {formik.touched.email && !formik.errors.email && (
+              <img src={doneImg} alt="Done" className={css.doneImage} />
+            )}
             <ErrorMessage name="email" component="div" className={css.error} />
+            {formik.touched.email && !formik.errors.email && (
+              <div className={css.successMessage}>This is an CORRECT email</div>
+            )}
           </div>
           <div className={css.passwordContainer}>
             <Field
@@ -77,9 +104,12 @@ export const RegisterForm = () => {
               type={showPassword ? 'text' : 'password'}
               onBlur={formik.handleBlur}
               placeholder="Password"
+              autoComplete="off"
               className={`${css.input} ${css['last_input']} ${
                 formik.errors.password && formik.touched.password
                   ? css.errorInput
+                  : formik.touched.password
+                  ? css.сorrectInput
                   : ''
               }`}
             />
@@ -98,6 +128,11 @@ export const RegisterForm = () => {
               component="div"
               className={css.error}
             />
+            {formik.touched.password && !formik.errors.password && (
+              <div className={css.successMessage}>
+                This is an CORRECT password
+              </div>
+            )}
           </div>
           <button type="submit" className={css.button}>
             Sign Up
