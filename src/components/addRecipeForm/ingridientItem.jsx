@@ -1,5 +1,5 @@
 // import PropTypes from "prop-types";
-import { useState } from 'react';
+// import { useState } from 'react';
 import css from './addRecipeForm.module.scss';
 
 const IngredientItem = ({item, ingredientsList, onChange, handleDeleteIngredient} ) => {
@@ -9,30 +9,25 @@ const IngredientItem = ({item, ingredientsList, onChange, handleDeleteIngredient
     '3/4 oz',
     '1 oz'
   ]
-  const {id, titleItem, measureItem} = item;
-  const [title, setTitle] = useState(titleItem);
-  const [measure, setMeasure] = useState(measureItem);
   
   const handleChange = (event) => {
     const { name, value } = event.currentTarget;
-
-    if (name === 'title') { setTitle(value) }
-    else if (name === 'measure') { setMeasure(value) };
-    onChange(
-      {id,
-    title,
-  measure}
-  )
+    if (name === 'title') { 
+      onChange(
+        {...item,
+      title:value})}
+    else if (name === 'measure') {  onChange(
+      {...item,
+        measure:value})};
   }
  const handleDelete = () =>{
-  handleDeleteIngredient(id)}
+  handleDeleteIngredient(item.id)}
 
   return (
     < li className={css.contact__item} >
       <select
         className="title"
         name="title"
-        value={title}
         onChange={handleChange}
       >
         {ingredientsList.map(ingredient => (
@@ -44,7 +39,6 @@ const IngredientItem = ({item, ingredientsList, onChange, handleDeleteIngredient
       <select
         className="measureField"
         name="measure"
-        value={measure}
         onChange={handleChange}
       >
         {measureList.map(measure => (
@@ -62,13 +56,6 @@ const IngredientItem = ({item, ingredientsList, onChange, handleDeleteIngredient
     </li >)
 }
 
-// ContactItem.propTypes = {
-//   item: PropTypes.shape({
-//     id: PropTypes.string.isRequired,
-//     name: PropTypes.string.isRequired,
-//     number: PropTypes.string.isRequired,
-//   }).isRequired
-// };
 
 export default  IngredientItem 
 

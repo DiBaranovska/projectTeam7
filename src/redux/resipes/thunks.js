@@ -1,4 +1,3 @@
-// import { addContact, deleteContact } from '../../api/resipesApi';
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
@@ -26,18 +25,3 @@ export const fetchRecipesPopular = createAsyncThunk(
   }
 );
 
-
-
-// export const addContactThunk = createAsyncThunk(
-//   'contacts/addContact',
-//   contacts => {
-//     return addContact(contacts);
-//   }
-// );
-
-// export const deleteContactThunk = createAsyncThunk(
-//   'contacts/deleteContact',
-//   id => {
-//     return deleteContact(id);
-//   }
-// );
