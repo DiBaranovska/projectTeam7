@@ -1,12 +1,11 @@
 @import '../../styles/main.scss';
-.section{
+.section {
   position: relative;
 }
 .main_container {
-  
   margin-left: auto;
   margin-right: auto;
-  // width: 100%; 
+  // width: 100%;
   @media screen and (min-width: 768px) {
     width: 768px;
   }
@@ -15,36 +14,53 @@
   }
 }
 
-.title{
-  margin-bottom: 28px;
-  margin-top: 160px;
-display: block;
-width: 430px;
+.title {
+  margin-bottom: 16px;
+  margin-top: 128px;
+  display: block;
+  width: 430px;
   color: var(--main-text-color);
   font-feature-settings: 'liga' off;
   font-family: Manrope;
-  font-size: 38px;
+  font-size: 32px;
   font-style: normal;
-  font-weight: 800;
+  font-weight: 600;
   line-height: 104%;
   letter-spacing: -0.36px;
+  width: 279px;
 
   @media screen and (min-width: 768px) {
-    font-size: 40px;
-    line-height: 44px;
+    font-size: 56px;
+    line-height: 60px;
     letter-spacing: -0.02em;
+    width: 483px;
+    margin-top: 184px;
+    margin-bottom: 28px;
   }
 }
 
-.btn_add{
-  display:flex;
-   width: 200px;
-   height: 54px;
-   margin-top: 40px;
+.text {
+  font-size: 14px;
+  width: 266px;
+  margin-bottom: 32px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 24px;
+    width: 449px;
+    margin-bottom: 40px;
+  }
 }
 
-.btn_other{
-  display:flex;
+.btn_add {
+  display: flex;
+  width: 200px;
+  height: 54px;
+  margin-top: 40px;
+}
+
+.btn_other {
+  display: flex;
   width: 200px;
   height: 54px;
   margin-top: 80px;
@@ -52,19 +68,20 @@ width: 430px;
   margin-left: auto;
 }
 
-.main_foto{
+.main_foto {
   position: absolute;
-  top: -245px;
-  right: -550px;
+  top: -118px;
+  right: 0px;
+
   z-index: -2;
-//  margin-left: 200px;
- @media screen and (min-width: 768px) {
- 
- right: -490px;
-}
-@media screen and (min-width: 1200px) {
-  right: 0;
-}
+  //  margin-left: 200px;
+  @media screen and (min-width: 768px) {
+    right: 0px;
+    top: -264px;
+  }
+  @media screen and (min-width: 1200px) {
+    right: 0;
+  }
 }
 
 .wrap_main {
@@ -85,7 +102,3 @@ width: 430px;
     padding-right: 100px;
   }
 }
-
-
-
-
