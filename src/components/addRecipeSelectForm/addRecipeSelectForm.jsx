@@ -12,7 +12,6 @@ const SelectInput = ({ title, item, list, handleClick }) => {
   }, []);
 
   const handleOptionClick = e => {
-    console.log('e:', e);
     handleClick(e);
     setShowList(false);
   };
@@ -23,7 +22,6 @@ const SelectInput = ({ title, item, list, handleClick }) => {
   const handleClickOutside = e => {
     if (e.target.getAttribute('name') !== 'select') {
       setShowList(false);
-      console.log('classList:', e.target.getAttribute('name'));
     }
   };
   return (

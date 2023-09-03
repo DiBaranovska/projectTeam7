@@ -233,6 +233,7 @@ const AddRecipeForm = () => {
           <>
             <img className={css.recipeImg} src={image} alt="Recipe" />
             <button
+              type="button"
               className={css.changePhotoBtnText}
               onClick={() => setDrinkThumb('')}
             >
@@ -242,7 +243,11 @@ const AddRecipeForm = () => {
         )}
         {!image && (
           <>
-            <button className={css.addPhotoBtn} onClick={handlePicker}>
+            <button
+              type="button"
+              className={css.addPhotoBtn}
+              onClick={handlePicker}
+            >
               <GoPlus size={28} />
             </button>
             <p className={css.addPhotoBtnText}>Add image</p>
