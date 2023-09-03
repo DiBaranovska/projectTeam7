@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/projectTeam7/static/css/main.74d9fa81.css",
-    "main.js": "/projectTeam7/static/js/main.fb829bfe.js",
-    "static/css/475.202d384b.chunk.css": "/projectTeam7/static/css/475.202d384b.chunk.css",
-    "static/js/475.e6ee592b.chunk.js": "/projectTeam7/static/js/475.e6ee592b.chunk.js",
+    "main.js": "/projectTeam7/static/js/main.6485388c.js",
+    "static/css/475.64553aef.chunk.css": "/projectTeam7/static/css/475.64553aef.chunk.css",
+    "static/js/475.3e398f97.chunk.js": "/projectTeam7/static/js/475.3e398f97.chunk.js",
     "static/css/716.a5de7b35.chunk.css": "/projectTeam7/static/css/716.a5de7b35.chunk.css",
     "static/js/716.4e724ec3.chunk.js": "/projectTeam7/static/js/716.4e724ec3.chunk.js",
     "static/css/945.5180a17b.chunk.css": "/projectTeam7/static/css/945.5180a17b.chunk.css",
@@ -46,9 +46,9 @@
     "static/media/close.svg": "/projectTeam7/static/media/close.358abb3c7267c7a7485d2f239b2827e0.svg",
     "static/media/Error.svg": "/projectTeam7/static/media/Error.f21b8995a363f83a2b20452fbd4b8965.svg",
     "main.74d9fa81.css.map": "/projectTeam7/static/css/main.74d9fa81.css.map",
-    "main.fb829bfe.js.map": "/projectTeam7/static/js/main.fb829bfe.js.map",
-    "475.202d384b.chunk.css.map": "/projectTeam7/static/css/475.202d384b.chunk.css.map",
-    "475.e6ee592b.chunk.js.map": "/projectTeam7/static/js/475.e6ee592b.chunk.js.map",
+    "main.6485388c.js.map": "/projectTeam7/static/js/main.6485388c.js.map",
+    "475.64553aef.chunk.css.map": "/projectTeam7/static/css/475.64553aef.chunk.css.map",
+    "475.3e398f97.chunk.js.map": "/projectTeam7/static/js/475.3e398f97.chunk.js.map",
     "716.a5de7b35.chunk.css.map": "/projectTeam7/static/css/716.a5de7b35.chunk.css.map",
     "716.4e724ec3.chunk.js.map": "/projectTeam7/static/js/716.4e724ec3.chunk.js.map",
     "945.5180a17b.chunk.css.map": "/projectTeam7/static/css/945.5180a17b.chunk.css.map",
@@ -67,6 +67,6 @@
   },
   "entrypoints": [
     "static/css/main.74d9fa81.css",
-    "static/js/main.fb829bfe.js"
+    "static/js/main.6485388c.js"
   ]
 }
