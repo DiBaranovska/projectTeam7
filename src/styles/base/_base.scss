@@ -2,6 +2,7 @@ body {
   font-family: var(--font);
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
+  overflow-x: hidden;
 
   &.noScroll {
     overflow: hidden;

@@ -1,6 +1,6 @@
 @import-normalize; /* bring in normalize.css styles */
 :root {
-  --font: "Manrope", sans-serif;
+  --font: 'Manrope', sans-serif;
   /* BG colors */
   --main-bg-color: #0a0a11;
   --secondary-bg-color: #161f37;
@@ -137,7 +137,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 
@@ -180,4 +180,4 @@ section {
     padding-left: 100px;
     max-width: 1440px;
   }
-}/*# sourceMappingURL=index.css.map */
+} /*# sourceMappingURL=index.css.map */
