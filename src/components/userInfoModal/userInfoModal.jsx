@@ -60,7 +60,8 @@ const UserInfoModal = ({ closeDropDown }) => {
     ? URL.createObjectURL(state.avatarURL)
     : user.avatarURL;
 
-  const isBtnDisabled = user.name === state.name && !state.avatarURL;
+  const isBtnDisabled =
+    (user.name === state.name && !state.avatarURL) || state.name.length < 3;
 
   return (
     <div className="userProfile">
@@ -93,9 +94,13 @@ const UserInfoModal = ({ closeDropDown }) => {
             type="text"
             minLength={3}
             required
+            placeholder="Name"
           />
           <img className={styles.editIcon} src={editIcon} alt="Edit icon" />
         </label>
+        {state.name.length < 3 && (
+          <p className={styles.errorMessage}>Name is too short</p>
+        )}
 
         <button
           className={styles.button}
