@@ -341,7 +341,19 @@ const AddRecipeForm = () => {
           onChange={handleChange}
         />
 
-        <button type="submit" className={css.submitBtn}>
+        <button
+          type="submit"
+          className={css.submitBtn}
+          disabled={
+            !drink ||
+            !drinkAlternate ||
+            !category ||
+            !glass ||
+            !instructions ||
+            !drinkThumb ||
+            !ingredients
+          }
+        >
           Add
         </button>
       </div>
