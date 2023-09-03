@@ -1,17 +1,17 @@
 import { createPortal } from 'react-dom';
 import styles from './footerModal.module.scss';
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 
 const modalRoot = document.getElementById('root');
 
 const Modal = ({ close, text }) => {
-  const handleClose = (e) => {
-    if (e.code === 'Escape') {
-      close();
-    } else {
-      e.stopPropagation();
-    }
-  };
+  const handleClose = useCallback((e) => {
+  if (e.code === 'Escape') {
+    close();
+  } else {
+    e.stopPropagation();
+  }
+}, [close]);
 
   const handleOkButtonClick = () => {
     close();
