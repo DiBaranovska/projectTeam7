@@ -1,29 +1,70 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setFilterCriteria } from '../../redux/search/filterSlice.js'; // Import your action creator
-import { useNavigate } from 'react-router-dom';
+import {
+  setFilterCriteria,
+  clearFilterCriteria,
+} from '../../redux/search/filterSlice.js';
+import { useNavigate, useLocation } from 'react-router-dom';
+import {
+  setCategoriesList,
+  setIngredientsList,
+} from '../../redux/search/cocktailSlice';
+import {
+  fetchCategoriesList,
+  fetchIngredientsList,
+} from '..//../api/searchApi';
 
 import './drinksForm.css';
 
-function DrinksForm() {
-  const filterCriteria = useSelector(state => state.filter);
-  const categoriesList = useSelector(state => state.cocktail.categoriesList);
-  const ingredientsList = useSelector(state => state.cocktail.ingredientsList);
-
+function DrinksForm({ ingredientsList, categoriesList }) {
+  const token = useSelector(state => state.user.token);
   const dispatch = useDispatch();
+  const filterCriteria = useSelector(state => state.filter);
+  const location = useLocation();
   const navigate = useNavigate();
+  const searchParams = new URLSearchParams(location.search);
+  const selectedCategory = searchParams.get('category') || '';
+
+  useEffect(() => {
+    if (!location.pathname.startsWith('/search')) {
+      dispatch(clearFilterCriteria());
+    }
+  }, [location.pathname, dispatch]);
 
   const handleChange = e => {
     const { name, value } = e.target;
     const trimmedValue = value.trim();
 
-    dispatch(setFilterCriteria({ ...filterCriteria, [name]: trimmedValue }));
+    const categoryValue = encodeURIComponent(trimmedValue);
+    const updatedFilterCriteria = {
+      ...filterCriteria,
+      [name]: categoryValue,
+      page: 1,
+    };
 
-    if (name === 'category') {
-      const url = `/drinks/${trimmedValue}`;
-      navigate(url);
-    }
+    dispatch(setFilterCriteria(updatedFilterCriteria));
+
+    const url = `/search?category=${updatedFilterCriteria.category}&ingredient=${updatedFilterCriteria.ingredient}&name=${updatedFilterCriteria.name}`;
+    navigate(url, { replace: true });
   };
+
+  useEffect(() => {
+    if (token) {
+      fetchIngredientsList(token)
+        .then(ingredients => {
+          ingredients.sort();
+          dispatch(setIngredientsList(ingredients));
+        })
+        .catch(error => console.error('Error fetching ingredients:', error));
+
+      fetchCategoriesList(token)
+        .then(categories => {
+          categories.sort();
+          dispatch(setCategoriesList(categories));
+        })
+        .catch(error => console.error('Error fetching categories:', error));
+    }
+  }, [dispatch, token]);
 
   return (
     <form className="searchForm">
@@ -38,7 +79,7 @@ function DrinksForm() {
       <select
         className="searchCategory"
         name="category"
-        value={filterCriteria.category}
+        value={decodeURIComponent(filterCriteria.category || selectedCategory)}
         onChange={handleChange}
       >
         <option value="">All categories</option>

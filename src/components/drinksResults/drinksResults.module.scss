@@ -51,8 +51,8 @@
   }
 }
 .cocktail__title {
-  color: #f3f3f3;
-  font-family: 'Manrope';
+  color: var(--main-text-color);
+  font-family: (--font);
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -64,8 +64,8 @@
   }
 }
 .cocktail__link {
-  color: rgba(243, 243, 243, 0.5);
-  font-family: Manrope;
+  color: var(--secondary-text-color);
+  font-family: (--font);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
