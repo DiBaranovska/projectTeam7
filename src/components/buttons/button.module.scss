@@ -1,7 +1,8 @@
 .btn {
   position: relative;
   z-index: 1;
-  padding: 16px 40px;
+  height: 50px;
+  padding: 15px 40px;
   border: none;
   border-radius: 42px;
   font-weight: 600;
@@ -17,30 +18,22 @@
   &:global(.light) {
     color: var(--secondary-bg-color);
     background-color: var(--main-button-color);
-
-    &:hover,
-    &:focus {
-      padding-top: 15px;
-      padding-bottom: 15px;
-      border: 1px solid var(--select-bg-color);
-      background-color: transparent;
-      color: var(--main-text-color);
-    }
   }
 
   &:global(.dark) {
     background-color: var(--disablet-btn-color);
-
-    &:hover,
-    &:focus {
-      background-color: var(--accent-btn-color);
-    }
   }
   &:global(.border) {
     border: 1px solid var(--select-bg-color);
   }
+  &:hover,
+  &:focus {
+    border: 1px solid var(--select-bg-color);
+    background-color: transparent;
+    color: var(--main-text-color);
+  }
 
   @media screen and (min-width: 768px) {
-    padding: 18px 44px;
+    height: 54px;
   }
 }
