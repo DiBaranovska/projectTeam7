@@ -25,8 +25,19 @@
         display: flex;
         flex-direction: column;
         padding: 0px;
-       
+         margin-left: auto;
+         margin-right: auto;
+         max-width: 375px;
+        @media screen and (min-width: 768px) {
+         
+        max-width: 768px;
       }
+      @media screen and (min-width: 1200px) {
+         
+     max-width: 1240px;
+       
+      }}
+     
 
       .popular_title{
         
