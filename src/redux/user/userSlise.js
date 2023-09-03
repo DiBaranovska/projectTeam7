@@ -3,8 +3,8 @@ import { register, login, logout, current, update } from './thunk';
 const { createSlice } = require('@reduxjs/toolkit');
 
 const initialStateUser = {
-  user: { name: null, email: null },
-  token: null,
+  user: { name: '', email: '' },
+  token: '',
   isLoggedIn: false,
   isLoading: false,
   isRefreshing: false,
@@ -68,7 +68,6 @@ const userSlice = createSlice({
         state.user = payload;
         state.isRefreshing = false;
         state.isLoggedIn = true;
-       
       })
       .addCase(current.rejected, (state, { payload }) => {
         state.isLoading = false;
