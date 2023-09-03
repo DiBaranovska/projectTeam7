@@ -8,15 +8,21 @@
   font-size: 32px;
   line-height: calc(38px / 32px); /* 106.25% */
   margin-top: 80px;
+  padding-left: 40px;
 
   @media screen and (min-width: 768px) {
     margin-top: 140px;
     font-size: 54px;
     line-height: calc(60px / 56px); /* 106.25% */
+    padding-left: 0;
   }
   @media screen and (min-width: 1200px) {
     margin-top: 158px;
     font-size: 64px;
     line-height: calc(68px / 64px); /* 106.25% */
+    padding-left: 68px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding-left: 0;
   }
 }
