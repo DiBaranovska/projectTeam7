@@ -93,12 +93,8 @@
   margin-top: 316px;
 
   @media screen and (min-width: 768px) {
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-left: 0;
+    padding-right: 0;
     margin-bottom: 140px;
-  }
-  @media screen and (min-width: 1200px) {
-    padding-left: 100px;
-    padding-right: 100px;
   }
 }
