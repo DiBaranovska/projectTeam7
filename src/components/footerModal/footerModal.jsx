@@ -36,7 +36,7 @@ const Modal = ({ close, text }) => {
   return createPortal(
     <div className={styles.overlay} onClick={handleOverlayClick}>
       <div className={styles.modal}>        
-        <p className={styles.text}>{text}</p>
+        <div className={styles.text}>{text}</div>
         <button
           className={styles.logoutBtn}
           onClick={handleOkButtonClick}

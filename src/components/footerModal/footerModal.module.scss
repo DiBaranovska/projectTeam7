@@ -22,6 +22,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   gap: 20px;
 
   overflow: hidden;
@@ -35,7 +36,11 @@
 
   @media screen and (min-width: 768px) {
     width: 650px;
-    height: auto;
+    // height: auto;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 900px;
   }
 
   &::before {
@@ -60,6 +65,12 @@
     border-radius: 50%;
     background: rgba(64, 112, 205, 0.5);
     filter: blur(104.8543701171875px);
+  }
+
+  &__text{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 }
 
