@@ -1,94 +1,101 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, useNavigate } from 'react-router-dom';
-import DrinksSearch from '../../components/drinksSearch/drinksSearch';
+import {
+  fetchFilteredCocktails,
+  fetchAllCocktails,
+} from '../../redux/search/cocktailSlice';
+import { setFilterCriteria } from '../../redux/search/filterSlice.js';
+import { useLocation } from 'react-router-dom';
+import DrinksForm from '../../components/drinksSearch/drinksForm';
+import DrinksResults from '../../components/drinksResults/drinksResults';
+import Paginator from '../../components/paginator/paginator';
 import MainPageTitle from '../../components/mainPageTitle/mainPageTitle';
 import styles from './DrinksPage.module.scss';
-import { fetchIngredientsList, fetchCategoriesList } from '../../api/searchApi';
-import {
-  setIngredientsList,
-  setCategoriesList,
-} from '../../redux/search/cocktailSlice.js';
-import { setFilterCriteria } from '../../redux/search/filterSlice';
+import Skeleton from 'components/skeleton/skeleton';
 
-const DrinksPage = () => {
+function DrinksPage() {
   const token = useSelector(state => state.user.token);
   const dispatch = useDispatch();
-  const { categoryName } = useParams();
-  const navigate = useNavigate();
-  const filterCriteria = useSelector(state => state.filter);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const { isLoading } = useSelector(state => state.cocktail.status);
 
-  const [formData] = useState({});
+  const selectedName = searchParams.get('name') || '';
+  const selectedCategory = searchParams.get('category') || '';
+  const selectedIngredient = searchParams.get('ingredient') || '';
 
-  const handleFilterChange = useCallback(
-    criteria => {
-      // Dispatch the setFilterCriteria action to update the Redux store
-      dispatch(setFilterCriteria(criteria));
-
-      if (criteria.category) {
-        navigate(`/drinks/${criteria.category}`);
-      } else {
-        navigate('/drinks');
-      }
-    },
-    [dispatch, navigate]
+  const searchResults = useSelector(state => state.cocktail.results);
+  const totalCocktails = useSelector(
+    state => state.cocktail.results.totalCocktails
   );
+  const cocktailsPerPage = useSelector(state => state.cocktail.results.perPage);
+  const totalPages = Math.ceil(totalCocktails / cocktailsPerPage);
+  const filterCriteria = useSelector(state => state.filter);
+  const currentPage = useSelector(state => state.filter.page);
+
+  const categoriesList = useSelector(state => state.cocktail.categoriesList);
+  const ingredientsList = useSelector(state => state.cocktail.ingredientsList);
 
   useEffect(() => {
-    if (categoryName && filterCriteria.category !== categoryName) {
-      // If category name is present in URL and it's different from the current filter category
-      dispatch(
-        setFilterCriteria({
-          ...filterCriteria,
-          category: categoryName,
-        })
-      );
+    // Determine if any filters are selected
+    if (selectedName || selectedCategory || selectedIngredient) {
+      const filters = {
+        name: selectedName,
+        category: selectedCategory,
+        ingredient: selectedIngredient,
+        page: currentPage,
+      };
+      dispatch(fetchFilteredCocktails({ filters, token }));
+    } else {
+      dispatch(fetchAllCocktails(token));
     }
-  }, [categoryName, filterCriteria, dispatch]);
+  }, [
+    selectedName,
+    selectedCategory,
+    selectedIngredient,
+    dispatch,
+    token,
+    currentPage,
+  ]);
 
-  useEffect(() => {
-    // Update filter criteria and trigger search when category changes in URL
-    if (categoryName !== filterCriteria.category) {
-      dispatch(
-        setFilterCriteria({
-          ...filterCriteria,
-          category: categoryName,
-        })
-      );
-      handleFilterChange({ category: categoryName });
-    }
-  }, [categoryName, filterCriteria, handleFilterChange, dispatch]);
+  const handlePageClick = e => {
+    const newPage = e.selected + 1;
 
-  useEffect(() => {
-    if (token) {
-      fetchIngredientsList(token)
-        .then(ingredients => {
-          ingredients.sort();
-          dispatch(setIngredientsList(ingredients));
-        })
-        .catch(error => console.error('Error fetching ingredients:', error));
+    const updatedFilterCriteria = {
+      ...filterCriteria,
+      page: newPage,
+    };
+    dispatch(setFilterCriteria(updatedFilterCriteria));
 
-      fetchCategoriesList(token)
-        .then(categories => {
-          categories.sort();
-          dispatch(setCategoriesList(categories));
-        })
-        .catch(error => console.error('Error fetching categories:', error));
-    }
-  }, [dispatch, token]);
+    dispatch(fetchFilteredCocktails({ filters: updatedFilterCriteria, token }));
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.wrap_main}>
         <MainPageTitle title="Drinks"></MainPageTitle>
-        <DrinksSearch
-          filterCriteria={filterCriteria}
-          onFilterChange={handleFilterChange}
-          formData={formData}
+        <DrinksForm
+          ingredientsList={ingredientsList}
+          categoriesList={categoriesList}
         />
+        {isLoading ? (
+          <Skeleton></Skeleton>
+        ) : (
+          <>
+            <DrinksResults results={searchResults} />
+            {totalPages ? (
+              <Paginator
+                handlePageClick={handlePageClick}
+                pageCount={totalPages}
+              />
+            ) : (
+              <div className={styles.searchResults}>No search results</div>
+            )}
+          </>
+        )}
       </div>
     </div>
   );
-};
+}
 
 export default DrinksPage;

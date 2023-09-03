@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './drinksResults.module.scss';
 
 function DrinksResults({ results }) {
@@ -20,7 +21,7 @@ function DrinksResults({ results }) {
               </li>
               <li className={styles.cocktail__title}>{cocktail.drink}</li>
               <li className={styles.cocktail__link}>
-                <a href="./recipe">Ingredients</a>
+                <Link to={`/recipe/${cocktail._id}`}>Ingredients</Link>
               </li>
             </ul>
           </li>

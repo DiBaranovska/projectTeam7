@@ -4,6 +4,7 @@ const initialState = {
   name: '',
   ingredient: '',
   category: '',
+  page: 1,
 };
 
 const filterSlice = createSlice({
