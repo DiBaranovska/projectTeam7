@@ -15,7 +15,7 @@ return(
                 className={css.container_img}/>
                 <div className={css.recipe}> 
                 <p className={css.drink_name}>{drink}</p>
-                <Link to="/my" className={css.open_recipe}>See recipe</Link></div>
+                <Link to={(`/recipe/${_id}`)} className={css.open_recipe}>See recipe</Link></div>
                 </li></ul>
                 </li>
     ))}</ul></div>
