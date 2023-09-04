@@ -2,6 +2,7 @@ import { useState } from 'react';
 import MyRecipesList from '../myRecipesList/myRecipesList';
 import Paginator from '../paginator/paginator';
 import styles from './recipeListFavorite.module.scss';
+import NotFound from 'components/notFound/notFound';
 
 const RecipesListFavorite = ({ items, total }) => {
   const itemsPerPage = 6;
@@ -17,14 +18,15 @@ const RecipesListFavorite = ({ items, total }) => {
     setItemOffset(newOffset);
   };
   return (
-    <div id="RecipesFavorite" className={styles.container_pagination}>
+    <>
+    {currentItems.length>0 ? (<div id="RecipesFavorite" className={styles.container_pagination}>
       <MyRecipesList cocktails={currentItems} favorite={true} />
       <Paginator
         handlePageClick={handlePageClick}
-        itemsPerPage={itemsPerPage}
         pageCount={pageCount}
       ></Paginator>
-    </div>
+    </div>):(<NotFound></NotFound>)}
+    </>
   );
 };
 
