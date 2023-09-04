@@ -11,8 +11,7 @@ import SignupPage from '../pages/SignupPage/SignupPage';
 import SigninPage from '../pages/SigninPage/SigninPage';
 import Skeleton from '../components/skeleton/skeleton';
 
-//const SignupPage = lazy(() => import('../pages/SignupPage/SignupPage'));
-//const SigninPage = lazy(() => import('../pages/SigninPage/SigninPage'));
+
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
 const DrinksPage = lazy(() => import('../pages/DrinksPage/DrinksPage'));
 const AddRecipePage = lazy(() =>
@@ -38,7 +37,7 @@ const App = () => {
   ) : (
     <>
       <Routes>
-        <Route path="welcome" element={<WellcomPage />} />
+        <Route path="welcome" element={<PublicRoute><WellcomPage /></PublicRoute>} />
         <Route
           path="signup"
           element={
@@ -60,7 +59,11 @@ const App = () => {
           element={
             <PrivateRoure redirectTo="welcome" component={SharedLayout} />
           }
-        >
+          >
+              <Route
+            index  element={<MainPage/>}
+          />
+
           <Route
             path="main"
             element={<PrivateRoure redirectTo="welcome" component={MainPage} />}

@@ -1,5 +1,11 @@
 @import '../../styles/main.scss';
 
+
+main {
+min-height: 80vh;
+
+}
+
 .block_bg_radial {
   z-index: -1;
   position: absolute;
