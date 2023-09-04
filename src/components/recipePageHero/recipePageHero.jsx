@@ -6,39 +6,49 @@ import img from '../../img/recipeCocteile.jpg'
 
 const Field = ({ glass, drinkAlternate, drink, drinkThumb, recipeId }) => {
   const [isFavorite, setIsFavorite] = useState(false);
-  const yourReceivedToken = useSelector(state => state.user.token);
+  const yourReceivedToken = useSelector((state) => state.user.token);
 
   useEffect(() => {
     try {
       const savedData = localStorage.getItem('favoriteRecipes');
-      const favoriteRecipes = JSON.parse(savedData);
+      const favoriteRecipes = JSON.parse(savedData) || { recipes: [] };
       const recipesArray = favoriteRecipes.recipes;
       const desiredRecipeId = recipeId;
-      const isRecipeIdInFavorites = recipesArray.some(recipe => recipe._id === desiredRecipeId);
+      const isRecipeIdInFavorites = recipesArray.some((recipe) => recipe._id === desiredRecipeId);
       setIsFavorite(isRecipeIdInFavorites);
-
-      // if (isRecipeIdInFavorites) {
-      //   console.log(`Рецепт з id ${desiredRecipeId} є в списку обраних.`);
-      // } else {
-      //   console.log(`Рецепт з id ${desiredRecipeId} не знайдено в списку обраних.`);
-      // }
     } catch (error) {
       console.error('Failed to fetch favorite status:', error);
-  }}, [recipeId, yourReceivedToken])
+    }
+  }, [recipeId, yourReceivedToken]);
 
   const handleFavoriteToggle = async () => {
-  try {
-    if (!isFavorite) {
-      await addToFavorites(recipeId, yourReceivedToken);
-      setIsFavorite(true);
-    } else {
-      await removeFromFavorites(recipeId, yourReceivedToken);
-      setIsFavorite(false);
+    try {
+      const savedData = localStorage.getItem('favoriteRecipes');
+      const favoriteRecipes = JSON.parse(savedData) || { recipes: [] };
+      const recipesArray = favoriteRecipes.recipes;
+      const desiredRecipeId = recipeId;
+      const isRecipeIdInFavorites = recipesArray.some((recipe) => recipe._id === desiredRecipeId);
+
+      if (!isRecipeIdInFavorites) {
+        await addToFavorites(recipeId, yourReceivedToken);
+        setIsFavorite(true);
+        recipesArray.push({ _id: desiredRecipeId }); // Додавання до локального сховища
+      } else {
+        await removeFromFavorites(recipeId, yourReceivedToken);
+        setIsFavorite(false);
+        // Видалення з локального сховища
+        const index = recipesArray.findIndex((recipe) => recipe._id === desiredRecipeId);
+        if (index !== -1) {
+          recipesArray.splice(index, 1);
+        }
+      }
+
+      // Збереження оновленого масиву в локальному сховищі
+      localStorage.setItem('favoriteRecipes', JSON.stringify(favoriteRecipes));
+    } catch (error) {
+      console.error('Failed to toggle favorite:', error);
     }
-  } catch (error) {
-    console.error('Failed to toggle favorite:', error);
-  }
-};
+  };
 
   return (
     <div className={css.field}>

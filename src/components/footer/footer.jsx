@@ -42,8 +42,8 @@ const Footer = () => {
         <div className={styles.bottomString}>
           <p>©2023 Drink Master. All rights reserved.</p>
           <div className={styles.privacyAndTerms}>
-            <p onClick={() => handleOpenModal(privacyPolicyText)}>Privacy Policy</p>
-            <p onClick={() => handleOpenModal(termsOfService)}>Terms of Service</p>
+            <p className={styles.privacyAndTerms__cursor} onClick={() => handleOpenModal(privacyPolicyText)}>Privacy Policy</p>
+            <p className={styles.privacyAndTerms__cursor} onClick={() => handleOpenModal(termsOfService)}>Terms of Service</p>
             {showModal && (
               <Modal close={handleCloseModal} text={modalText} />
             )}
