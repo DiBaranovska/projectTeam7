@@ -45,6 +45,11 @@
   height: var(--image-height);
 
   border-radius: 8px;
+  @media screen and (min-width: 320px) {
+    object-fit: cover;
+    --image-width: 100%;
+    --image-height: 360px;
+  }
   @media screen and (min-width: 375px) {
     --image-width: 335px;
     --image-height: 360px;
