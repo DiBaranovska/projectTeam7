@@ -62,6 +62,10 @@ const App = () => {
           }
         >
           <Route
+            index
+            element={<PrivateRoure redirectTo="welcome" component={MainPage} />}
+          />
+          <Route
             path="main"
             element={<PrivateRoure redirectTo="welcome" component={MainPage} />}
           />
