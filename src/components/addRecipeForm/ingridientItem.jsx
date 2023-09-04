@@ -10,14 +10,12 @@ const IngredientItem = ({
 }) => {
   const measureList = ['1/2 oz', '1/4 oz', '3/4 oz', '1 oz'];
 
-  const handleChangeTitle = (title) => {
-    console.log(title)
-      onChange({ ...item, title });
+  const handleChangeTitle = title => {
+    onChange({ ...item, title });
   };
 
-  const handleChangeMeasure = (measure) => {
-    console.log(measure)
-      onChange({ ...item, measure });
+  const handleChangeMeasure = measure => {
+    onChange({ ...item, measure });
   };
 
   const handleDelete = () => {
@@ -27,19 +25,19 @@ const IngredientItem = ({
   return (
     <li className={css.ingredientItem}>
       <div className={css.selectWrapper}>
-      <SelectIngredient
-          type = "title" 
+        <SelectIngredient
+          type="title"
           initValue={item.title}
           list={ingredientsList}
           handleClick={handleChangeTitle}
         />
-          <SelectIngredient
-          type = "measure"
+        <SelectIngredient
+          type="measure"
           initValue={item.measure}
           list={measureList}
           handleClick={handleChangeMeasure}
         />
-        </div>
+      </div>
       <button
         type="button"
         className={css.fieldAddDeleteBtn}

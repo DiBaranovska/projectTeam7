@@ -1,5 +1,10 @@
 @import '../../styles/main.scss';
 
+.popular_container {
+  display: flex;
+  justify-content: center;
+}
+
 .follow_title {
   font-size: 24px;
   font-weight: 500;
@@ -13,39 +18,47 @@
   line-height: 1.33;
 }
 
-.Card {
+.card {
   display: flex;
   flex-direction: column;
-  width: 335px;
+  gap: 24px;
   margin-top: 28px;
-  padding: 0px;
+  padding: 0;
 
   @media screen and (min-width: 768px) {
-    width: 336px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 32px;
+    width: 100%;
     margin-top: 40px;
   }
   @media screen and (min-width: 1200px) {
+    gap: 28px;
     width: 313px;
     margin-top: 40px;
   }
 }
-
+.card_item {
+  width: 335px;
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 313px;
+  }
+}
 .card_container {
   display: flex;
   justify-content: space-between;
-  max-width: 100%;
-  margin-bottom: 28px;
 
   @media screen and (min-width: 768px) {
     align-items: center;
 
-    /* outline: 2px solid rgb(255, 225, 0); */
     &:last-child() {
       margin-bottom: 0px;
     }
   }
   @media screen and (min-width: 1200px) {
-    /* outline: 2px solid rgb(255, 225, 0); */
   }
 }
 .container_img {

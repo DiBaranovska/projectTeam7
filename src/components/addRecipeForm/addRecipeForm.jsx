@@ -23,6 +23,7 @@ import {
   setGlassesList,
 } from '../../redux/search/cocktailSlice.js';
 import SelectInput from 'components/addRecipeSelectForm/addRecipeSelectForm';
+import Skeleton from 'components/skeleton/skeleton';
 
 const AddRecipeForm = () => {
   const dispatch = useDispatch();
@@ -73,6 +74,7 @@ const AddRecipeForm = () => {
   const [drinkThumb, setDrinkThumb] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const [count, setCount] = useState(3);
+  const [isLoading, setIsLoading] = useState(false);
 
   const formRef = useRef();
   const fileRef = useRef();
@@ -120,7 +122,7 @@ const AddRecipeForm = () => {
 
   const handleAddRecipe = event => {
     event.preventDefault();
-
+    setIsLoading(true);
     const data = {
       drink,
       drinkAlternate,
@@ -141,6 +143,7 @@ const AddRecipeForm = () => {
       .then(({ _id }) => {
         reset();
         toast.success('Recipe is added.');
+        setIsLoading(false);
         navigate(`/recipe/${_id}`, { replace: true });
       })
       .catch(error => {
@@ -150,6 +153,7 @@ const AddRecipeForm = () => {
         } else {
           toast.error('Some error happened :(');
         }
+        setIsLoading(false);
       });
   };
 
@@ -225,142 +229,146 @@ const AddRecipeForm = () => {
   };
 
   return (
-    <form ref={formRef} className={css.addForm} onSubmit={handleAddRecipe}>
-      <div className={css.recipePhoto}>
-        {image && (
-          <>
-            <img className={css.recipeImg} src={image} alt="Recipe" />
-            <button
-              type="button"
-              className={css.changePhotoBtnText}
-              onClick={() => setDrinkThumb('')}
-            >
-              <GoTrash size={24} />
-            </button>
-          </>
-        )}
-        {!image && (
-          <>
-            <button
-              type="button"
-              className={css.addPhotoBtn}
-              onClick={handlePicker}
-            >
-              <GoPlus size={28} />
-            </button>
-            <p className={css.addPhotoBtnText}>Add image</p>
-          </>
-        )}
-        <input
-          className={css.file}
-          ref={fileRef}
-          type="file"
-          name="photoURL"
-          accept=".jpg, .jpeg, .png"
-          onChange={handleChange}
-          defaultValue={drinkThumb}
-        />
-      </div>
-      <div className={css.inputField}>
-        <input
-          className={css.inputText}
-          type="text"
-          name="drink"
-          placeholder="Enter item title"
-          value={drink}
-          onChange={handleChange}
-        />
-        <input
-          className={css.inputText}
-          type="text"
-          name="drinkAlternate"
-          placeholder="Enter about recipe"
-          value={drinkAlternate}
-          onChange={handleChange}
-        />
+    <>
+      {isLoading ? (
+        <Skeleton />
+      ) : (
+        <form ref={formRef} className={css.addForm} onSubmit={handleAddRecipe}>
+          <div className={css.recipePhoto}>
+            {image && (
+              <>
+                <img className={css.recipeImg} src={image} alt="Recipe" />
+                <button
+                  type="button"
+                  className={css.changePhotoBtnText}
+                  onClick={() => setDrinkThumb('')}
+                >
+                  <GoTrash size={24} />
+                </button>
+              </>
+            )}
+            {!image && (
+              <>
+                <button
+                  type="button"
+                  className={css.addPhotoBtn}
+                  onClick={handlePicker}
+                >
+                  <GoPlus size={28} />
+                </button>
+                <p className={css.addPhotoBtnText}>Add image</p>
+              </>
+            )}
+            <input
+              className={css.file}
+              ref={fileRef}
+              type="file"
+              name="photoURL"
+              accept=".jpg, .jpeg, .png"
+              onChange={handleChange}
+              defaultValue={drinkThumb}
+            />
+          </div>
+          <div className={css.inputField}>
+            <input
+              className={css.inputText}
+              type="text"
+              name="drink"
+              placeholder="Enter item title"
+              value={drink}
+              onChange={handleChange}
+            />
+            <input
+              className={css.inputText}
+              type="text"
+              name="drinkAlternate"
+              placeholder="Enter about recipe"
+              value={drinkAlternate}
+              onChange={handleChange}
+            />
 
-        <SelectInput
-          title="Category"
-          item={category}
-          list={categoriesList}
-          handleClick={handleCategoriesClick}
-        />
-        <SelectInput
-          title="Glass"
-          item={glass}
-          list={glassesList}
-          handleClick={handleGlassClick}
-        />
-      </div>
+            <SelectInput
+              title="Category"
+              item={category}
+              list={categoriesList}
+              handleClick={handleCategoriesClick}
+            />
+            <SelectInput
+              title="Glass"
+              item={glass}
+              list={glassesList}
+              handleClick={handleGlassClick}
+            />
+          </div>
 
-      <div className={css.inputIngrField}>
-        <div className={css.IngrFieldWrapper}>
-          <h2 className={css.ingredientsTitle}>Ingredients</h2>
-          <div className={css.ingredientsCountField}>
+          <div className={css.inputIngrField}>
+            <div className={css.IngrFieldWrapper}>
+              <h2 className={css.ingredientsTitle}>Ingredients</h2>
+              <div className={css.ingredientsCountField}>
+                <button
+                  type="button"
+                  className={css.fieldAddDeleteBtn}
+                  onClick={reduceCount}
+                >
+                  <GoDash size={30} />
+                </button>
+                <p>{count}</p>
+                <button
+                  type="button"
+                  className={css.fieldAddDeleteBtn}
+                  onClick={increaseCount}
+                >
+                  <GoPlus size={30} />
+                </button>
+              </div>
+            </div>
+
+            {ingredients && ingredients.length !== 0 ? (
+              <ul className={css.ingredientList}>
+                {ingredients.map(ingredient => {
+                  return (
+                    <IngridientItem
+                      key={ingredient.id}
+                      item={ingredient}
+                      ingredientsList={ingredientsList}
+                      onChange={handleChangeIngredient}
+                      handleDeleteIngredient={handleDeleteIngredient}
+                    />
+                  );
+                })}
+              </ul>
+            ) : (
+              <p className={css.message}>No ingredients</p>
+            )}
+            <h2 className={css.ingredientsTitle}>Recipe Preparation</h2>
+            <textarea
+              className={css.instructionsfield}
+              type="text"
+              name="instructions"
+              placeholder="Enter the recipe"
+              value={instructions}
+              onChange={handleChange}
+            />
+
             <button
-              type="button"
-              className={css.fieldAddDeleteBtn}
-              onClick={reduceCount}
-              disabled={count <= 1}
+              type="submit"
+              className={css.submitBtn}
+              disabled={
+                !drink ||
+                !drinkAlternate ||
+                !category ||
+                !glass ||
+                !instructions ||
+                !drinkThumb ||
+                !ingredients
+              }
             >
-              <GoDash size={30} />
-            </button>
-            <p>{count}</p>
-            <button
-              type="button"
-              className={css.fieldAddDeleteBtn}
-              onClick={increaseCount}
-              disabled={count >= 5}
-            >
-              <GoPlus size={30} />
+              Add
             </button>
           </div>
-        </div>
-
-        {ingredients && ingredients.length !== 0 ? (
-          <ul className={css.ingredientList}>
-            {ingredients.map(ingredient => {
-              return (
-                <IngridientItem
-                  key={ingredient.id}
-                  item={ingredient}
-                  ingredientsList={ingredientsList}
-                  onChange={handleChangeIngredient}
-                  handleDeleteIngredient={handleDeleteIngredient}
-                />
-              );
-            })}
-          </ul>
-        ) : (
-          <p className={css.message}>No ingredients</p>
-        )}
-        <h2 className={css.ingredientsTitle}>Recipe Preparation</h2>
-        <textarea
-          className={css.instructionsfield}
-          type="text"
-          name="instructions"
-          placeholder="Enter the recipe"
-          value={instructions}
-          onChange={handleChange}
-        />
-
-        <button
-          type="submit"
-          className={css.submitBtn}
-          disabled={
-            !drink ||
-            !drinkAlternate ||
-            !category ||
-            !glass ||
-            !instructions ||
-            !drinkThumb ||
-            !ingredients
-          }
-        >
-          Add
-        </button>
-      </div>
-    </form>
+        </form>
+      )}
+    </>
   );
 };
 
