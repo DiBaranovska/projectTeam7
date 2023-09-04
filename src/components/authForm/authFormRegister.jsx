@@ -60,6 +60,7 @@ export const RegisterForm = () => {
               name="name"
               type="text"
               onBlur={formik.handleBlur}
+              autoComplete="off"
               placeholder="Name"
               className={`${css.input} ${
                 formik.errors.name && formik.touched.name
