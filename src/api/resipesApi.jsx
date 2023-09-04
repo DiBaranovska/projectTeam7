@@ -30,7 +30,6 @@ export const addToFavorites = async (recipeId, token) => {
   });
 
   if (response.ok) {
-    console.log('Recipe added to favorites');
   } else {
     console.error('Failed to add recipe to favorites');
   }
@@ -47,7 +46,6 @@ export const removeFromFavorites = async (recipeId, token) => {
   });
 
   if (response.ok) {
-    console.log('Recipe removed from favorites');
   } else {
     console.error('Failed to remove recipe from favorites');
   }
