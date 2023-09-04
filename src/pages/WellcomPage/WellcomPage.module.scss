@@ -313,7 +313,7 @@
   &:hover,
   &:focus {
     background-color: var(--secondary-bg-color);
-    color: var(--main-button-color);
+    color: var(--main-text-color);
   }
 
   @media screen and (min-width: 768px) {
@@ -350,7 +350,8 @@
   &:hover,
   &:focus {
     background-color: var(--secondary-bg-color);
-    color: var(--main-button-color);
+    color: var(--main-text-color);
+    border: 1px solid var(--main-button-color);
   }
 
   @media screen and (min-width: 768px) {
