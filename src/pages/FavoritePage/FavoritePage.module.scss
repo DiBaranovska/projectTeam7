@@ -1,7 +1,6 @@
 @import '../../styles/main.scss';
 .container {
   display: flex;
-  justify-content: center;
   margin-left: auto;
   margin-right: auto;
   @media screen and (min-width: 768px) {
@@ -18,7 +17,12 @@
   }
 }
 
+
 .wrap_main {
+  display:flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 20px;
   padding-right: 20px;
   margin-bottom: 80px;

@@ -4,7 +4,7 @@ import { myRecipesReducer } from './myRecipes/myRecipesSlice';
 import { favoriteRecipesReducer } from './favoriteRecipes/favoriteRecipesSlice';
 import { userReducer } from './user/userSlise';
 import { categoryReducer } from './resipes/categorySlice';
-import cocktailReducer from './search//cocktailSlice';
+import cocktailReducer from './search/cocktailSlice';
 import filterReducer from './search/filterSlice';
 import { persistReducer } from 'redux-persist';
 
@@ -37,4 +37,5 @@ export const reducer = combineReducers({
   cocktail: cocktailReducer,
   filter: filterReducer,
   popular: popularReducer,
+  
 });
