@@ -9,7 +9,6 @@ export const getRecipeData = async (recipeId, token) => {
         'Authorization': `Bearer ${token}`
       }
     });
-    console.log(response.data)
     return response.data;
   } catch (error) {
     console.error('An error occurred:', error);
