@@ -27,31 +27,29 @@ const RecipesList = () => {
 
   return (
     <div id="MyRecipes">
-    {isLoading ? (
-      <div className={styles.wrap_main}>
-        <MainPageTitle title="My recipes"></MainPageTitle>
-        <Skeleton></Skeleton>
-      </div>
-    ) : items.length > 0 ? (
-      <div className={styles.wrap_main}>
-        <MainPageTitle title="My recipes"></MainPageTitle>
-        <MyRecipesList cocktails={items} />
-      </div>
-    ) : (
-      <div className={styles.wrap_main_empty}>
-        <MainPageTitle title="My recipes"></MainPageTitle>
-        <NotFound
-          text={"You haven't added any own cocktails yet"}
-        ></NotFound>
-      </div>
-    )}
-    {!isLoading  & items.length > 0  &&  <Paginator
-         handlePageClick={handlePageClick}
-         //itemsPerPage={itemsPerPage}
-         pageCount={pageCount}
-        ></Paginator>}
-
-</div>
+      {isLoading ? (
+        <div className={styles.wrap_main}>
+          <Skeleton></Skeleton>
+        </div>
+      ) : items.length > 0 ? (
+        <div className={styles.wrap_main}>
+          <MainPageTitle title="My recipes"></MainPageTitle>
+          <MyRecipesList cocktails={items} />
+        </div>
+      ) : (
+        <div className={styles.wrap_main_empty}>
+          <MainPageTitle title="My recipes"></MainPageTitle>
+          <NotFound text={"You haven't added any own cocktails yet"}></NotFound>
+        </div>
+      )}
+      {!isLoading & (items.length > 0) && (
+        <Paginator
+          handlePageClick={handlePageClick}
+          //itemsPerPage={itemsPerPage}
+          pageCount={pageCount}
+        ></Paginator>
+      )}
+    </div>
   );
 };
 

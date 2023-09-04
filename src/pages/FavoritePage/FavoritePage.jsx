@@ -22,7 +22,6 @@ const FavoritePage = () => {
     <div className={styles.container}>
       {isLoading ? (
         <div className={styles.wrap_main}>
-          <MainPageTitle title="Favorites"></MainPageTitle>
           <Skeleton></Skeleton>
         </div>
       ) : items.length > 0 ? (

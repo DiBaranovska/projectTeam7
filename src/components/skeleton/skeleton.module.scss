@@ -1,8 +1,12 @@
 @import '../../styles/main.scss';
 .wrap {
   padding: 0;
-  width: 600px;
-  height: 600px;
+  width: 200px;
+  height: 200px;
   margin-left: auto;
   margin-right: auto;
+  @media screen and (min-width: 768px) {
+    width: 600px;
+    height: 600px;
+  }
 }
