@@ -33,7 +33,6 @@ const AddRecipeForm = () => {
   const glassesList = useSelector(state => state.cocktail.glassesList);
   const measureList = ['1/2 oz', '1/4 oz', '3/4 oz', '1 oz'];
   useEffect(() => {
-    console.log('useEffect');
     if (token) {
       fetchIngredientsList(token)
         .then(ingredients => {
@@ -185,7 +184,6 @@ const AddRecipeForm = () => {
     const index = ingrs.findIndex(ingrs => ingrs.id === id);
     ingrs.splice(index, 1);
     setIngredients(ingrs);
-    console.log('ingredients', ingredients);
     setCount(count - 1);
   };
 
