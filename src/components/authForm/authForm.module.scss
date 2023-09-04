@@ -103,7 +103,7 @@
   border: 1px solid var(--main-button-color);
   border-radius: 42px;
 
-  background: transparent;
+  background: var(--main-button-color);
 
   font-family: var(--font);
   font-size: 14px;
@@ -111,7 +111,7 @@
   line-height: 18px;
   letter-spacing: 0em;
   text-align: center;
-  color: var(--main-text-color);
+  color: var(--secondary-bg-color);
 
   cursor: pointer;
 
@@ -119,8 +119,8 @@
 
   &:hover,
   &:focus {
-    background-color: var(--main-button-color);
-    color: var(--secondary-bg-color);
+    background-color: var(--accent-btn-color);
+    color: var(--main-text-color);
   }
 
   @media screen and (min-width: 768px) {

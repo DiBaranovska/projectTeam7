@@ -33,14 +33,14 @@ const WellcomPage = () => {
           </p>
           <div className={css.button_conteiner}>
             <button
-              className={css.button}
+              className={css.button_registration}
               type="button"
               onClick={handleRegistrationClick}
             >
               Registration
             </button>
             <button
-              className={css.button}
+              className={css.button_singin}
               type="button"
               onClick={handleSignInPage}
             >
