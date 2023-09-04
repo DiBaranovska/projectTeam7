@@ -9,8 +9,6 @@ export const fetchFavoriteRecipes = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await axios.get('/favorite');
-      const dataToSave = JSON.stringify(res.data);
-      localStorage.setItem('favoriteRecipes', dataToSave);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
