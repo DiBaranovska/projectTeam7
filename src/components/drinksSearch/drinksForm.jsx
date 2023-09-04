@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   setFilterCriteria,
@@ -14,7 +14,11 @@ import {
   fetchIngredientsList,
 } from '..//../api/searchApi';
 
+import Select from 'react-select';
 import './drinksForm.css';
+import { customSelectStyles } from './selectStyles';
+
+import debounce from 'lodash.debounce';
 
 function DrinksForm({ ingredientsList, categoriesList }) {
   const token = useSelector(state => state.user.token);
@@ -24,6 +28,7 @@ function DrinksForm({ ingredientsList, categoriesList }) {
   const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
   const selectedCategory = searchParams.get('category') || '';
+  const [searchValue, setSearchValue] = useState(filterCriteria.name);
 
   useEffect(() => {
     if (!location.pathname.startsWith('/search')) {
@@ -31,21 +36,69 @@ function DrinksForm({ ingredientsList, categoriesList }) {
     }
   }, [location.pathname, dispatch]);
 
-  const handleChange = e => {
-    const { name, value } = e.target;
-    const trimmedValue = value.trim();
+  const handleCategoryChange = selectedOption => {
+    let selectedCategory;
+    if (selectedOption.value === 'All categories') {
+      selectedCategory = '';
+    } else {
+      selectedCategory = selectedOption.value;
+    }
 
-    const categoryValue = encodeURIComponent(trimmedValue);
     const updatedFilterCriteria = {
       ...filterCriteria,
-      [name]: categoryValue,
+      category: selectedCategory,
       page: 1,
     };
 
     dispatch(setFilterCriteria(updatedFilterCriteria));
 
+    const url = `/search?category=${selectedCategory}&ingredient=${filterCriteria.ingredient}&name=${filterCriteria.name}`;
+    navigate(url, { replace: true });
+  };
+
+  const handleIngredientChange = selectedOption => {
+    let selectedIngredient;
+    if (selectedOption.value === 'Ingredients') {
+      selectedIngredient = '';
+    } else {
+      selectedIngredient = selectedOption.value;
+    }
+
+    const updatedFilterCriteria = {
+      ...filterCriteria,
+      ingredient: selectedIngredient,
+      page: 1,
+    };
+
+    dispatch(setFilterCriteria(updatedFilterCriteria));
+
+    const url = `/search?category=${filterCriteria.category}&ingredient=${selectedIngredient}&name=${filterCriteria.name}`;
+    navigate(url, { replace: true });
+  };
+
+  const debouncedHandleInputChange = debounce(value => {
+    const trimmedValue = value.trim();
+    const updatedFilterCriteria = {
+      ...filterCriteria,
+      name: trimmedValue,
+      page: 1,
+    };
+    dispatch(setFilterCriteria(updatedFilterCriteria));
     const url = `/search?category=${updatedFilterCriteria.category}&ingredient=${updatedFilterCriteria.ingredient}&name=${updatedFilterCriteria.name}`;
     navigate(url, { replace: true });
+  }, 1000);
+
+  const handleInputChange = e => {
+    const { value } = e.target;
+    setSearchValue(value);
+  };
+  const handleInputBlur = () => {
+    debouncedHandleInputChange(searchValue);
+  };
+  const handleEnterKeyPress = e => {
+    if (e.key === 'Enter') {
+      handleInputBlur();
+    }
   };
 
   useEffect(() => {
@@ -53,12 +106,14 @@ function DrinksForm({ ingredientsList, categoriesList }) {
       fetchIngredientsList(token)
         .then(ingredients => {
           ingredients.sort();
+          ingredients.unshift('Ingredients');
           dispatch(setIngredientsList(ingredients));
         })
         .catch(error => console.error('Error fetching ingredients:', error));
 
       fetchCategoriesList(token)
         .then(categories => {
+          categories.push('All categories');
           categories.sort();
           dispatch(setCategoriesList(categories));
         })
@@ -73,35 +128,39 @@ function DrinksForm({ ingredientsList, categoriesList }) {
         type="text"
         placeholder="Enter the text"
         name="name"
-        value={filterCriteria.name}
-        onChange={handleChange}
+        value={searchValue}
+        onChange={handleInputChange}
+        onBlur={handleInputBlur}
+        onKeyDown={handleEnterKeyPress}
       />
-      <select
-        className="searchCategory"
+      <Select
         name="category"
-        value={decodeURIComponent(filterCriteria.category || selectedCategory)}
-        onChange={handleChange}
-      >
-        <option value="">All categories</option>
-        {categoriesList.map(category => (
-          <option key={category} value={category}>
-            {category}
-          </option>
-        ))}
-      </select>
-      <select
-        className="searchIngredient"
+        placeholder={
+          filterCriteria.category || selectedCategory || 'All categories'
+        }
+        defaultValue="All categories"
+        value={filterCriteria.category || selectedCategory}
+        onChange={handleCategoryChange}
+        options={categoriesList.map(category => ({
+          value: category,
+          label: category,
+        }))}
+        isSearchable
+        styles={customSelectStyles}
+      />
+      <Select
         name="ingredient"
+        placeholder={filterCriteria.ingredient || 'Ingredients'}
+        defaultValue="Ingredients"
         value={filterCriteria.ingredient}
-        onChange={handleChange}
-      >
-        <option value="">Ingredients</option>
-        {ingredientsList.map(ingredient => (
-          <option key={ingredient} value={ingredient}>
-            {ingredient}
-          </option>
-        ))}
-      </select>
+        onChange={handleIngredientChange}
+        options={ingredientsList.map(ingredient => ({
+          value: ingredient,
+          label: ingredient,
+        }))}
+        isSearchable
+        styles={customSelectStyles}
+      />
     </form>
   );
 }
