@@ -1,6 +1,6 @@
 @import '../../styles/main.scss';
 .wrap_main {
-  display:flex;
+  display: flex;
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
@@ -36,7 +36,7 @@
     padding-left: 32px;
     padding-right: 32px;
     margin-bottom: 140px;
-    width: 1440px;
+    /*width: 1440px;*/
   }
   @media screen and (min-width: 1440px) {
     display: flex;

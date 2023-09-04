@@ -199,9 +199,13 @@
 
 .ingredientsTitle {
   color: #f3f3f3;
-  font-size: 40px;
+  font-size: 28px;
   font-weight: 600;
   line-height: 1.1;
+
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+  }
 }
 .ingredientsCountField {
   display: flex;
