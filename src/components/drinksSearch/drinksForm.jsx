@@ -19,6 +19,7 @@ import './drinksForm.css';
 import { customSelectStyles } from './selectStyles';
 
 import debounce from 'lodash.debounce';
+import SearchIcon from './SearchIcon';
 
 function DrinksForm({ ingredientsList, categoriesList }) {
   const token = useSelector(state => state.user.token);
@@ -123,16 +124,22 @@ function DrinksForm({ ingredientsList, categoriesList }) {
 
   return (
     <form className="searchForm">
-      <input
-        className="searchInput"
-        type="text"
-        placeholder="Enter the text"
-        name="name"
-        value={searchValue}
-        onChange={handleInputChange}
-        onBlur={handleInputBlur}
-        onKeyDown={handleEnterKeyPress}
-      />
+      <div className="searchInputWrapper">
+        <div className="searchIcon">
+          <SearchIcon />
+        </div>
+
+        <input
+          className="searchInput"
+          type="text"
+          placeholder="Enter the text"
+          name="name"
+          value={searchValue}
+          onChange={handleInputChange}
+          onBlur={handleInputBlur}
+          onKeyDown={handleEnterKeyPress}
+        />
+      </div>
       <Select
         name="category"
         placeholder={

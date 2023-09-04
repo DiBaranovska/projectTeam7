@@ -53,6 +53,13 @@
 
   transition: color 400ms, border-color 400ms;
 
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    cursor: auto;
+  }
+
   @media screen and (min-width: 768px) {
     max-width: 264px;
     height: 56px;
@@ -85,4 +92,13 @@
   @media screen and (min-width: 768px) {
     width: 400px;
   }
+}
+.searchInputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.searchIcon {
+  position: absolute;
+  right: 24px;
 }
