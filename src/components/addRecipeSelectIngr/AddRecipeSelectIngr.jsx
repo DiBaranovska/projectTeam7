@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import { GoChevronDown } from 'react-icons/go';
 import css from './addRecipeSelectIngr.module.scss';
 
-const SelectIngredient = ({ initValue, list, handleClick , type}) => {
-
+const SelectIngredient = ({ initValue, list, handleClick, type }) => {
   const [showList, setShowList] = useState(false);
   const [value, setValue] = useState(initValue);
 
@@ -15,7 +14,6 @@ const SelectIngredient = ({ initValue, list, handleClick , type}) => {
   }, []);
 
   const handleOptionClick = e => {
-    console.log('e:', e);
     setValue(e.target.getAttribute('data-name'));
     setShowList(false);
     handleClick(e.target.getAttribute('data-name'));
@@ -27,7 +25,6 @@ const SelectIngredient = ({ initValue, list, handleClick , type}) => {
   const handleClickOutside = e => {
     if (e.target.getAttribute('name') !== 'select') {
       setShowList(false);
-
     }
   };
   return (
