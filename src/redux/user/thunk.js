@@ -5,6 +5,7 @@ import {
   logoutApi,
   getCurrentApi,
   updateApi,
+  subscribeApi,
 } from '../../api/userApi';
 
 export const register = createAsyncThunk(
@@ -69,6 +70,18 @@ export const update = createAsyncThunk(
       return result;
     } catch ({ response }) {
       return thunkAPI.rejectWithValue(response.data);
+    }
+  }
+);
+
+export const subscribe = createAsyncThunk(
+  '/subscribe',
+  async (email, thunkAPI) => {
+    try {
+      const result = await subscribeApi(email);
+      return result;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

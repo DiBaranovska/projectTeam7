@@ -46,3 +46,15 @@ export const updateApi = async formData => {
   });
   return result;
 };
+
+export const subscribeApi = async email => {
+  try {
+    const response = await axios.post(
+      `https://projectteam7-backend.onrender.com/subscribe`,
+      { email }
+    );
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};

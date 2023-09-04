@@ -1,0 +1,28 @@
+import { createSlice } from '@reduxjs/toolkit';
+import { subscribe } from './thunk';
+
+const initialStateSubscribe = {
+  isLoading: false,
+  error: null,
+};
+
+const subscribeSlice = createSlice({
+  name: 'subscribe',
+  initialState: initialStateSubscribe,
+  reducers: builder => {
+    builder
+      .addCase(subscribe.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(subscribe.fulfilled, (state, action) => {
+        state.isLoading = false;
+      })
+      .addCase(subscribe.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
+  },
+});
+
+export const subscribeReducer = subscribeSlice.reducer;
