@@ -1,7 +1,8 @@
 export const customSelectStyles = {
   placeholder: (baseStyles, state) => ({
     ...baseStyles,
-    color: state.isFocused ? '#161f37' : '#FFFFFF',
+    color: '#FFFFFF',
+    // color: state.isFocused ? '#161f37' : '#FFFFFF',
   }),
   container: (baseStyles, state) => ({
     ...baseStyles,
@@ -12,6 +13,7 @@ export const customSelectStyles = {
     fontStyle: 'normal',
     fontWeight: 400,
     lineHeight: '1.56',
+
     '@media screen and (min-width: 768px)': {
       width: '199px',
     },
@@ -19,14 +21,19 @@ export const customSelectStyles = {
   control: (baseStyles, state) => ({
     ...baseStyles,
     paddingLeft: '24px',
-    backgroundColor: state.isFocused ? '#FFFFFF' : '#161f37',
+    backgroundColor: '#161f37',
+    // backgroundColor: state.isFocused ? '#FFFFFF' : '#161f37',
     border: state.isFocused ? 'none' : 'none;',
     borderRadius: '200px',
     height: '56px',
     '@media screen and (min-width: 768px)': {
       width: '199px',
     },
+    transition: 'background-color 0.4s ease-in-out',
     cursor: 'pointer',
+    '&:hover': {
+      backgroundColor: '#2d3b5e',
+    },
   }),
   menu: (baseStyles, state) => ({
     ...baseStyles,
