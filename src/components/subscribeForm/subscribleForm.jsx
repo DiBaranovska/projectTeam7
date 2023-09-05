@@ -39,6 +39,7 @@ export const SubscribeForm = () => {
           className={styles.subscribeFormInput}
           value={email}
           onChange={e => setEmail(e.target.value)}
+          autoComplete="off"
           required
         />
         <button type="submit" className={styles.subscribeButton}>
