@@ -1,49 +1,46 @@
 @import '../../styles/main.scss';
 
 .gridCard {
-        padding: 0px;
-        display: flex;
-        /* flex-wrap: wrap; */
-        flex-direction: column;
-        margin-top: 40px;
-        gap: 40px;
-        width: 100%;
-        @media screen and (min-width: 768px) {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-          margin-top: 62px;
-          gap: 0;
-        }
-        @media screen and (min-width: 1200px) {
-          margin-top: 60px;
-          flex-wrap: wrap;
-        }
-      }
+  padding: 0px;
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  margin-top: 40px;
+  gap: 40px;
+  width: 100%;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 62px;
+    gap: 0;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-top: 60px;
+    flex-wrap: wrap;
+  }
+}
 
-      .container_recipe{
-        display: flex;
-        flex-direction: column;
-        padding: 0px;
-         margin-left: auto;
-         margin-right: auto;
-         max-width: 375px;
-        @media screen and (min-width: 768px) {
-         
-        max-width: 768px;
-      }
-      @media screen and (min-width: 1200px) {
-         
-     max-width: 1240px;
-       
-      }}
-     
+.container_recipe {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 400px;
 
-      .popular_title{
-        
-        font-size: 25px;
-      }
+  @media screen and (min-width: 768px) {
+    max-width: none;
+  }
+  @media screen and (min-width: 1200px) {
+    max-width: 1240px;
+  }
+}
 
-      .block_recipe{
-        margin-top: 80px
-      }
+.popular_title {
+  font-size: 25px;
+}
+
+.block_recipe {
+  margin-top: 80px;
+}

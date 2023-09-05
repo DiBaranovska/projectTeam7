@@ -2,15 +2,27 @@
 .section {
   position: relative;
 }
+
 .main_container {
   margin-left: auto;
   margin-right: auto;
-  max-width: 375px;
+  max-width: 405px;
   @media screen and (min-width: 768px) {
+    width: 100%;
     max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
   @media screen and (min-width: 1200px) {
-    max-width: 1240px;
+    max-width: 1200px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    max-width: 1440px;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -18,7 +30,7 @@
   margin-bottom: 16px;
   margin-top: 128px;
   display: block;
-  width: 430px;
+  width: 715px;
   color: var(--main-text-color);
   font-feature-settings: 'liga' off;
   font-family: Manrope;
@@ -36,6 +48,13 @@
     width: 483px;
     margin-top: 184px;
     margin-bottom: 28px;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: 64px;
+    line-height: 68px;
+    margin-top: 160px;
+    margin-bottom: 28px;
+    width: 715px;
   }
 }
 
@@ -85,8 +104,6 @@
 }
 
 .wrap_main {
-  padding-left: 20px;
-  padding-right: 20px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 80px;

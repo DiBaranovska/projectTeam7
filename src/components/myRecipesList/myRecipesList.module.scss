@@ -13,10 +13,10 @@
     flex-wrap: wrap;
     margin-top: 62px;
     gap: 0;
+    justify-content: center;
   }
   @media screen and (min-width: 1200px) {
     margin-top: 60px;
     flex-wrap: wrap;
-    justify-content: center;
   }
 }

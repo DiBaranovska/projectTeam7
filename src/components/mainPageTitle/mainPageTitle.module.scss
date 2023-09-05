@@ -18,8 +18,9 @@
   @media screen and (min-width: 1200px) {
     margin-top: 158px;
     font-size: 64px;
-    line-height: calc(68px / 64px); /* 106.25% */
-    padding-left: 68px;
+    line-height: calc(68px / 64px);
+    padding-left: 100px;
+    padding-right: 100px; /* 106.25% */
   }
   @media screen and (min-width: 1440px) {
     padding-left: 0;

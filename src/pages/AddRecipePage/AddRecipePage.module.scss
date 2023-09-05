@@ -5,16 +5,25 @@
   margin-left: auto;
   margin-right: auto;
   padding-top: 80px;
+  max-width: 375px;
   @media screen and (min-width: 768px) {
-    width: 768px;
+    max-width: 768px;
     padding-top: 140px;
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
   @media screen and (min-width: 1200px) {
-    width: 1200px;
+    max-width: 1200px;
     padding-top: 160px;
+    padding-left: 100px;
+    padding-right: 100px;
   }
   @media screen and (min-width: 1440px) {
     width: 1440px;
+    max-width: 1440px;
+    adding-right: 100px;
+    padding-left: 100px;
   }
 }
 
