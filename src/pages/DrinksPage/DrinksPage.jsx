@@ -89,7 +89,7 @@ function DrinksPage() {
                 pageCount={totalPages}
               />
             ) : (
-              <div className={styles.searchResults}>No search results</div>
+              <></>
             )}
           </>
         )}

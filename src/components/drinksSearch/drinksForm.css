@@ -12,8 +12,12 @@
     column-gap: 8px;
   }
   @media screen and (min-width: 1200px) {
+    padding-left: 68px;
     margin-top: 80px;
     min-width: 1240px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding-left: 0;
   }
 }
 
@@ -49,6 +53,13 @@
 
   transition: color 400ms, border-color 400ms;
 
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    cursor: auto;
+  }
+
   @media screen and (min-width: 768px) {
     max-width: 264px;
     height: 56px;
@@ -82,79 +93,12 @@
     width: 400px;
   }
 }
-
-.searchCategory {
-  box-sizing: border-box;
-  width: 100%;
-  height: 54px;
-  border-radius: 200px;
-  background: var(--secondary-bg-color);
-  padding: 14px 24px 14px 24px;
-  border: none;
-
-  color: var(--main-text-color);
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.28; /* 26.52px */
-
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-
-  background-image: url(./chevron-down.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-position-x: right 24px;
-  background-size: 20px 20px;
-
-  &:hover {
-    cursor: pointer;
-  }
-  @media screen and (min-width: 768px) {
-    max-width: 199px;
-    height: 56px;
-  }
+.searchInputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
-.searchIngredient {
-  box-sizing: border-box;
-  width: 100%;
-  height: 54px;
-  flex-shrink: 0;
-  border-radius: 200px;
-  background: var(--secondary-bg-color);
-  padding: 14px 24px 14px 24px;
-  border: none;
-
-  color: var(--main-text-color);
-  font-family: var(--font);
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.28; /* 26.52px */
-
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-
-  background-image: url(./chevron-down.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-position-x: right 24px;
-  background-size: 20px 20px;
-
-  &:hover {
-    cursor: pointer;
-  }
-  @media screen and (min-width: 768px) {
-    max-width: 199px;
-    height: 56px;
-  }
-}
-.searchIngredient::after {
-  content: '';
-  width: 0.8em;
-  height: 0.5em;
-  background-color: white;
-  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+.searchIcon {
+  position: absolute;
+  right: 24px;
 }

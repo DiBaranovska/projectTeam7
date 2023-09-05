@@ -14,7 +14,11 @@
     row-gap: 40px;
   }
   @media screen and (min-width: 1200px) {
+    padding-left: 68px;
     row-gap: 80px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding-left: 0;
   }
 }
 .container__item {
@@ -24,6 +28,9 @@
     max-width: 342px;
   }
   @media screen and (min-width: 1200px) {
+    max-width: 342px;
+  }
+  @media screen and (min-width: 1440px) {
     max-width: 400px;
   }
 }
@@ -38,6 +45,11 @@
   height: var(--image-height);
 
   border-radius: 8px;
+  @media screen and (min-width: 320px) {
+    object-fit: cover;
+    --image-width: 100%;
+    --image-height: 360px;
+  }
   @media screen and (min-width: 375px) {
     --image-width: 335px;
     --image-height: 360px;
@@ -46,6 +58,10 @@
     --image-width: 342px;
   }
   @media screen and (min-width: 1200px) {
+    --image-width: 342px;
+    --image-height: 360px;
+  }
+  @media screen and (min-width: 1440px) {
     --image-width: 400px;
     --image-height: 400px;
   }
@@ -69,10 +85,24 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 1.28; /* 128.571% */
+  line-height: 1.28;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: 1.12;
+  }
+}
+.searchResults {
+  text-align: center;
+  font-size: 18px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 22px;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: 24px;
   }
 }
