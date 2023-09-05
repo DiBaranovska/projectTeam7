@@ -14,7 +14,7 @@ const RecipesList = () => {
   const [perPage, setPerPage] = useState(1);
 
   const dispatch = useDispatch();
-  const { items, total, isLoading } = useSelector(getMyRecipes);
+  const {items, total, isLoading } = useSelector(getMyRecipes);
   useEffect(() => {
     dispatch(fetchMyRecipes({ page: perPage, limit: 6 }));
   }, [dispatch, perPage]);
@@ -42,7 +42,7 @@ const RecipesList = () => {
           <NotFound text={"You haven't added any own cocktails yet"}></NotFound>
         </div>
       )}
-      {!isLoading & (items.length > 0) && (
+      {(items.length > 0) && (
         <Paginator
           handlePageClick={handlePageClick}
           //itemsPerPage={itemsPerPage}
