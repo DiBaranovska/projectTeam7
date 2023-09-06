@@ -73,7 +73,7 @@ function DrinksPage() {
   return (
     <div className={styles.container}>
       <div className={styles.wrap_main}>
-        <MainPageTitle title="Drinks"></MainPageTitle>
+        <div className={styles.drink_page_tittle}><MainPageTitle className={styles.drink_page_tittle} title="Drinks"></MainPageTitle></div>
         <DrinksForm
           ingredientsList={ingredientsList}
           categoriesList={categoriesList}

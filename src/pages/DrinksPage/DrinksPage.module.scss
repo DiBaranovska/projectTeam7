@@ -33,8 +33,7 @@
   @media screen and (min-width: 1200px) {
     margin-left: auto;
     margin-right: auto;
-    padding-left: 0;
-    padding-right: 0;
+
   }
   @media screen and (min-width: 1440px) {
     margin-left: auto;
@@ -62,4 +61,13 @@
     padding-left: 100px;
     padding-right: 100px;
   }
+}
+
+
+.drink_page_tittle {
+  color: red;
+  @media screen and (min-width: 1200px) and (max-width: 1439px) {
+    padding-left: 68px;
+    padding-right: 68px;
+      }
 }

@@ -37,8 +37,8 @@
   @media screen and (min-width: 1200px) {
     margin-left: auto;
     margin-right: auto;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 100px;
+    padding-right: 100px;
   }
   @media screen and (min-width: 1440px) {
     margin-left: auto;
@@ -48,9 +48,9 @@
   }
 }
 .wrap_main_empty {
+  margin-bottom: 80px;
   padding-left: 20px;
   padding-right: 20px;
-  margin-bottom: 80px;
 
   @media screen and (min-width: 768px) {
     padding-left: 32px;
@@ -61,6 +61,8 @@
   @media screen and (min-width: 1200px) {
     display: flex;
     gap: 108px;
+    padding-left:100px;
+    padding-left: 100px;
   }
 
   @media screen and (min-width: 1440px) {
