@@ -12,7 +12,7 @@ import Paginator from '../../components/paginator/paginator';
 import MainPageTitle from '../../components/mainPageTitle/mainPageTitle';
 import styles from './DrinksPage.module.scss';
 import Skeleton from 'components/skeleton/skeleton';
-import {selectedIsLoadingDrink} from "../../redux/selectors"
+import { selectedIsLoadingDrink } from '../../redux/selectors';
 
 function DrinksPage() {
   const token = useSelector(state => state.user.token);
@@ -56,7 +56,7 @@ function DrinksPage() {
     selectedIngredient,
     dispatch,
     token,
-    currentPage
+    currentPage,
   ]);
 
   const handlePageClick = e => {
@@ -74,13 +74,21 @@ function DrinksPage() {
   return (
     <div className={styles.container}>
       <div className={styles.wrap_main}>
-        <div className={styles.drink_page_tittle}><MainPageTitle className={styles.drink_page_tittle} title="Drinks"></MainPageTitle></div>
+        <div className={styles.drink_page_tittle}>
+          <MainPageTitle
+            className={styles.drink_page_tittle}
+            title="Drinks"
+          ></MainPageTitle>
+        </div>
         <DrinksForm
           ingredientsList={ingredientsList}
           categoriesList={categoriesList}
         />
         {isLoading ? (
-          <Skeleton></Skeleton>
+          <div className={styles.drink_skeleton_wrapper}>
+            {' '}
+            <Skeleton></Skeleton>
+          </div>
         ) : (
           <>
             <DrinksResults results={searchResults} />
