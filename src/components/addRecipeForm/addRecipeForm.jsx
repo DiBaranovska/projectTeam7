@@ -18,7 +18,6 @@ import {
 } from '../../api/searchApi';
 
 import {
-  setIngredientsList,
   setCategoriesList,
   setGlassesList,
 } from '../../redux/search/cocktailSlice.js';
@@ -29,16 +28,16 @@ const AddRecipeForm = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const navigate = useNavigate();
-  const ingredientsList = useSelector(state => state.cocktail.ingredientsList);
-  const categoriesList = useSelector(state => state.cocktail.categoriesList);
-  const glassesList = useSelector(state => state.cocktail.glassesList);
+
   const measureList = ['1/2 oz', '1/4 oz', '3/4 oz', '1 oz'];
+  const [ingredientsList, setIngredientsList] = useState([]);
+
   useEffect(() => {
     if (token) {
       fetchIngredientsList(token)
         .then(ingredients => {
           ingredients.sort();
-          dispatch(setIngredientsList(ingredients));
+          setIngredientsList(ingredients);
         })
         .catch(error => console.error('Error fetching ingredients:', error));
 
@@ -60,6 +59,9 @@ const AddRecipeForm = () => {
     }
   }, [dispatch, token]);
 
+  const categoriesList = useSelector(state => state.cocktail.categoriesList);
+  const glassesList = useSelector(state => state.cocktail.glassesList);
+
   let initialIngridients = [
     { id: 1, title: ingredientsList[0], measure: measureList[0] },
     { id: 2, title: ingredientsList[0], measure: measureList[0] },
@@ -75,12 +77,11 @@ const AddRecipeForm = () => {
   const [ingredients, setIngredients] = useState([]);
   const [count, setCount] = useState(3);
   const [isLoading, setIsLoading] = useState(false);
-
   const formRef = useRef();
   const fileRef = useRef();
 
   const setInitialvalue = () => {
-    if (!ingredients.length && initialIngridients[0].title)
+    if ((!ingredients.length && initialIngridients[0].title))
       setIngredients(initialIngridients);
   };
 
