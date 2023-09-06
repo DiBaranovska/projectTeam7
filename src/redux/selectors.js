@@ -9,3 +9,5 @@ export const selectedRecipes = state => state.category.recipes;
 export const selectedIsLoading = state => state.category.isLoading;
 
 export const selectedPopularRecipes = state => state.popular.recipes;
+
+export const selectedIsLoadingDrink = state => state.cocktail.isLoading;

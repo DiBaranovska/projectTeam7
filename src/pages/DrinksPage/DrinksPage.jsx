@@ -12,13 +12,14 @@ import Paginator from '../../components/paginator/paginator';
 import MainPageTitle from '../../components/mainPageTitle/mainPageTitle';
 import styles from './DrinksPage.module.scss';
 import Skeleton from 'components/skeleton/skeleton';
+import {selectedIsLoadingDrink} from "../../redux/selectors"
 
 function DrinksPage() {
   const token = useSelector(state => state.user.token);
   const dispatch = useDispatch();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const { isLoading } = useSelector(state => state.cocktail.status);
+  const isLoading = useSelector(selectedIsLoadingDrink);
 
   const selectedName = searchParams.get('name') || '';
   const selectedCategory = searchParams.get('category') || '';
@@ -55,7 +56,7 @@ function DrinksPage() {
     selectedIngredient,
     dispatch,
     token,
-    currentPage,
+    currentPage
   ]);
 
   const handlePageClick = e => {
