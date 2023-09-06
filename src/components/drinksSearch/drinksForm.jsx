@@ -37,6 +37,10 @@ function DrinksForm({ ingredientsList, categoriesList }) {
     }
   }, [location.pathname, dispatch]);
 
+  useEffect(() => {
+    setSearchValue('');
+  }, []);
+
   const handleCategoryChange = selectedOption => {
     let selectedCategory;
     if (selectedOption.value === 'All categories') {
