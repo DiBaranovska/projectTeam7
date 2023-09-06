@@ -38,6 +38,8 @@ export const customSelectStyles = {
   menu: (baseStyles, state) => ({
     ...baseStyles,
     borderRadius: '20px',
+    padding: '10px',
+    backgroundColor: '#161f37',
     animation: 'fade--in 0.4s ease-in-out',
     '@keyframes fade--in': {
       '0%': {
@@ -52,10 +54,13 @@ export const customSelectStyles = {
     ...baseStyles,
     backgroundColor: '#161f37',
     border: state.isFocused ? 'none' : 'none;',
-    borderRadius: '20px',
     color: 'white',
-    '@media screen and (min-width: 768px)': {
-      padding: '23px 10px',
+    '&::-webkit-scrollbar': {
+      width: '10px',
+    },
+    '&::-webkit-scrollbar-thumb': {
+      background: '#434d67',
+      borderRadius: '5px',
     },
   }),
   selectContainer: (baseStyles, state) => ({
@@ -67,8 +72,9 @@ export const customSelectStyles = {
   option: (baseStyles, state) => ({
     ...baseStyles,
     backgroundColor: '#161f37',
-    color: state.isFocused ? 'rgba(243, 243, 243, 0.5)' : '##f3f3f3',
+    color: state.isFocused ? '#f3f3f3' : 'rgba(243, 243, 243, 0.5)',
     cursor: 'pointer',
+    padding: '0 10px 5px',
   }),
   valueContainer: (baseStyles, state) => ({
     ...baseStyles,
