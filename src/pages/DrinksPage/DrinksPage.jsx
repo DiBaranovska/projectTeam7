@@ -90,18 +90,19 @@ function DrinksPage() {
             <Skeleton></Skeleton>
           </div>
         ) : (
-          <>
-            <DrinksResults results={searchResults} />
-            {totalPages ? (
-              <Paginator
-                handlePageClick={handlePageClick}
-                pageCount={totalPages}
-              />
-            ) : (
-              <></>
-            )}
-          </>
+          <>{totalPages ? <DrinksResults results={searchResults} /> : <></>}</>
         )}
+        <>
+          {totalPages ? (
+            <Paginator
+              handlePageClick={handlePageClick}
+              pageCount={Math.ceil(totalPages)}
+              forcePage={currentPage - 1}
+            />
+          ) : (
+            <></>
+          )}
+        </>
       </div>
     </div>
   );
