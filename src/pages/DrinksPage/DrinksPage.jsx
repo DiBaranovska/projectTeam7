@@ -19,7 +19,7 @@ function DrinksPage() {
   const dispatch = useDispatch();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const isLoading = useSelector(selectedIsLoadingDrink);
+  const  isLoading  = useSelector(selectedIsLoadingDrink);
 
   const selectedName = searchParams.get('name') || '';
   const selectedCategory = searchParams.get('category') || '';
@@ -92,7 +92,10 @@ function DrinksPage() {
         ) : (
           <>
             <DrinksResults results={searchResults} />
-            {totalPages ? (
+   
+          </>
+        )}
+                 {totalPages ? (
               <Paginator
                 handlePageClick={handlePageClick}
                 pageCount={totalPages}
@@ -100,8 +103,6 @@ function DrinksPage() {
             ) : (
               <></>
             )}
-          </>
-        )}
       </div>
     </div>
   );

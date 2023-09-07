@@ -102,6 +102,6 @@
 .searchIcon {
   position: absolute;
   right: 24px;
-  z-index: 100;
+  z-index: 1;
   cursor: pointer;
 }
